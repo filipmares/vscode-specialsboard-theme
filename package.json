@@ -1,0 +1,31 @@
+{
+	"name": "theme-specialsboard",
+	"displayName": "Specials Board",
+	"description": "Specials Board - Inspired by the original Coda text editor theme",
+	"version": "0.0.4",
+	"publisher": "filipmares",
+	"engines": {
+		"vscode": "^0.10.10"
+	},
+	"categories": [
+		"Themes"
+	],
+	"contributes": {
+		"themes": [
+			{
+				"label": "Specials Board ",
+				"uiTheme": "vs-dark",
+				"path": "./themes/specialsboard.tmTheme"
+			}
+		]
+	},
+	"galleryBanner": {
+		"color": "#393939",
+		"theme": "dark"
+	},
+	"__metadata": {
+		"id": "88b24cea-b5eb-4e61-a394-f5ecba0d1fdd",
+		"publisherId": "b0d381d1-f48f-436d-9eaa-137319f5da4f",
+		"publisherDisplayName": "Filip Mares"
+	}
+}
