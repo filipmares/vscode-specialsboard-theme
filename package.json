@@ -2,10 +2,10 @@
 	"name": "theme-specialsboard",
 	"displayName": "Specials Board",
 	"description": "Specials Board - Inspired by the original Coda text editor theme",
-	"version": "0.0.4",
+	"version": "1.0.0",
 	"publisher": "filipmares",
 	"engines": {
-		"vscode": "^1.24.1"
+		"vscode": "*"
 	},
 	"categories": [
 		"Themes"
@@ -15,7 +15,7 @@
 			{
 				"label": "Specials Board ",
 				"uiTheme": "vs-dark",
-				"path": "./themes/specialsboard.tmTheme"
+				"path": "./themes/specialsboard.json"
 			}
 		]
 	},
