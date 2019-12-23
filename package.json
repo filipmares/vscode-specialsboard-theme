@@ -2,7 +2,7 @@
 	"name": "theme-specialsboard",
 	"displayName": "Specials Board",
 	"description": "Specials Board - Inspired by the original Coda text editor theme",
-	"version": "1.0.0",
+	"version": "2.0.0",
 	"publisher": "filipmares",
 	"engines": {
 		"vscode": "*"
@@ -29,11 +29,11 @@
 		"publisherDisplayName": "Filip Mares"
 	},
 	"bugs": {
-        "url": "https://github.com/filipmares/vscode-specialsboard-theme/issues"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/filipmares/vscode-specialsboard-theme.git"
-    },
-    "homepage": "https://github.com/filipmares/vscode-specialsboard-theme"
+		"url": "https://github.com/filipmares/vscode-specialsboard-theme/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/filipmares/vscode-specialsboard-theme.git"
+	},
+	"homepage": "https://github.com/filipmares/vscode-specialsboard-theme"
 }
