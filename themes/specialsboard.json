@@ -27,7 +27,7 @@
 		"list.activeSelectionBackground": "#383939",
 		"list.activeSelectionForeground": "#ffffff",
 		"list.hoverBackground": "#676869",
-		"list.inactiveSelectionBackground": "#2e2d2d",
+		"list.inactiveSelectionBackground": "#676869",
 		// Terminal
 		"terminal.ansiBlack": "#2d3139",
 		"terminal.ansiBlue": "#5286b7",
