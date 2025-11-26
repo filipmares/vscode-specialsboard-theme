@@ -1,5 +1,8 @@
 {
+	"$schema": "vscode://schemas/color-theme",
 	"name": "Specials Board",
+	"author": "Filip Mares",
+	"type": "dark",
 	"colors": {
 		"editor.background": "#383939",
 		"editorCursor.foreground": "#e6e1dc",
