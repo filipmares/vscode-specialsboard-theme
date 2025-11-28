@@ -523,7 +523,7 @@
 		"enumMember": "#86a9c4",
 		"event": "#d0663a",
 		"function": "#a97a8c",
-		"function.defaultLibrary": "#d1673a",
+		"function.defaultLibrary": "#d0663a",
 		"method": "#a97a8c",
 		"macro": "#d0663a",
 		"label": "#d9dbfc",
@@ -1147,7 +1147,7 @@
 			"name": "Support",
 			"scope": "support.function",
 			"settings": {
-				"foreground": "#d1673a"
+				"foreground": "#d0663a"
 			}
 		},
 		{
@@ -1359,7 +1359,7 @@
 			"name": "python type",
 			"scope": "support.type.python",
 			"settings": {
-				"foreground": "#d1673a"
+				"foreground": "#d0663a"
 			}
 		},
 		{
