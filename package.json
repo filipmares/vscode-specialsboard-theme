@@ -3,7 +3,7 @@
 	"displayName": "Specials Board",
 	"description": "Specials Board - Inspired by the original Coda text editor theme",
 	"icon": "icon.png",
-	"version": "2.1.0",
+	"version": "2.2.0",
 	"publisher": "filipmares",
 	"engines": {
 		"vscode": "*"
