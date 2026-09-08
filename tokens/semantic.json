@@ -1,0 +1,543 @@
+{
+  "$description": "Editor-independent roles. This shared baseline intentionally preserves Phase 0, not restored Coda semantics.",
+  "$extensions": {
+    "org.specialsboard.provenance": {
+      "source": "phase1-role-extraction",
+      "evidence": "Role extraction from themes/specialsboard.json at c188c33; scope order and assignments retained."
+    }
+  },
+  "semantic": {
+    "markup": {
+      "quote": {
+        "$type": "color",
+        "$value": "{palette.legacy.olive}"
+      },
+      "heading-underlined": {
+        "$type": "color",
+        "$value": "{palette.legacy.tan}"
+      },
+      "strong": {
+        "$type": "color",
+        "$value": "{palette.legacy.gold}"
+      },
+      "link-description": {
+        "$type": "color",
+        "$value": "{palette.legacy.copper}"
+      },
+      "link": {
+        "$type": "color",
+        "$value": "{palette.legacy.olive}"
+      },
+      "list": {
+        "$type": "color",
+        "$value": "{palette.legacy.coral}"
+      },
+      "delimiter": {
+        "$type": "color",
+        "$value": "{palette.legacy.white}"
+      },
+      "code": {
+        "$type": "color",
+        "$value": "{palette.legacy.olive}"
+      },
+      "heading-delimiter": {
+        "$type": "color",
+        "$value": "{palette.legacy.cool-gray}"
+      },
+      "list-start": {
+        "$type": "color",
+        "$value": "{palette.legacy.gold}"
+      },
+      "heading": {
+        "$type": "color",
+        "$value": "{palette.legacy.gold}"
+      },
+      "emphasis-accent": {
+        "$type": "color",
+        "$value": "{palette.legacy.orchid}"
+      },
+      "emphasis": {
+        "$type": "color",
+        "$value": "{palette.legacy.gold}"
+      },
+      "strong-accent": {
+        "$type": "color",
+        "$value": "{palette.legacy.tan}"
+      },
+      "section": {
+        "$type": "color",
+        "$value": "{palette.legacy.sky}"
+      },
+      "heading-accent": {
+        "$type": "color",
+        "$value": "{palette.legacy.coral}"
+      },
+      "separator": {
+        "$type": "color",
+        "$value": "{palette.legacy.gold}"
+      }
+    },
+    "syntax": {
+      "comment": {
+        "$type": "color",
+        "$value": "{palette.legacy.sand}"
+      },
+      "punctuation": {
+        "$type": "color",
+        "$value": "{palette.legacy.cool-gray}"
+      },
+      "selector-pseudo": {
+        "$type": "color",
+        "$value": "{palette.legacy.tan}"
+      },
+      "entity-escape": {
+        "$type": "color",
+        "$value": "{palette.legacy.coral}"
+      },
+      "template-text": {
+        "$type": "color",
+        "$value": "{palette.legacy.orchid}"
+      },
+      "operator": {
+        "$type": "color",
+        "$value": "{palette.legacy.yellow-olive}"
+      },
+      "template-delimiter": {
+        "$type": "color",
+        "$value": "{palette.legacy.green}"
+      },
+      "parameter-accent": {
+        "$type": "color",
+        "$value": "{palette.legacy.coral}"
+      },
+      "property-accent": {
+        "$type": "color",
+        "$value": "{palette.legacy.coral}"
+      },
+      "type-primitive": {
+        "$type": "color",
+        "$value": "{palette.legacy.yellow-olive}"
+      },
+      "type-annotation": {
+        "$type": "color",
+        "$value": "{palette.legacy.sky}"
+      },
+      "module-keyword": {
+        "$type": "color",
+        "$value": "{palette.legacy.orchid}"
+      },
+      "interpolation-expression": {
+        "$type": "color",
+        "$value": "{palette.legacy.cool-gray}"
+      },
+      "interpolation-delimiter": {
+        "$type": "color",
+        "$value": "{palette.legacy.yellow-olive}"
+      },
+      "selector-accent": {
+        "$type": "color",
+        "$value": "{palette.legacy.coral}"
+      },
+      "color-literal": {
+        "$type": "color",
+        "$value": "{palette.legacy.tan}"
+      },
+      "color-component": {
+        "$type": "color",
+        "$value": "{palette.legacy.cyan}"
+      },
+      "parameter": {
+        "$type": "color",
+        "$value": "{palette.legacy.cool-gray}"
+      },
+      "decorator": {
+        "$type": "color",
+        "$value": "{palette.legacy.cyan}"
+      },
+      "decorator-marker": {
+        "$type": "color",
+        "$value": "{palette.legacy.sky}"
+      },
+      "property": {
+        "$type": "color",
+        "$value": "{palette.legacy.lavender}"
+      },
+      "interpolation-variable": {
+        "$type": "color",
+        "$value": "{palette.legacy.coral}"
+      },
+      "escape": {
+        "$type": "color",
+        "$value": "{palette.legacy.olive}"
+      },
+      "regexp": {
+        "$type": "color",
+        "$value": "{palette.legacy.cyan}"
+      },
+      "unit": {
+        "$type": "color",
+        "$value": "{palette.legacy.blue}"
+      },
+      "selector": {
+        "$type": "color",
+        "$value": "{palette.legacy.orchid}"
+      },
+      "attribute": {
+        "$type": "color",
+        "$value": "{palette.legacy.tan}"
+      },
+      "tag": {
+        "$type": "color",
+        "$value": "{palette.legacy.honey}"
+      },
+      "constant-delimiter": {
+        "$type": "color",
+        "$value": "{palette.legacy.tan}"
+      },
+      "constant": {
+        "$type": "color",
+        "$value": "{palette.legacy.pale-blue}"
+      },
+      "number": {
+        "$type": "color",
+        "$value": "{palette.legacy.blue}"
+      },
+      "symbol": {
+        "$type": "color",
+        "$value": "{palette.legacy.cyan}"
+      },
+      "type-inherited": {
+        "$type": "color",
+        "$value": "{palette.legacy.copper-accent}"
+      },
+      "string": {
+        "$type": "color",
+        "$value": "{palette.legacy.olive}"
+      },
+      "tag-context": {
+        "$type": "color",
+        "$value": "{palette.legacy.yellow-olive}"
+      },
+      "font-name": {
+        "$type": "color",
+        "$value": "{palette.legacy.tan}"
+      },
+      "property-value": {
+        "$type": "color",
+        "$value": "{palette.legacy.pale-blue}"
+      },
+      "function-builtin": {
+        "$type": "color",
+        "$value": "{palette.legacy.burnt-orange}"
+      },
+      "storage-type": {
+        "$type": "color",
+        "$value": "{palette.legacy.gold}"
+      },
+      "operator-word": {
+        "$type": "color",
+        "$value": "{palette.legacy.copper}"
+      },
+      "storage-accent": {
+        "$type": "color",
+        "$value": "{palette.legacy.orchid}"
+      },
+      "storage": {
+        "$type": "color",
+        "$value": "{palette.legacy.copper}"
+      },
+      "class-declaration": {
+        "$type": "color",
+        "$value": "{palette.legacy.pale-honey}"
+      },
+      "method-special": {
+        "$type": "color",
+        "$value": "{palette.legacy.sky}"
+      },
+      "control-element": {
+        "$type": "color",
+        "$value": "{palette.legacy.tan}"
+      },
+      "control": {
+        "$type": "color",
+        "$value": "{palette.legacy.copper}"
+      },
+      "type": {
+        "$type": "color",
+        "$value": "{palette.legacy.gold}"
+      },
+      "type-support": {
+        "$type": "color",
+        "$value": "{palette.legacy.copper-accent}"
+      },
+      "component": {
+        "$type": "color",
+        "$value": "{palette.legacy.honey}"
+      },
+      "function": {
+        "$type": "color",
+        "$value": "{palette.legacy.mauve}"
+      },
+      "package": {
+        "$type": "color",
+        "$value": "{palette.legacy.cool-gray}"
+      },
+      "variable-language": {
+        "$type": "color",
+        "$value": "{palette.legacy.gold}"
+      },
+      "variable": {
+        "$type": "color",
+        "$value": "{palette.legacy.lavender}"
+      },
+      "keyword": {
+        "$type": "color",
+        "$value": "{palette.legacy.brick}"
+      },
+      "string-placeholder": {
+        "$type": "color",
+        "$value": "{palette.legacy.yellow-olive}"
+      },
+      "parameter-secondary": {
+        "$type": "color",
+        "$value": "{palette.legacy.tan}"
+      },
+      "type-builtin": {
+        "$type": "color",
+        "$value": "{palette.legacy.burnt-orange}"
+      },
+      "source": {
+        "$type": "color",
+        "$value": "{palette.legacy.lavender}"
+      },
+      "variable-platform": {
+        "$type": "color",
+        "$value": "{palette.legacy.coral}"
+      },
+      "type-platform": {
+        "$type": "color",
+        "$value": "{palette.legacy.cyan}"
+      },
+      "operator-special": {
+        "$type": "color",
+        "$value": "{palette.legacy.orchid}"
+      },
+      "property-platform": {
+        "$type": "color",
+        "$value": "{palette.legacy.tan}"
+      },
+      "object-platform": {
+        "$type": "color",
+        "$value": "{palette.legacy.coral}"
+      },
+      "operator-expression": {
+        "$type": "color",
+        "$value": "{palette.legacy.yellow-olive}"
+      },
+      "constant-builtin": {
+        "$type": "color",
+        "$value": "{palette.legacy.tan}"
+      },
+      "module": {
+        "$type": "color",
+        "$value": "{palette.legacy.copper-accent}"
+      },
+      "separator-list": {
+        "$type": "color",
+        "$value": "{palette.legacy.white}"
+      },
+      "operator-secondary": {
+        "$type": "color",
+        "$value": "{palette.legacy.cyan}"
+      },
+      "object-builtin": {
+        "$type": "color",
+        "$value": "{palette.legacy.gold}"
+      },
+      "import": {
+        "$type": "color",
+        "$value": "{palette.legacy.sky}"
+      },
+      "comment-link": {
+        "$type": "color",
+        "$value": "{palette.legacy.slate}"
+      },
+      "regexp-quantifier": {
+        "$type": "color",
+        "$value": "{palette.legacy.purple}"
+      },
+      "regexp-character-class": {
+        "$type": "color",
+        "$value": "{palette.legacy.light-purple}"
+      },
+      "constant-special": {
+        "$type": "color",
+        "$value": "{palette.legacy.orchid}"
+      },
+      "variable-special": {
+        "$type": "color",
+        "$value": "{palette.legacy.coral}"
+      },
+      "punctuation-accent": {
+        "$type": "color",
+        "$value": "{palette.legacy.coral}"
+      }
+    },
+    "feedback": {
+      "debug": {
+        "$type": "color",
+        "$value": "{palette.legacy.orchid}"
+      },
+      "error": {
+        "$type": "color",
+        "$value": "{palette.legacy.error-red}"
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{palette.legacy.tan}"
+      },
+      "info": {
+        "$type": "color",
+        "$value": "{palette.legacy.sky}"
+      },
+      "invalid-text": {
+        "$type": "color",
+        "$value": "{palette.legacy.warm-white}"
+      },
+      "invalid-background": {
+        "$type": "color",
+        "$value": "{palette.legacy.invalid-red}"
+      }
+    },
+    "diff": {
+      "deleted": {
+        "$type": "color",
+        "$value": "{palette.legacy.coral}"
+      },
+      "inserted": {
+        "$type": "color",
+        "$value": "{palette.legacy.green}"
+      },
+      "header": {
+        "$type": "color",
+        "$value": "{palette.legacy.sky}"
+      },
+      "changed": {
+        "$type": "color",
+        "$value": "{palette.legacy.gold}"
+      }
+    },
+    "surface": {
+      "canvas": {
+        "$type": "color",
+        "$value": "{palette.legacy.charcoal}"
+      },
+      "panel": {
+        "$type": "color",
+        "$value": "{palette.legacy.deep-charcoal}"
+      },
+      "hover": {
+        "$type": "color",
+        "$value": "{palette.legacy.hover-gray}"
+      },
+      "selection": {
+        "$type": "color",
+        "$value": "{palette.legacy.selection-blue}"
+      }
+    },
+    "text": {
+      "primary": {
+        "$type": "color",
+        "$value": "{palette.legacy.white}"
+      },
+      "warm": {
+        "$type": "color",
+        "$value": "{palette.legacy.warm-white}"
+      },
+      "invisible": {
+        "$type": "color",
+        "$value": "{palette.legacy.invisible-gray}"
+      }
+    },
+    "accent": {
+      "primary": {
+        "$type": "color",
+        "$value": "{palette.legacy.copper-accent}"
+      },
+      "remote": {
+        "$type": "color",
+        "$value": "{palette.legacy.blue}"
+      }
+    },
+    "terminal": {
+      "foreground": {
+        "$type": "color",
+        "$value": "{palette.legacy.lavender}"
+      },
+      "black": {
+        "$type": "color",
+        "$value": "{palette.legacy.terminal-black}"
+      },
+      "blue": {
+        "$type": "color",
+        "$value": "{palette.legacy.blue}"
+      },
+      "bright-black": {
+        "$type": "color",
+        "$value": "{palette.legacy.terminal-gray}"
+      },
+      "bright-blue": {
+        "$type": "color",
+        "$value": "{palette.legacy.pale-blue}"
+      },
+      "bright-cyan": {
+        "$type": "color",
+        "$value": "{palette.legacy.pale-blue}"
+      },
+      "bright-green": {
+        "$type": "color",
+        "$value": "{palette.legacy.olive}"
+      },
+      "bright-magenta": {
+        "$type": "color",
+        "$value": "{palette.legacy.mauve}"
+      },
+      "bright-red": {
+        "$type": "color",
+        "$value": "{palette.legacy.brick}"
+      },
+      "bright-white": {
+        "$type": "color",
+        "$value": "{palette.legacy.lavender}"
+      },
+      "bright-yellow": {
+        "$type": "color",
+        "$value": "{palette.legacy.yellow-olive}"
+      },
+      "cyan": {
+        "$type": "color",
+        "$value": "{palette.legacy.pale-blue}"
+      },
+      "green": {
+        "$type": "color",
+        "$value": "{palette.legacy.olive}"
+      },
+      "magenta": {
+        "$type": "color",
+        "$value": "{palette.legacy.mauve}"
+      },
+      "red": {
+        "$type": "color",
+        "$value": "{palette.legacy.brick}"
+      },
+      "white": {
+        "$type": "color",
+        "$value": "{palette.legacy.lavender}"
+      },
+      "yellow": {
+        "$type": "color",
+        "$value": "{palette.legacy.yellow-olive}"
+      }
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://specialsboard.local/schemas/vscode-theme",
+  "type": "object",
+  "required": ["$schema", "name", "author", "type", "colors", "tokenColors"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "const": "vscode://schemas/color-theme" },
+    "name": { "type": "string", "minLength": 1 },
+    "author": { "const": "Filip Mares" },
+    "type": { "const": "dark" },
+    "colors": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": { "$ref": "#/definitions/color" }
+    },
+    "tokenColors": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["scope", "settings"],
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string" },
+          "scope": { "$ref": "vscode-mapping#/properties/textMate/items/properties/scope" },
+          "settings": {
+            "type": "object",
+            "minProperties": 1,
+            "additionalProperties": false,
+            "properties": {
+              "foreground": { "$ref": "#/definitions/color" },
+              "background": { "$ref": "#/definitions/color" },
+              "fontStyle": { "$ref": "vscode-mapping#/properties/textMate/items/properties/settings/properties/fontStyle" }
+            }
+          }
+        }
+      }
+    },
+    "semanticHighlighting": { "const": true },
+    "semanticTokenColors": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "oneOf": [
+          { "$ref": "#/definitions/color" },
+          {
+            "type": "object",
+            "minProperties": 1,
+            "additionalProperties": false,
+            "properties": {
+              "foreground": { "$ref": "#/definitions/color" },
+              "bold": { "type": "boolean" },
+              "italic": { "type": "boolean" },
+              "underline": { "type": "boolean" },
+              "strikethrough": { "type": "boolean" }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "dependencies": {
+    "semanticHighlighting": ["semanticTokenColors"],
+    "semanticTokenColors": ["semanticHighlighting"]
+  },
+  "definitions": {
+    "color": { "type": "string", "pattern": "^#[0-9a-f]{6}([0-9a-f]{2})?$" }
+  }
+}

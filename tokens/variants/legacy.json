@@ -1,0 +1,3 @@
+{
+  "$description": "Compatibility variant. Inherits the exact post-Phase-0 2.1.1 appearance, protected by the frozen fixture. Keep independent of flagship."
+}

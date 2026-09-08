@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://specialsboard.local/schemas/tokens",
+  "$ref": "#/definitions/group",
+  "definitions": {
+    "alias": {
+      "type": "string",
+      "pattern": "^\\{[a-z][a-z0-9-]*(\\.[a-z][a-z0-9-]*)+\\}$"
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["org.specialsboard.provenance"],
+      "additionalProperties": false,
+      "properties": {
+        "org.specialsboard.provenance": {
+          "type": "object",
+          "required": ["source", "evidence"],
+          "additionalProperties": false,
+          "properties": {
+            "source": { "type": "string", "minLength": 1 },
+            "evidence": { "type": "string", "minLength": 1 }
+          }
+        }
+      }
+    },
+    "color": {
+      "type": "object",
+      "required": ["colorSpace", "components"],
+      "additionalProperties": false,
+      "properties": {
+        "colorSpace": { "const": "srgb" },
+        "components": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": { "type": "number", "minimum": 0, "maximum": 1 }
+        },
+        "alpha": { "type": "number", "minimum": 0, "maximum": 1 },
+        "hex": { "type": "string", "pattern": "^#[0-9a-f]{6}$" }
+      }
+    },
+    "token": {
+      "type": "object",
+      "required": ["$type", "$value"],
+      "additionalProperties": false,
+      "properties": {
+        "$type": { "const": "color" },
+        "$value": {
+          "oneOf": [
+            { "$ref": "#/definitions/color" },
+            { "$ref": "#/definitions/alias" }
+          ]
+        },
+        "$description": { "type": "string", "minLength": 1 },
+        "$extensions": { "$ref": "#/definitions/provenance" }
+      }
+    },
+    "group": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "$description": { "type": "string", "minLength": 1 },
+        "$extensions": { "$ref": "#/definitions/provenance" }
+      },
+      "patternProperties": {
+        "^[a-z][a-z0-9-]*$": {
+          "oneOf": [
+            { "$ref": "#/definitions/group" },
+            { "$ref": "#/definitions/token" }
+          ]
+        }
+      }
+    }
+  }
+}

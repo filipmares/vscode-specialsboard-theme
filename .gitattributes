@@ -1,0 +1,6 @@
+themes/*.json text eol=lf
+tokens/*.json text eol=lf
+tokens/variants/*.json text eol=lf
+adapters/*.json text eol=lf
+schemas/*.json text eol=lf
+tests/fixtures/*.json text eol=lf

@@ -1,0 +1,27 @@
+{
+  "phase0": {
+    "authority": "project-history",
+    "source": "themes/specialsboard.json at c188c33; Git blob 58d2c3a8d5e6b5d24e24f811209e8867b9cfe97b",
+    "notes": "Compatibility authority for the 2.1.1 appearance, NOT historical Coda authority. Includes Phase 0 selection transparency and invalid-token fixes from 80972e6. Scope coverage includes One Dark Pro-derived assignments; retaining them is not endorsing their semantic palette."
+  },
+  "coda1": {
+    "authority": "authoritative-coda",
+    "source": "Joseph Bergantine original Coda 1 .seestyle package, transcribed in docs/theme-token-comparison.md; analysis Git blob 94a1e18eaaa76d50a96a4260d366ca30b02e925a",
+    "notes": "Native, language-specific Coda data. Evidence on each reference token names the mode/token, not a universal semantic assignment. The comparison predates Phase 0; do not use its current-VS-Code table as the compatibility baseline."
+  },
+  "coda2-atom": {
+    "authority": "reconstruction",
+    "source": "https://github.com/mikelentini/Specials-Board; Coda 2 Atom reconstruction table in analysis Git blob 94a1e18eaaa76d50a96a4260d366ca30b02e925a",
+    "notes": "Community reconstruction, not a Panic Coda 2 export. Kept separate from authoritative Coda 1 and repository history."
+  },
+  "repository-textmate": {
+    "authority": "project-history",
+    "source": "themes/specialsboard.tmTheme at b6bf83a; Git blob 73cfe6a6684657029e66619620ae81605cf4905f",
+    "notes": "Original checked-in translation retained unchanged as evidence. Not the post-Phase-0 VS Code appearance and not authoritative Coda-native data."
+  },
+  "phase1-role-extraction": {
+    "authority": "judgment",
+    "source": "Phase 1 (#5), extracted from the post-Phase-0 theme's roles and ordered scope rules.",
+    "notes": "Role naming and grouping are engineering judgments. Aliases preserve existing colors, even when different semantic roles happen to share a color. No Phase 2 palette restoration is implied. License remains deferred: provenance is not permission or a license grant."
+  }
+}

@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- Portable DTCG-compatible color tokens, semantic roles, component states, and variant inheritance.
+- Deterministic VS Code generation, schema/invariant validation, drift detection, and compatibility tests.
+- Stable definitions and generated foundation previews for Specials Board, Classic, and Contrast.
+- Provenance distinctions for authoritative Coda 1 data, reconstructions, project history, and engineering judgments.
+
+### Changed
+
+- The historical saved theme ID now selects Specials Board Legacy with the unchanged post-Phase-0 appearance.
+- Theme sources and build tooling are excluded from VSIX runtime contents.
+
 ## [2.1.1] - 2026-09-08
 
 ### Fixed
