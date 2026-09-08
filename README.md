@@ -6,7 +6,7 @@ This theme brings the Specials Board theme from the Coda editor to Visual Studio
 
 ## Variants
 
-This branch establishes the generated-theme foundation. **Specials Board**,
+Specials Board uses a shared, generated-theme foundation. **Specials Board**,
 **Specials Board Classic**, and **Specials Board Contrast** are foundation previews:
 they currently share the same appearance as **Specials Board Legacy**. The Coda
 palette restoration and Contrast accessibility work are not implemented yet.

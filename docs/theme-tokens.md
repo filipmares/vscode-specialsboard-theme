@@ -189,7 +189,7 @@ The full research report `docs/theme-token-comparison.md` remains analysis
 material, not a runtime source or copied dependency. Its immutable Git blob is
 `94a1e18eaaa76d50a96a4260d366ca30b02e925a`; inspect with
 `git cat-file blob 94a1e18eaaa76d50a96a4260d366ca30b02e925a` in the analysis
-repository. This branch keeps a small cited reference palette and source registry
+repository. The project keeps a small cited reference palette and source registry
 instead of copying the exhaustive report. Generation never requires that blob.
 
 | Evidence | Classification | How it is used |
