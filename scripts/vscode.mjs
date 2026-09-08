@@ -11,8 +11,10 @@ export function validateContributions(manifest, variants) {
     throw new Error('package.json theme contributions do not match tokens/variants.json');
   }
   const legacy = variants.find(variant => variant.key === 'legacy');
-  if (legacy.vscodeId !== 'Specials Board ' || legacy.output !== 'specialsboard.json') {
-    throw new Error('Legacy must preserve the historical trailing-space theme ID and output path');
+  if (legacy.vscodeId !== 'specials-board-legacy'
+    || legacy.label !== 'Specials Board VS Code Legacy [Deprecated]'
+    || legacy.output !== 'specialsboard.json') {
+    throw new Error('Legacy must use the normalized deprecated identity and preserve its output path');
   }
 }
 
@@ -34,7 +36,9 @@ export function renderVSCode(mapping, model) {
   for (const [slot, value] of Object.entries(mapping.ansi)) {
     colors[`terminal.ansi${slot[0].toUpperCase()}${slot.slice(1)}`] = color(value);
   }
-  const tokenColors = mapping.textMate.map(rule => ({
+  // Legacy's ordered compatibility profile must never inherit restored scope semantics.
+  const legacy = model.variant.key === 'legacy';
+  const tokenColors = (legacy ? mapping.legacyTextMate : mapping.textMate).map(rule => ({
     ...rule,
     settings: Object.fromEntries(Object.entries(rule.settings).map(([key, value]) => [
       key, key === 'fontStyle' ? value : color(value)
@@ -48,7 +52,7 @@ export function renderVSCode(mapping, model) {
     colors,
     tokenColors
   };
-  if (Object.keys(mapping.semanticTokens).length > 0) {
+  if (!legacy && Object.keys(mapping.semanticTokens).length > 0) {
     theme.semanticHighlighting = true;
     theme.semanticTokenColors = Object.fromEntries(Object.entries(mapping.semanticTokens).map(([selector, style]) => [
       selector,

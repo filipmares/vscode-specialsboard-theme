@@ -3,7 +3,7 @@
 	"displayName": "Specials Board",
 	"description": "Specials Board - Inspired by the original Coda text editor theme",
 	"icon": "icon.png",
-	"version": "2.2.0",
+	"version": "3.0.0",
 	"publisher": "filipmares",
 	"scripts": {
 		"generate": "node scripts/generate.mjs",
@@ -14,7 +14,8 @@
 	},
 	"devDependencies": {
 		"@vscode/vsce": "3.9.2",
-		"ajv": "8.20.0"
+		"ajv": "8.20.0",
+		"shiki": "4.4.3"
 	},
 	"engines": {
 		"vscode": "^1.34.0"
@@ -50,8 +51,8 @@
 				"path": "./themes/specialsboard-contrast.json"
 			},
 			{
-				"id": "Specials Board ",
-				"label": "Specials Board Legacy",
+				"id": "specials-board-legacy",
+				"label": "Specials Board VS Code Legacy [Deprecated]",
 				"uiTheme": "vs-dark",
 				"path": "./themes/specialsboard.json"
 			}

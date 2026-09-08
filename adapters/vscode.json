@@ -34,6 +34,233 @@
   },
   "textMate": [
     {
+      "name": "Source and embedded expression defaults",
+      "scope": ["source", "text", "meta.embedded", "meta.template.expression", "meta.interpolation"],
+      "settings": { "foreground": "{semantic.text.primary}", "fontStyle": "" }
+    },
+    {
+      "name": "Punctuation",
+      "scope": ["punctuation", "meta.brace", "block.scope", "function.brace"],
+      "settings": { "foreground": "{semantic.syntax.punctuation}" }
+    },
+    {
+      "name": "Variables and receivers",
+      "scope": ["variable", "support.variable", "support.type.object"],
+      "settings": { "foreground": "{semantic.syntax.variable}" }
+    },
+    {
+      "name": "Parameters",
+      "scope": ["variable.parameter", "function.parameter"],
+      "settings": { "foreground": "{semantic.syntax.parameter}" }
+    },
+    {
+      "name": "Keywords and declarations",
+      "scope": "keyword",
+      "settings": { "foreground": "{semantic.syntax.keyword}" }
+    },
+    {
+      "name": "Storage and declaration words, not declared type names",
+      "scope": ["storage", "token.storage", "token.package.keyword"],
+      "settings": { "foreground": "{semantic.syntax.storage}" }
+    },
+    {
+      "name": "Symbolic operators",
+      "scope": "keyword.operator",
+      "settings": { "foreground": "{semantic.syntax.operator}" }
+    },
+    {
+      "name": "Word operators have keyword meaning",
+      "scope": ["keyword.operator.word", "keyword.operator.new", "keyword.operator.delete", "keyword.operator.expression", "keyword.operator.module", "keyword.operator.logical.python", "keyword.operator.logical.ruby"],
+      "settings": { "foreground": "{semantic.syntax.keyword}" }
+    },
+    {
+      "name": "Types, classes, namespaces and components",
+      "scope": ["entity.name.type", "entity.name.class", "entity.other.inherited-class", "support.type", "support.class", "support.module", "variable.other.class", "token.package"],
+      "settings": { "foreground": "{semantic.syntax.type}" }
+    },
+    {
+      "name": "Runtime objects are variables, not type annotations",
+      "scope": ["support.type.object", "support.constant.math"],
+      "settings": { "foreground": "{semantic.syntax.variable}" }
+    },
+    {
+      "name": "Functions and methods, including builtins and decorators",
+      "scope": ["entity.name.function", "support.function", "variable.function", "keyword.other.special-method", "support.token.decorator", "meta.function.decorator.identifier", "meta.function-call.generic.python"],
+      "settings": { "foreground": "{semantic.syntax.function}" }
+    },
+    {
+      "name": "Strings and their delimiters",
+      "scope": ["string", "punctuation.definition.string", "punctuation.quasi.element", "keyword.other.template"],
+      "settings": { "foreground": "{semantic.syntax.string}" }
+    },
+    {
+      "name": "Constants and literal values",
+      "scope": ["constant", "support.constant", "variable.other.constant", "variable.other.enummember", "punctuation.definition.constant"],
+      "settings": { "foreground": "{semantic.syntax.constant}" }
+    },
+    {
+      "name": "Numbers and units",
+      "scope": ["constant.numeric", "keyword.other.unit"],
+      "settings": { "foreground": "{semantic.syntax.number}" }
+    },
+    {
+      "name": "Tags and tag delimiters",
+      "scope": ["entity.name.tag", "punctuation.definition.tag"],
+      "settings": { "foreground": "{semantic.syntax.tag}" }
+    },
+    {
+      "name": "Attributes and property names, not values",
+      "scope": ["entity.other.attribute-name", "support.type.property-name", "support.type.vendored.property-name", "variable.other.property", "variable.other.object.property", "variable.object.property", "support.variable.property", "meta.object-literal.key", "meta.mapping.key", "meta.attribute.python"],
+      "settings": { "foreground": "{semantic.syntax.property}" }
+    },
+    {
+      "name": "Quoted config keys and their punctuation",
+      "scope": ["support.type.property-name.json", "support.type.property-name.json punctuation", "meta.mapping.key string", "entity.name.tag.yaml"],
+      "settings": { "foreground": "{semantic.syntax.property}" }
+    },
+    {
+      "name": "CSS selectors identify elements, not attributes",
+      "scope": ["meta.selector", "selector.sass", "entity.other.attribute-name.class", "entity.other.attribute-name.id", "entity.other.attribute-name.pseudo-class", "entity.other.attribute-name.pseudo-element"],
+      "settings": { "foreground": "{semantic.syntax.selector}" }
+    },
+    {
+      "name": "CSS values and named colors are literals",
+      "scope": ["support.constant.property-value", "support.constant.color", "support.constant.font-name"],
+      "settings": { "foreground": "{semantic.syntax.constant}" }
+    },
+    {
+      "name": "Regex body and operators stay purple, not string green",
+      "scope": ["string.regexp", "string.regex", "string.regexp keyword", "string.regexp keyword.operator", "string.regexp variable", "string.regexp punctuation", "string.regexp punctuation.definition.string", "string.regexp constant", "string.regexp entity.name.tag", "string.regexp storage.type.string", "keyword.operator.regexp", "keyword.operator.quantifier.regexp"],
+      "settings": { "foreground": "{semantic.syntax.regexp}" }
+    },
+    {
+      "name": "Escapes and regex character classes",
+      "scope": ["constant.character.escape", "constant.character.format", "constant.other.character-class.regexp", "string.regexp constant.character.escape", "string.regexp constant.other.character-class", "string.regexp constant.character.character-class", "string.regexp constant.other.character-class punctuation.definition.character-class", "support.other.escape.regexp", "support.other.escape.special.regexp", "constant.character.set.regexp", "constant.other.set.regexp"],
+      "settings": { "foreground": "{semantic.syntax.escape}" }
+    },
+    {
+      "name": "Entity references are constants, not regex escapes",
+      "scope": ["constant.character.entity", "constant.character.entity punctuation.definition.entity"],
+      "settings": { "foreground": "{semantic.syntax.constant}" }
+    },
+    {
+      "name": "Interpolation expressions reset inherited string color",
+      "scope": ["meta.template.expression", "meta.interpolation"],
+      "settings": { "foreground": "{semantic.text.primary}" }
+    },
+    {
+      "name": "Interpolation delimiters are neutral",
+      "scope": ["punctuation.definition.template-expression", "punctuation.section.embedded", "keyword.other.substitution", "punctuation.section.interpolation"],
+      "settings": { "foreground": "{semantic.syntax.punctuation}" }
+    },
+    {
+      "name": "Comments and documentation",
+      "scope": ["comment", "punctuation.definition.comment", "string.quoted.docstring"],
+      "settings": { "foreground": "{semantic.syntax.comment}", "fontStyle": "italic" }
+    },
+    {
+      "name": "Comment links stay quiet and readable",
+      "scope": ["comment markup.link", "comment string", "comment keyword", "comment variable", "comment entity", "comment punctuation"],
+      "settings": { "foreground": "{semantic.syntax.comment}", "fontStyle": "italic" }
+    },
+    {
+      "name": "Markup headings",
+      "scope": ["markup.heading", "entity.name.section", "punctuation.definition.heading"],
+      "settings": { "foreground": "{semantic.markup.heading}", "fontStyle": "bold" }
+    },
+    {
+      "name": "Markup strong emphasis",
+      "scope": ["markup.bold", "punctuation.definition.bold"],
+      "settings": { "foreground": "{semantic.markup.strong}", "fontStyle": "bold" }
+    },
+    {
+      "name": "Markup emphasis",
+      "scope": ["markup.italic", "punctuation.definition.italic"],
+      "settings": { "foreground": "{semantic.markup.emphasis}", "fontStyle": "italic" }
+    },
+    {
+      "name": "Nested strong emphasis",
+      "scope": ["markup.bold markup.italic", "markup.italic markup.bold"],
+      "settings": { "foreground": "{semantic.markup.strong}", "fontStyle": "bold italic" }
+    },
+    {
+      "name": "Markup inline code and untyped code blocks",
+      "scope": ["markup.inline.raw", "markup.raw"],
+      "settings": { "foreground": "{semantic.markup.code}", "fontStyle": "" }
+    },
+    {
+      "name": "Fenced code uses its embedded language roles",
+      "scope": "markup.fenced_code.block",
+      "settings": { "foreground": "{semantic.text.primary}", "fontStyle": "" }
+    },
+    {
+      "name": "Markup link text",
+      "scope": ["string.other.link.title", "string.other.link.description", "constant.other.reference.link"],
+      "settings": { "foreground": "{semantic.markup.link-description}" }
+    },
+    {
+      "name": "Markup link destinations",
+      "scope": "markup.underline.link",
+      "settings": { "foreground": "{semantic.markup.link}", "fontStyle": "underline" }
+    },
+    {
+      "name": "Markup lists",
+      "scope": ["punctuation.definition.list", "beginning.punctuation.definition.list"],
+      "settings": { "foreground": "{semantic.markup.list}" }
+    },
+    {
+      "name": "Markup quotes and separators",
+      "scope": ["markup.quote", "meta.separator"],
+      "settings": { "foreground": "{semantic.markup.quote}" }
+    },
+    {
+      "name": "Deleted diff",
+      "scope": "markup.deleted",
+      "settings": { "foreground": "{semantic.diff.deleted}" }
+    },
+    {
+      "name": "Inserted diff",
+      "scope": "markup.inserted",
+      "settings": { "foreground": "{semantic.diff.inserted}" }
+    },
+    {
+      "name": "Changed diff",
+      "scope": "markup.changed",
+      "settings": { "foreground": "{semantic.diff.changed}" }
+    },
+    {
+      "name": "Diff headers",
+      "scope": ["meta.diff.header", "punctuation.definition.from-file", "punctuation.definition.to-file"],
+      "settings": { "foreground": "{semantic.diff.header}" }
+    },
+    {
+      "name": "Debug messages",
+      "scope": "token.debug-token",
+      "settings": { "foreground": "{semantic.feedback.debug}" }
+    },
+    {
+      "name": "Information messages",
+      "scope": "token.info-token",
+      "settings": { "foreground": "{semantic.feedback.info}" }
+    },
+    {
+      "name": "Warning messages",
+      "scope": "token.warn-token",
+      "settings": { "foreground": "{semantic.feedback.warning}" }
+    },
+    {
+      "name": "Error messages",
+      "scope": "token.error-token",
+      "settings": { "foreground": "{semantic.feedback.error}" }
+    },
+    {
+      "name": "Invalid syntax always remains visible",
+      "scope": "invalid",
+      "settings": { "foreground": "{semantic.feedback.invalid-text}", "fontStyle": "underline" }
+    }
+  ],
+  "legacyTextMate": [
+    {
       "name": "[VSCODE-CUSTOM] Markdown Quote",
       "scope": "markup.quote.markdown",
       "settings": {

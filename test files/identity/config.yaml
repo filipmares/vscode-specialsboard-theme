@@ -1,0 +1,8 @@
+# Plain keys are properties; this grammar leaves quoted keys as strings.
+name: "Daily specials"
+"count": 3
+available: true
+message: "Soup\nBread"
+items:
+  - Soup
+  - Bread

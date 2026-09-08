@@ -50,7 +50,7 @@
     "terminal.ansiYellow": "#c4bc3c",
     "terminal.foreground": "#d9dbfc"
   },
-  "name": "Specials Board Legacy",
+  "name": "Specials Board VS Code Legacy [Deprecated]",
   "tokenColors": [
     {
       "name": "[VSCODE-CUSTOM] Markdown Quote",

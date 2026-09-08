@@ -669,6 +669,36 @@
       }
     },
     "coda1": {
+      "honey": {
+        "$type": "color",
+        "$value": { "colorSpace": "srgb", "components": [1, 0.7529411765, 0.3607843137], "hex": "#ffc05c" },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "coda1",
+            "evidence": "native-syntax-modes/HTML.seestyle: /XML/Tags; native-syntax-modes/Ruby.seestyle: /Ruby/Builtin Classes."
+          }
+        }
+      },
+      "orange": {
+        "$type": "color",
+        "$value": { "colorSpace": "srgb", "components": [0.8, 0.4705882353, 0.1960784314], "hex": "#cc7832" },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "coda1",
+            "evidence": "native-syntax-modes/HTML.seestyle: /XML/Attributes in Tags; native-syntax-modes/Python.seestyle: /Python/Special Attributes."
+          }
+        }
+      },
+      "lavender": {
+        "$type": "color",
+        "$value": { "colorSpace": "srgb", "components": [0.7882352941, 0.8156862745, 1], "hex": "#c9d0ff" },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "coda1",
+            "evidence": "native-syntax-modes/Ruby.seestyle: /Ruby/Instance Variables. Language-specific evidence, not a universal Coda variable default."
+          }
+        }
+      },
       "charcoal": {
         "$type": "color",
         "$value": {
@@ -839,6 +869,79 @@
             "evidence": "native-syntax-modes/Javascript.seestyle: /Javascript/Escaped Characters."
           }
         }
+      }
+    },
+    "phase2": {
+      "$extensions": {
+        "org.specialsboard.provenance": {
+          "source": "phase2-interpretation",
+          "evidence": "docs/theme-tokens.md, Phase 2 palette decisions: authored readability adjustments to the cited Coda 1 families, not native historical values."
+        }
+      },
+      "charcoal": {
+        "$type": "color",
+        "$description": "A slightly lighter, warmer interpretation of Coda 1 charcoal.",
+        "$value": { "colorSpace": "srgb", "components": [0.1882352941, 0.1803921569, 0.1725490196], "hex": "#302e2c" }
+      },
+      "copper": {
+        "$type": "color",
+        "$description": "Lift Coda 1 keyword copper for small modern editor text.",
+        "$value": { "colorSpace": "srgb", "components": [0.8509803922, 0.5843137255, 0.3490196078], "hex": "#d99559" }
+      },
+      "olive": {
+        "$type": "color",
+        "$description": "Softer, lighter olive; keep strings distinct from blue literals.",
+        "$value": { "colorSpace": "srgb", "components": [0.6980392157, 0.7843137255, 0.4745098039], "hex": "#b2c879" }
+      },
+      "blue": {
+        "$type": "color",
+        "$description": "Lift and soften Coda 1 dusty-blue numbers, not One Dark cyan.",
+        "$value": { "colorSpace": "srgb", "components": [0.5411764706, 0.6862745098, 0.7960784314], "hex": "#8aafcb" }
+      },
+      "terracotta": {
+        "$type": "color",
+        "$description": "Lift Coda 1 red-orange functions while retaining their warm hue rather than the later mauve.",
+        "$value": { "colorSpace": "srgb", "components": [0.8784313725, 0.5019607843, 0.4], "hex": "#e08066" }
+      },
+      "lavender": {
+        "$type": "color",
+        "$description": "Subdued lavender variables inspired by Coda 1 Ruby/PHP and later ports; a modern cross-language judgment.",
+        "$value": { "colorSpace": "srgb", "components": [0.8078431373, 0.7843137255, 0.9098039216], "hex": "#cec8e8" }
+      },
+      "honey": {
+        "$type": "color",
+        "$description": "Soften native honey tags/classes without changing their family.",
+        "$value": { "colorSpace": "srgb", "components": [0.937254902, 0.7568627451, 0.4823529412], "hex": "#efc17b" }
+      },
+      "orange": {
+        "$type": "color",
+        "$description": "Lighter orange attributes/properties; separate from lavender variables.",
+        "$value": { "colorSpace": "srgb", "components": [0.8745098039, 0.6705882353, 0.4509803922], "hex": "#dfab73" }
+      },
+      "purple": {
+        "$type": "color",
+        "$description": "Lift native regex purple without turning regex into cyan or strings into purple.",
+        "$value": { "colorSpace": "srgb", "components": [0.6941176471, 0.5411764706, 0.8588235294], "hex": "#b18adb" }
+      },
+      "light-purple": {
+        "$type": "color",
+        "$description": "Lighter purple escapes and regex character classes.",
+        "$value": { "colorSpace": "srgb", "components": [0.8, 0.6470588235, 0.9294117647], "hex": "#cca5ed" }
+      },
+      "comment": {
+        "$type": "color",
+        "$description": "Readable quiet warm gray in place of native #666666; kept below primary text.",
+        "$value": { "colorSpace": "srgb", "components": [0.6392156863, 0.6039215686, 0.5647058824], "hex": "#a39a90" }
+      },
+      "classic-comment": {
+        "$type": "color",
+        "$description": "Explicit Classic readability exception: lift native #666666, retaining quieter comments than flagship.",
+        "$value": { "colorSpace": "srgb", "components": [0.5411764706, 0.5176470588, 0.4901960784], "hex": "#8a847d" }
+      },
+      "error": {
+        "$type": "color",
+        "$description": "Visible red feedback for both restored variants; not inferred from native SGML or CDATA rows.",
+        "$value": { "colorSpace": "srgb", "components": [0.9294117647, 0.4549019608, 0.4196078431], "hex": "#ed746b" }
       }
     },
     "coda2-atom": {

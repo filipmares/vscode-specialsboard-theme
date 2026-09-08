@@ -66,20 +66,32 @@ test('Legacy preserves all colors, scope strings, rule order and font styles', (
   assert.equal(Object.hasOwn(legacy, 'semanticTokenColors'), false);
 });
 
-test('four stable IDs and labels include the exact historical compatibility ID', () => {
+test('four normalized IDs and labels identify deprecated VS Code Legacy', () => {
   assert.deepEqual(sources.variants.map(({ key, id, label, vscodeId }) => [key, id, label, vscodeId]), [
     ['flagship', 'specials-board', 'Specials Board', 'specials-board'],
     ['classic', 'specials-board-classic', 'Specials Board Classic', 'specials-board-classic'],
     ['contrast', 'specials-board-contrast', 'Specials Board Contrast', 'specials-board-contrast'],
-    ['legacy', 'specials-board-legacy', 'Specials Board Legacy', 'Specials Board ']
+    ['legacy', 'specials-board-legacy', 'Specials Board VS Code Legacy [Deprecated]', 'specials-board-legacy']
   ]);
   assert.equal(sources.variants.find(v => v.key === 'legacy').inherits, 'base');
   for (const variant of sources.variants) {
+    assert.equal(variant.vscodeId, variant.id);
     const output = JSON.parse(themes.get(variant.output));
     assert.equal(output.name, variant.label);
-    assert.deepEqual(appearance(output), appearance(fixture), `${variant.key} prematurely changed the Phase 1 palette`);
-    assert.equal(variant.status, variant.key === 'legacy' ? 'compatibility' : 'foundation-preview');
+    assert.equal(variant.status, { legacy: 'compatibility', contrast: 'foundation-preview', flagship: 'restored', classic: 'restored' }[variant.key]);
   }
+});
+
+test('the historical saved Legacy ID is intentionally retired without a compatibility alias', () => {
+  const contributions = sources.manifest.contributes.themes;
+  assert.equal(contributions.length, 4);
+  assert.equal(contributions.find(theme => theme.id === 'Specials Board '), undefined);
+  assert.deepEqual(contributions.find(theme => theme.id === 'specials-board-legacy'), {
+    id: 'specials-board-legacy',
+    label: 'Specials Board VS Code Legacy [Deprecated]',
+    uiTheme: 'vs-dark',
+    path: './themes/specialsboard.json'
+  });
 });
 
 test('generation is deterministic, insensitive to object order, and does not mutate sources', () => {
@@ -194,6 +206,7 @@ test('rejects mapping literals and direct palette references on every platform s
     for (const mutate of [
       s => { s.mapping.workbench['editor.foreground'] = reference; },
       s => { s.mapping.textMate[0].settings.foreground = reference; },
+      s => { s.mapping.legacyTextMate[0].settings.foreground = reference; },
       s => { s.mapping.ansi.white = reference; },
       s => { s.mapping.semanticTokens.variable = reference; },
       s => { s.mapping.semanticTokens.variable = { foreground: reference, italic: true }; }
@@ -224,10 +237,13 @@ test('semantic-token adapter supports role references without enabling them in s
   const theme = JSON.parse(buildThemes(input).get('specialsboard-flagship.json'));
   assert.equal(theme.semanticHighlighting, true);
   assert.deepEqual(theme.semanticTokenColors, {
-    variable: '#d9dbfc',
-    'variable.readonly': { foreground: '#86a9c4', italic: true, bold: false },
+    variable: '#cec8e8',
+    'variable.readonly': { foreground: '#8aafcb', italic: true, bold: false },
     function: { underline: true }
   });
+  const legacy = JSON.parse(buildThemes(input).get('specialsboard.json'));
+  assert.equal(Object.hasOwn(legacy, 'semanticHighlighting'), false);
+  assert.equal(Object.hasOwn(legacy, 'semanticTokenColors'), false);
 });
 
 test('every generated color is managed by the resolved token graph', () => {
@@ -247,11 +263,26 @@ test('manifest drift, duplicate IDs and unsafe output paths fail', () => {
   rejectMutation(s => {
     s.manifest.contributes.themes[3].id = 'changed';
     s.variants[3].vscodeId = 'changed';
-  }, /historical trailing-space/);
+  }, /normalized deprecated identity/);
   for (const key of ['key', 'id', 'label', 'vscodeId', 'output']) {
     rejectMutation(s => { s.variants[1][key] = s.variants[0][key]; }, /Duplicate variant/);
   }
   rejectMutation(s => { s.variants[0].output = '../package.json'; }, /variants:/);
+});
+
+test('Legacy identity guard rejects the retired ID, missing deprecation and path changes', () => {
+  rejectMutation(s => {
+    s.variants[3].vscodeId = 'Specials Board ';
+    s.manifest.contributes.themes[3].id = 'Specials Board ';
+  }, /normalized deprecated identity/);
+  rejectMutation(s => {
+    s.variants[3].label = 'Specials Board VS Code Legacy';
+    s.manifest.contributes.themes[3].label = 'Specials Board VS Code Legacy';
+  }, /normalized deprecated identity/);
+  rejectMutation(s => {
+    s.variants[3].output = 'specialsboard-legacy.json';
+    s.manifest.contributes.themes[3].path = './themes/specialsboard-legacy.json';
+  }, /preserve its output path/);
 });
 
 test('drift check catches changed, missing, CRLF, and extra outputs without repairing them', t => {
