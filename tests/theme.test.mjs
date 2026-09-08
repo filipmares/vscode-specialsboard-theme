@@ -77,8 +77,7 @@ test('four stable IDs and labels include the exact historical compatibility ID',
   for (const variant of sources.variants) {
     const output = JSON.parse(themes.get(variant.output));
     assert.equal(output.name, variant.label);
-    assert.deepEqual(appearance(output), appearance(fixture), `${variant.key} prematurely changed the Phase 1 palette`);
-    assert.equal(variant.status, variant.key === 'legacy' ? 'compatibility' : 'foundation-preview');
+    assert.equal(variant.status, { legacy: 'compatibility', contrast: 'foundation-preview', flagship: 'restored', classic: 'restored' }[variant.key]);
   }
 });
 
@@ -194,6 +193,7 @@ test('rejects mapping literals and direct palette references on every platform s
     for (const mutate of [
       s => { s.mapping.workbench['editor.foreground'] = reference; },
       s => { s.mapping.textMate[0].settings.foreground = reference; },
+      s => { s.mapping.legacyTextMate[0].settings.foreground = reference; },
       s => { s.mapping.ansi.white = reference; },
       s => { s.mapping.semanticTokens.variable = reference; },
       s => { s.mapping.semanticTokens.variable = { foreground: reference, italic: true }; }
@@ -224,10 +224,13 @@ test('semantic-token adapter supports role references without enabling them in s
   const theme = JSON.parse(buildThemes(input).get('specialsboard-flagship.json'));
   assert.equal(theme.semanticHighlighting, true);
   assert.deepEqual(theme.semanticTokenColors, {
-    variable: '#d9dbfc',
-    'variable.readonly': { foreground: '#86a9c4', italic: true, bold: false },
+    variable: '#cec8e8',
+    'variable.readonly': { foreground: '#8aafcb', italic: true, bold: false },
     function: { underline: true }
   });
+  const legacy = JSON.parse(buildThemes(input).get('specialsboard.json'));
+  assert.equal(Object.hasOwn(legacy, 'semanticHighlighting'), false);
+  assert.equal(Object.hasOwn(legacy, 'semanticTokenColors'), false);
 });
 
 test('every generated color is managed by the resolved token graph', () => {

@@ -19,6 +19,11 @@
     "source": "themes/specialsboard.tmTheme at b6bf83a; Git blob 73cfe6a6684657029e66619620ae81605cf4905f",
     "notes": "Original checked-in translation retained unchanged as evidence. Not the post-Phase-0 VS Code appearance and not authoritative Coda-native data."
   },
+  "phase2-interpretation": {
+    "authority": "judgment",
+    "source": "Phase 2 (#8); docs/theme-tokens.md palette and ordered mapping decisions.",
+    "notes": "Coda 1 swatches are authoritative only for their cited native language rows. Universal roles, modern grammar classification, readable comments, red underlined invalid text, Markdown, and flagship color adjustments are explicit engineering judgments. No One Dark Pro or Coda 2 reconstruction is semantic authority. License remains deferred."
+  },
   "phase1-role-extraction": {
     "authority": "judgment",
     "source": "Phase 1 (#5), extracted from the post-Phase-0 theme's roles and ordered scope rules.",

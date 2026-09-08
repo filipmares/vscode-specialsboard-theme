@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Daily specials</title>
+    <style>
+      .special:hover { color: #a0c25f; padding: 12px; }
+    </style>
+  </head>
+  <body data-count="3">
+    <!-- A quiet comment, not a highlighted declaration. -->
+    <h1 class="special">Soup &amp; bread</h1>
+    <script>
+      const count = 3;
+      function label(item) { return `${item.name}: ${count}`; }
+    </script>
+    <p>Plain ampersands can remain unscoped in HTML: &broken</p>
+    <div class=nope "oops">Intentionally invalid attribute syntax.</div>
+  </body>
+</html>

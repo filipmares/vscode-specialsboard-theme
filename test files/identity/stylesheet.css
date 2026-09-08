@@ -1,0 +1,15 @@
+/* Selectors identify elements; properties name their attributes. */
+@import url("menu.css");
+
+:root { --gap: 12px; }
+
+@media (min-width: 600px) {
+  #menu .special:hover::before {
+    content: "Soup\A bread";
+    color: #a0c25f;
+    background-color: olive;
+    margin: calc(2 * var(--gap));
+    opacity: 0.75;
+    font-family: "Menu Serif", serif;
+  }
+}

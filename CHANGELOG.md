@@ -5,6 +5,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- Coda 1-grounded Classic palette and a contrast-adjusted modern flagship palette, with native evidence and deliberate departures documented.
+- Purpose-written HTML/CSS, JS/TS, Python, Markdown, JSON/YAML, and regex fixtures with pinned TextMate tokenization regressions.
+- Focused role-family, provenance, readability-adjustment, and compatibility coverage.
+
+### Changed
+
+- Reclassified flagship/Classic TextMate mappings around portable roles instead of inheriting One Dark-derived color exceptions.
+- Restored copper declarations, olive strings, dusty-blue literals, terracotta calls, neutral/lavender variables, honey types/tags, orange properties, purple regex/escapes, and readable italic comments.
+- Kept Contrast as an explicitly undifferentiated preview inheriting the flagship, with no accessibility guarantee.
+
+### Fixed
+
+- Restored variants render invalid syntax as red underlined text; VS Code does not paint TextMate token backgrounds, so white text on a red token background did not provide the intended red signal.
+
+### Compatibility
+
+- Specials Board Legacy keeps its exact historical ID, output path, ordered 156 rules, 47 workbench/ANSI values, and existing user selections.
+- No new workbench IDs, broad semantic-token enablement, accessibility differentiation, license assignment, or release publication.
+
 ## [2.2.0] - 2026-09-08
 
 ### Added

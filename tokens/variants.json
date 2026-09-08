@@ -6,7 +6,7 @@
     "vscodeId": "specials-board",
     "output": "specialsboard-flagship.json",
     "inherits": "base",
-    "status": "foundation-preview"
+    "status": "restored"
   },
   {
     "key": "classic",
@@ -15,7 +15,7 @@
     "vscodeId": "specials-board-classic",
     "output": "specialsboard-classic.json",
     "inherits": "flagship",
-    "status": "foundation-preview"
+    "status": "restored"
   },
   {
     "key": "contrast",

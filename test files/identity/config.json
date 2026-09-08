@@ -1,0 +1,10 @@
+{
+  "name": "Daily specials",
+  "count": 3,
+  "price": 12.5,
+  "available": true,
+  "fallback": null,
+  "message": "Soup\nBread",
+  "pattern": "\\b[A-Z]\\w+",
+  "items": ["Soup", "Bread"]
+}

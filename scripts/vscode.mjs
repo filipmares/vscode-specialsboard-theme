@@ -34,7 +34,9 @@ export function renderVSCode(mapping, model) {
   for (const [slot, value] of Object.entries(mapping.ansi)) {
     colors[`terminal.ansi${slot[0].toUpperCase()}${slot.slice(1)}`] = color(value);
   }
-  const tokenColors = mapping.textMate.map(rule => ({
+  // Legacy's ordered compatibility profile must never inherit restored scope semantics.
+  const legacy = model.variant.key === 'legacy';
+  const tokenColors = (legacy ? mapping.legacyTextMate : mapping.textMate).map(rule => ({
     ...rule,
     settings: Object.fromEntries(Object.entries(rule.settings).map(([key, value]) => [
       key, key === 'fontStyle' ? value : color(value)
@@ -48,7 +50,7 @@ export function renderVSCode(mapping, model) {
     colors,
     tokenColors
   };
-  if (Object.keys(mapping.semanticTokens).length > 0) {
+  if (!legacy && Object.keys(mapping.semanticTokens).length > 0) {
     theme.semanticHighlighting = true;
     theme.semanticTokenColors = Object.fromEntries(Object.entries(mapping.semanticTokens).map(([selector, style]) => [
       selector,

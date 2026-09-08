@@ -1,3 +1,26 @@
 {
-  "$description": "Foundation preview. Inherits flagship; historically grounded Coda 1 overrides belong to Phase 2."
+  "$description": "Coda 1-grounded presentation, not a pixel-identical emulation and not 2.x Legacy.",
+  "$extensions": {
+    "org.specialsboard.provenance": {
+      "source": "phase2-interpretation",
+      "evidence": "docs/theme-tokens.md: Classic uses cited native swatches for core roles, neutral variables, generalized HTML/Ruby honey types and HTML/Python orange properties. Readable comments and red underlined invalid text are explicit exceptions."
+    }
+  },
+  "semantic": {
+    "surface": {
+      "canvas": { "$type": "color", "$value": "{palette.coda1.charcoal}" }
+    },
+    "syntax": {
+      "keyword": { "$type": "color", "$value": "{palette.coda1.copper}" },
+      "string": { "$type": "color", "$value": "{palette.coda1.olive}" },
+      "number": { "$type": "color", "$value": "{palette.coda1.blue}" },
+      "function": { "$type": "color", "$value": "{palette.coda1.red-orange}" },
+      "variable": { "$type": "color", "$value": "{semantic.text.primary}" },
+      "type": { "$type": "color", "$value": "{palette.coda1.honey}" },
+      "attribute": { "$type": "color", "$value": "{palette.coda1.orange}" },
+      "regexp": { "$type": "color", "$value": "{palette.coda1.purple}" },
+      "escape": { "$type": "color", "$value": "{palette.coda1.light-purple}" },
+      "comment": { "$type": "color", "$value": "{palette.phase2.classic-comment}" }
+    }
+  }
 }
