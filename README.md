@@ -4,10 +4,9 @@ Specials Board interprets the Coda editor's theme for Visual Studio Code.
 
 [Get it from the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=filipmares.theme-specialsboard)
 
-This checkout includes [unreleased changes](CHANGELOG.md#unreleased), including
-Phase 2 restoration and the breaking Legacy ID rename. The manifest remains at
-2.2.0 until a new release is prepared; building a local VSIX does not publish
-an extension update.
+Version **3.0.0** includes the restored Coda palettes and a breaking Legacy ID
+rename. Read the [changelog](CHANGELOG.md) and upgrade guidance below before
+updating. Building a local VSIX does not publish an extension update.
 
 ## Variants
 

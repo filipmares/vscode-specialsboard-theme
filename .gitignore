@@ -1,4 +1,5 @@
 /.vscode
+/.playwright-mcp
 .DS_Store
 /node_modules
 *.vsix

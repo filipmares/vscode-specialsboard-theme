@@ -1,4 +1,5 @@
 .vscode/**
+.playwright-mcp/**
 .vscode-test/**
 .github/**
 test files/**

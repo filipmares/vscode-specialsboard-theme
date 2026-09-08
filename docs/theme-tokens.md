@@ -7,9 +7,8 @@ the flagship and Classic syntax identities within that architecture. Legacy's
 appearance remains frozen, with an intentional breaking identity rename and
 deprecation label; Contrast remains an undifferentiated preview.
 
-This guide describes the checkout's [unreleased changes](../CHANGELOG.md#unreleased),
-not a newly published release. The manifest version remains 2.2.0. For local
-installation and development-host instructions, use the
+This guide describes the [3.0.0 token system and migration](../CHANGELOG.md).
+For local installation and development-host instructions, use the
 [contributor quickstart](../vsc-extension-quickstart.md).
 
 ## Source model
@@ -316,9 +315,9 @@ The `--skip-license` flag acknowledges deferred licensing; it is not a license
 decision. Do not add a guessed LICENSE or package license field.
 
 Packaging is local-only and does not publish or increment `package.json`'s
-version. Before publication, prepare a version appropriate for the breaking
-ID change and a dated changelog entry; do not describe this checkout's
-Unreleased section as an already published release.
+version. For future releases, update the manifest and lockfile to an appropriate
+version and record changes in a dated changelog entry. A successful package build
+alone is not evidence that a release has been published.
 
 ## Historical evidence
 

@@ -91,7 +91,7 @@ they are not TextMate syntax colors. See the
 for the inspector and scope-matching model.
 
 Run `npm run check` and `npm test` before committing generated output with its
-sources. A local package is not a release: the current manifest remains at 2.2.0,
-while Phase 2 and the breaking ID rename are under
-[Unreleased](CHANGELOG.md#unreleased). Versioning, release notes, licensing
-decisions, and publication must be handled explicitly before a Marketplace release.
+sources. The package version comes from `package.json`; release changes are
+documented in the [changelog](CHANGELOG.md). Local packaging does not increment
+the version or publish a release. Versioning, release notes, licensing decisions,
+and publication must be handled explicitly for each Marketplace release.
