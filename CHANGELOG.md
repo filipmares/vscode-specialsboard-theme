@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- **Breaking:** Renamed Legacy's saved ID from `"Specials Board "` to `"specials-board-legacy"` and its picker label to **Specials Board VS Code Legacy [Deprecated]**. The old ID has no alias or automatic migration; existing users may see a default theme and must choose a theme again through **Preferences: Color Theme**.
 - Reclassified flagship/Classic TextMate mappings around portable roles instead of inheriting One Dark-derived color exceptions.
 - Restored copper declarations, olive strings, dusty-blue literals, terracotta calls, neutral/lavender variables, honey types/tags, orange properties, purple regex/escapes, and readable italic comments.
 - Kept Contrast as an explicitly undifferentiated preview inheriting the flagship, with no accessibility guarantee.
@@ -25,7 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Compatibility
 
-- Specials Board Legacy keeps its exact historical ID, output path, ordered 156 rules, 47 workbench/ANSI values, and existing user selections.
+- Specials Board VS Code Legacy [Deprecated] keeps its output path, ordered 156 rules, and 47 workbench/ANSI values. Only its identity changes; preserving old saved selections is intentionally no longer a compatibility guarantee.
 - No new workbench IDs, broad semantic-token enablement, accessibility differentiation, license assignment, or release publication.
 
 ## [2.2.0] - 2026-09-08

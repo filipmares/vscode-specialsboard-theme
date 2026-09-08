@@ -29,8 +29,8 @@
   {
     "key": "legacy",
     "id": "specials-board-legacy",
-    "label": "Specials Board Legacy",
-    "vscodeId": "Specials Board ",
+    "label": "Specials Board VS Code Legacy [Deprecated]",
+    "vscodeId": "specials-board-legacy",
     "output": "specialsboard.json",
     "inherits": "base",
     "status": "compatibility"

@@ -11,8 +11,10 @@ export function validateContributions(manifest, variants) {
     throw new Error('package.json theme contributions do not match tokens/variants.json');
   }
   const legacy = variants.find(variant => variant.key === 'legacy');
-  if (legacy.vscodeId !== 'Specials Board ' || legacy.output !== 'specialsboard.json') {
-    throw new Error('Legacy must preserve the historical trailing-space theme ID and output path');
+  if (legacy.vscodeId !== 'specials-board-legacy'
+    || legacy.label !== 'Specials Board VS Code Legacy [Deprecated]'
+    || legacy.output !== 'specialsboard.json') {
+    throw new Error('Legacy must use the normalized deprecated identity and preserve its output path');
   }
 }
 

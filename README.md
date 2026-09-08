@@ -18,12 +18,24 @@ inherits the flagship appearance; its accessibility differentiation is deferred.
 Neither its name nor the flagship's readability adjustments are an
 accessibility-conformance claim.
 
-Legacy preserves the post-Phase-0 2.1.1 theme data, including translucent selection
-and historical invalid-token settings. Restored variants use visible red underlined
-invalid text rather than relying on TextMate backgrounds. Existing saved selections keep working: the historical
-theme ID `"Specials Board "` (including its final space) now labels this variant
-**Specials Board Legacy**. The new flagship uses ID `"specials-board"`; switching
-to it is opt-in, not an automatic migration.
+**Specials Board VS Code Legacy [Deprecated]** preserves the post-Phase-0 2.1.1
+appearance, including translucent selection and historical invalid-token settings.
+It is the old VS Code port, not the Coda-grounded Classic variant. Restored variants
+use visible red underlined invalid text rather than relying on TextMate backgrounds.
+
+### Upgrading from the historical theme
+
+**Breaking change:** Legacy's saved ID is now `"specials-board-legacy"`, matching
+the other variants' naming convention. The historical `"Specials Board "` ID
+(including its final space) is deliberately removed, without an alias or automatic
+migration. Existing selections referencing it may fall back to a default VS Code
+theme after updating or reloading.
+
+Open **Preferences: Color Theme** and choose **Specials Board** to try the restored
+flagship, **Specials Board Classic** for the Coda 1-grounded palette, or
+**Specials Board VS Code Legacy [Deprecated]** to retain the old appearance.
+VS Code does not automatically open the selector. Update any profiles, workspace
+settings, or preferred-theme settings that still reference the retired ID.
 
 ## Development
 

@@ -3,8 +3,9 @@
 Phase 1 ([#5](https://github.com/filipmares/vscode-specialsboard-theme/issues/5))
 introduced the portable architecture. Phase 2
 ([#8](https://github.com/filipmares/vscode-specialsboard-theme/issues/8)) restores
-the flagship and Classic syntax identities within that architecture. Legacy
-remains frozen; Contrast remains an undifferentiated preview.
+the flagship and Classic syntax identities within that architecture. Legacy's
+appearance remains frozen, with an intentional breaking identity rename and
+deprecation label; Contrast remains an undifferentiated preview.
 
 ## Source model
 
@@ -90,7 +91,7 @@ while palette tokens record the underlying color evidence.
 | `flagship` / `specials-board` | Specials Board | `specials-board` | base | Restored modern interpretation |
 | `classic` / `specials-board-classic` | Specials Board Classic | `specials-board-classic` | flagship | Restored Coda 1-grounded interpretation |
 | `contrast` / `specials-board-contrast` | Specials Board Contrast | `specials-board-contrast` | flagship | Undifferentiated foundation preview |
-| `legacy` / `specials-board-legacy` | Specials Board Legacy | `"Specials Board "` (final space) | base | Compatibility |
+| `legacy` / `specials-board-legacy` | Specials Board VS Code Legacy [Deprecated] | `specials-board-legacy` | base | Deprecated compatibility appearance |
 
 All four are generated and contributed to the extension. Contrast intentionally
 inherits the restored flagship without overrides: keeping its old appearance
@@ -98,9 +99,21 @@ would break the declared inheritance model or introduce a second Legacy.
 Its unchanged stable label has no temporary suffix, but it has **no accessibility
 guarantee or independent differentiation**. That work belongs to Phase 4.
 
-Legacy retains `themes/specialsboard.json` and the historical stored ID introduced
-explicitly in Phase 0. Existing users keep their selected appearance. The changed
-picker label and generated theme name are presentation metadata, not recoloring.
+Legacy retains `themes/specialsboard.json`, but intentionally replaces the
+historical stored ID `"Specials Board "` (including the final space) with
+`specials-board-legacy`, matching its portable ID and the other variants.
+The picker label and generated theme name are
+**Specials Board VS Code Legacy [Deprecated]**, distinguishing this old VS Code
+port from Classic's Coda 1 identity.
+
+This is an explicit **breaking migration decision**, superseding the earlier
+frozen-ID guarantee. No old-ID alias, automatic migration, or selector-opening
+runtime code is supplied. Existing users may fall back to a default theme on
+update/reload and must open **Preferences: Color Theme** to choose a variant.
+Selecting the deprecated Legacy entry restores the same appearance. Profiles,
+workspace settings, and preferred-theme settings using the retired ID also
+need updating. The rename changes selection behavior, not the palette.
+
 The baseline fixture preserves all 47 workbench/ANSI entries, all 156 TextMate
 rules in order, exact scope strings/arrays, and font styles. Comparisons permit
 only equivalent hex casing/short-form expansion and the new display name.
@@ -266,7 +279,8 @@ Windows too.
 
 `check` is read-only and compares bytes. Missing, changed, CRLF-converted, or
 unmanaged extra theme JSON files fail. It also checks extension contributions
-against the variant registry and protects Legacy's ID/path. Both packaging and
+against the variant registry and protects Legacy's normalized ID, exact deprecated
+label, and unchanged path. Tests also reject reintroducing the retired ID. Both packaging and
 the GitHub workflow run the check without regenerating away drift.
 
 `node:test` supplies the test runner without another framework. Pinned Shiki is

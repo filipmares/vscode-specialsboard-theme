@@ -250,7 +250,7 @@ const fixtureCases = [
 
 test('real TextMate grammars render language fixtures using the intended roles', async t => {
   const highlighter = await createHighlighter({
-    themes: themes.filter(theme => theme.name !== 'Specials Board Legacy'),
+    themes: themes.filter(theme => theme.name !== model('legacy').variant.label),
     langs: [...new Set(fixtureCases.map(([, lang]) => lang))]
   });
   t.after(() => highlighter.dispose());

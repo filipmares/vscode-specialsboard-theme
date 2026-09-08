@@ -51,8 +51,8 @@
 				"path": "./themes/specialsboard-contrast.json"
 			},
 			{
-				"id": "Specials Board ",
-				"label": "Specials Board Legacy",
+				"id": "specials-board-legacy",
+				"label": "Specials Board VS Code Legacy [Deprecated]",
 				"uiTheme": "vs-dark",
 				"path": "./themes/specialsboard.json"
 			}
