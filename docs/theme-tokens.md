@@ -7,6 +7,11 @@ the flagship and Classic syntax identities within that architecture. Legacy's
 appearance remains frozen, with an intentional breaking identity rename and
 deprecation label; Contrast remains an undifferentiated preview.
 
+This guide describes the checkout's [unreleased changes](../CHANGELOG.md#unreleased),
+not a newly published release. The manifest version remains 2.2.0. For local
+installation and development-host instructions, use the
+[contributor quickstart](../vsc-extension-quickstart.md).
+
 ## Source model
 
 | Layer | File | Responsibility |
@@ -24,8 +29,8 @@ Semantic roles can alias other semantic roles; component roles can alias other
 components. Palette tokens may alias palette tokens only. Neither semantic nor
 component source files contain VS Code IDs or TextMate selectors. Adapters may
 reference semantic or component roles, never palette entries or raw colors.
-Only generated platform files contain resolved color literals, and every one must
-come through a validated role reference.
+Every emitted theme color comes through a validated role reference. Raw color
+definitions belong in the palette, not in the adapter or variant overrides.
 
 The shared base roles describe the post-Phase-0 appearance. Colors shared by
 unrelated concepts do not force shared roles: for example, keywords, terminal red,
@@ -114,6 +119,11 @@ Selecting the deprecated Legacy entry restores the same appearance. Profiles,
 workspace settings, and preferred-theme settings using the retired ID also
 need updating. The rename changes selection behavior, not the palette.
 
+The other three saved IDs are unchanged. Users who selected the 2.2.0
+flagship/Classic/Contrast previews therefore receive their restored palettes
+without having to reselect them. Deprecation does not remove Legacy from this
+package; its frozen appearance is still available under the new ID.
+
 The baseline fixture preserves all 47 workbench/ANSI entries, all 156 TextMate
 rules in order, exact scope strings/arrays, and font styles. Comparisons permit
 only equivalent hex casing/short-form expansion and the new display name.
@@ -142,7 +152,7 @@ saturation, and warmth adjustments. Its palette is not a Coda 2 reconstruction.
 | Keywords / declarations / word operators | `#cc762e` | `#d99559` | Native JavaScript/Python keywords and Ruby definitions; flagship lifts copper for small text. |
 | Strings | `#a0c25f` | `#b2c879` | Native JavaScript/CSS/Python strings; flagship softens olive. |
 | Numbers / constants / units | `#6c99bb` | `#8aafcb` | Native numbers and Ruby literals; generalizing all literal constants to dusty blue is a judgment. |
-| Functions / methods / decorators | `#da4632` | `#e08066` | Native Python builtins/special methods and JavaScript `FunctionRegex` (a function-name rule, not the regex-literal rule). Flagship lifts red-orange into terracotta, not later-port mauve. |
+| Functions / methods / decorators | `#da4632` | `#e08066` | Native Python builtins/special methods; JavaScript's row named `FunctionRegex` also uses this swatch, separately from its `Regular Expressions` row. Flagship lifts red-orange into terracotta, not later-port mauve. |
 | Variables / parameters | `#e6e1dc` | `#cec8e8` | Neutral Classic is a cross-language default judgment. Flagship's subdued lavender is inspired by native Ruby instance variables (`#c9d0ff`) and later ports, not an asserted universal native default. |
 | Tags / types / selectors | `#ffc05c` | `#efc17b` | Native HTML tags and Ruby builtin classes; universal types and CSS selector treatment are judgments. |
 | Attributes / properties / config keys | `#cc7832` | `#dfab73` | Native HTML attributes and Python special attributes; universal property treatment is a judgment. |
@@ -222,7 +232,10 @@ all paragraphs into headings or all YAML strings into properties. Python bare
 identifiers can be unscoped and stay neutral; a constructor/call or a `const`
 declaration/reference may be classified differently without semantic information.
 These are grammar boundaries, not reasons to enable broad semantic tokens early.
-Installed extensions and grammar versions can change these details.
+Installed extensions, grammar versions, semantic highlighting settings, and
+editor decorations such as bracket-pair colorization can change the visible result.
+The listed colors describe our token roles, not a guarantee that every editor
+decoration uses them.
 
 ## Authoring an override
 
@@ -258,8 +271,9 @@ references see the override. Unknown references and inheritance/alias cycles fai
 Node.js 22.12+ is development tooling only. Ajv validates the checked-in draft-07
 JSON Schemas in strict mode, offline. The generated-theme schema covers the
 adapter's supported VS Code shape, not the entire upstream VS Code color-ID
-registry. Existing IDs are retained unchanged; new platform coverage and current
-upstream registry validation belong with Phase 3.
+registry. Existing **workbench color IDs** are retained unchanged; this does not
+refer to the intentionally renamed Legacy theme-selection ID. New platform
+coverage and current upstream registry validation belong with Phase 3.
 
 ```sh
 npm ci --ignore-scripts
@@ -280,13 +294,13 @@ Windows too.
 `check` is read-only and compares bytes. Missing, changed, CRLF-converted, or
 unmanaged extra theme JSON files fail. It also checks extension contributions
 against the variant registry and protects Legacy's normalized ID, exact deprecated
-label, and unchanged path. Tests also reject reintroducing the retired ID. Both packaging and
-the GitHub workflow run the check without regenerating away drift.
+label, and unchanged path. Tests also reject reintroducing the retired ID. Both
+packaging and the GitHub workflow run the check without regenerating away drift.
 
 `node:test` supplies the test runner without another framework. Pinned Shiki is
 development-only grammar/tokenization data and an engine, not a runtime extension
-dependency or a second test runner. Tests cover the
-frozen baseline, all four identities, deterministic sorting without source
+dependency or a second test runner. Tests cover the frozen baseline, all four
+identities, deterministic sorting without source
 mutation, sparse override inheritance/isolation, reference/layer/type failures,
 alpha/fallback conversion, provenance, ANSI separation, future semantic-token
 mapping, output schema, drift error paths, restored role families and provenance
@@ -301,10 +315,16 @@ changelog, icon, and four generated themes (plus VSIX container metadata).
 The `--skip-license` flag acknowledges deferred licensing; it is not a license
 decision. Do not add a guessed LICENSE or package license field.
 
+Packaging is local-only and does not publish or increment `package.json`'s
+version. Before publication, prepare a version appropriate for the breaking
+ID change and a dated changelog entry; do not describe this checkout's
+Unreleased section as an already published release.
+
 ## Historical evidence
 
-The full research report `docs/theme-token-comparison.md` remains analysis
-material, not a runtime source or copied dependency. Its immutable Git blob is
+The full research report was authored as `docs/theme-token-comparison.md` in the
+analysis workspace; it is **not a file in this checkout** or a runtime dependency.
+Its immutable Git blob is
 `94a1e18eaaa76d50a96a4260d366ca30b02e925a`; inspect with
 `git cat-file blob 94a1e18eaaa76d50a96a4260d366ca30b02e925a` in the analysis
 repository. The project keeps a small cited reference palette and source registry
@@ -337,8 +357,8 @@ consume the same resolved model without changing any palette/role file.
 Phase 2 restores flagship/Classic syntax without expanding the workbench key set.
 Existing component aliases see the changed canvas/default foreground; other
 workbench colors and all ANSI/terminal colors are deliberately retained, not
-promoted to historical Coda authority. Phase 3 will expand workbench/semantic-token coverage (and
-revisit the minimum VS Code engine if needed). Phase 4 will differentiate
+promoted to historical Coda authority. Phase 3 will expand workbench/semantic-token
+coverage (and revisit the minimum VS Code engine if needed). Phase 4 will differentiate
 Contrast and establish reproducible accessibility/color-differentiation gates.
 Phase 5 owns release positioning/screenshots. Phase 6 owns actual terminal and
 second-editor exports. No repository license is chosen in this phase.

@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Reclassified flagship/Classic TextMate mappings around portable roles instead of inheriting One Dark-derived color exceptions.
 - Restored copper declarations, olive strings, dusty-blue literals, terracotta calls, neutral/lavender variables, honey types/tags, orange properties, purple regex/escapes, and readable italic comments.
 - Kept Contrast as an explicitly undifferentiated preview inheriting the flagship, with no accessibility guarantee.
+- Replaced the scaffold quickstart with current token-authoring, local packaging, theme-selection, and scope-inspection instructions.
 
 ### Fixed
 
@@ -40,7 +41,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- The historical saved theme ID now selects Specials Board Legacy with the unchanged post-Phase-0 appearance.
+- Retained the historical saved theme ID and labeled that appearance Specials Board Legacy, unchanged from post-Phase-0.
 - Theme sources and build tooling are excluded from VSIX runtime contents.
 
 ## [2.1.1] - 2026-09-08
@@ -48,7 +49,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Preserved syntax readability by using a translucent editor selection tint.
-- Restored visible styling for invalid, broken, unimplemented, and deprecated syntax.
+- Added explicit foreground/background settings for invalid, broken, unimplemented, and deprecated syntax. The token-background rendering limitation is addressed for restored variants in Unreleased.
 
 ### Changed
 
@@ -60,7 +61,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Inactive selection in list not visibile
+- Fixed invisible inactive selection in lists.
 
 ### Changed
 
@@ -71,18 +72,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Support for Markdown
-- Imporved support for Python, JS, TS
+- Improved support for Python, JS, and TS.
 
 ### Fixed
 
-- Theme closer resembles Coda theme
+- Made the theme more closely resemble the Coda theme.
 
 ### Changed
 
-- Using JSON theme file instead of tmTheme file
+- Switched from a `.tmTheme` file to a JSON theme file.
 
 ## [1.0.0] - 2018-07-05
 
 ### Changed
 
-- Initial release based on port of Textmate theme
+- Initial release based on a port of the TextMate theme.

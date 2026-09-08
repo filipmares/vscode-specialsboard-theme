@@ -1,8 +1,13 @@
 # Specials Board Theme
 
-This theme brings the Specials Board theme from the Coda editor to Visual Studio Code. 
+Specials Board interprets the Coda editor's theme for Visual Studio Code.
 
 [Get it from the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=filipmares.theme-specialsboard)
+
+This checkout includes [unreleased changes](CHANGELOG.md#unreleased), including
+Phase 2 restoration and the breaking Legacy ID rename. The manifest remains at
+2.2.0 until a new release is prepared; building a local VSIX does not publish
+an extension update.
 
 ## Variants
 
@@ -37,6 +42,10 @@ flagship, **Specials Board Classic** for the Coda 1-grounded palette, or
 VS Code does not automatically open the selector. Update any profiles, workspace
 settings, or preferred-theme settings that still reference the retired ID.
 
+Users already on the 2.2.0 flagship, Classic, or Contrast previews keep their
+saved IDs but receive the corresponding restored palettes. Users of other
+extensions' themes are not switched to Specials Board.
+
 ## Development
 
 Use Node.js 22.12+ and npm. Tooling is development-only; the extension has no
@@ -59,12 +68,14 @@ See [the token architecture and authoring guide](docs/theme-tokens.md) for the
 exact palette, native evidence versus modern judgments, grammar limitations,
 DTCG profile, and future adapter contract. Purpose-written language examples
 live in `test files/identity/`; tests tokenize them with pinned TextMate grammars.
+The [contributor quickstart](vsc-extension-quickstart.md) covers local VSIX
+installation, development-host previews, and token inspection.
 Licensing remains deferred because historical sources have conflicting provenance;
 packaging explicitly skips the missing-license gate without assigning a license.
 
-# Screenshot
+## Historical screenshot
 
 Historical pre-restoration screenshot; it does not represent the restored
 flagship or Classic. Updated Marketplace imagery belongs to the release-positioning phase.
 
-![Specials Board Screenshot](https://user-images.githubusercontent.com/249027/71357793-2c97f880-25ca-11ea-80c4-fc79fcf1de4a.png)
+![Historical pre-restoration Specials Board syntax highlighting in VS Code](https://user-images.githubusercontent.com/249027/71357793-2c97f880-25ca-11ea-80c4-fc79fcf1de4a.png)
