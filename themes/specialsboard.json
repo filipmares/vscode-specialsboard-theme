@@ -9,7 +9,7 @@
 		"editor.foreground": "#FFFFFF",
 		"editorWhitespace.foreground": "#434343",
 		"editor.lineHighlightBackground": "#2e2d2d",
-		"editor.selectionBackground": "#676869",
+		"editor.selectionBackground": "#6c99bb33",
 		"badge.background": "#d0663a",
 		// Activity Bar
 		"activityBar.background": "#2e2d2d",
@@ -37,15 +37,15 @@
 		"terminal.ansiBrightGreen": "#b9c87f",
 		"terminal.ansiBrightMagenta": "#a97a8c",
 		"terminal.ansiBrightRed": "#ac4639",
-		"terminal.ansiBrightWhite": "#d9dbfcff",
+		"terminal.ansiBrightWhite": "#d9dbfc",
 		"terminal.ansiBrightYellow": "#c4bc3c",
 		"terminal.ansiCyan": "#86a9c4",
 		"terminal.ansiGreen": "#b9c87f",
 		"terminal.ansiMagenta": "#a97a8c",
 		"terminal.ansiRed": "#ac4639",
-		"terminal.ansiWhite": "#d9dbfcff",
+		"terminal.ansiWhite": "#d9dbfc",
 		"terminal.ansiYellow": "#c4bc3c",
-		"terminal.foreground": "#d9dbfcff",
+		"terminal.foreground": "#d9dbfc",
 		// Status bar
 		"statusBar.background": "#383939",
 		"statusBar.debuggingBackground": "#383939",
@@ -90,7 +90,7 @@
 				"markup.heading.setext.2.markdown"
 			],
 			"settings": {
-				"foreground": "#d19a66ff"
+				"foreground": "#d19a66"
 			}
 		},
 		{
@@ -343,35 +343,40 @@
 			"name": "Unimplemented",
 			"scope": "invalid.unimplemented",
 			"settings": {
-				"foreground": "#ffffff"
+				"background": "#a71e17",
+				"foreground": "#e6e1dc"
 			}
 		},
 		{
 			"name": "Deprecated",
 			"scope": "invalid.deprecated",
 			"settings": {
-				"foreground": "#ffffff"
+				"background": "#a71e17",
+				"foreground": "#e6e1dc"
 			}
 		},
 		{
 			"name": "Broken",
 			"scope": "invalid.broken",
 			"settings": {
-				"foreground": "#ffffff"
+				"background": "#a71e17",
+				"foreground": "#e6e1dc"
 			}
 		},
 		{
 			"name": "Illegal",
 			"scope": "invalid.illegal.bad-ampersand.html",
 			"settings": {
-				"foreground": "#abb2bf"
+				"background": "#a71e17",
+				"foreground": "#e6e1dc"
 			}
 		},
 		{
 			"name": "Illegal",
 			"scope": "invalid.illegal",
 			"settings": {
-				"foreground": "#ffffff"
+				"background": "#a71e17",
+				"foreground": "#e6e1dc"
 			}
 		},
 		{
@@ -407,7 +412,7 @@
 			"scope": "markup.bold.markdown",
 			"settings": {
 				"fontStyle": "bold",
-				"foreground": "#e5c07bff"
+				"foreground": "#e5c07b"
 			}
 		},
 		{
@@ -488,7 +493,7 @@
 			"name": "[VSCODE-CUSTOM] Markdown Punctuation Definition Bold",
 			"scope": "punctuation.definition.bold.markdown",
 			"settings": {
-				"foreground": "#e5c07bff"
+				"foreground": "#e5c07b"
 			}
 		},
 		{
@@ -883,14 +888,14 @@
 			"name": "python parameter",
 			"scope": "variable.parameter.function.language.python",
 			"settings": {
-				"foreground": "#d9dbfcff"
+				"foreground": "#d9dbfc"
 			}
 		},
 		{
 			"name": "python source",
 			"scope": "source.python",
 			"settings": {
-				"foreground": "#d9dbfcff"
+				"foreground": "#d9dbfc"
 			}
 		},
 		{
@@ -1191,14 +1196,14 @@
 			"scope": "markup.italic.markdown",
 			"settings": {
 				"fontStyle": "italic",
-				"foreground": "#e5c07bff"
+				"foreground": "#e5c07b"
 			}
 		},
 		{
 			"name": "meta.separator.markdown",
 			"scope": "meta.separator.markdown",
 			"settings": {
-				"foreground": "#e5c07bff"
+				"foreground": "#e5c07b"
 			}
 		},
 		{

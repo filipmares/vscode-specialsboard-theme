@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Fixed
+
+- Preserved syntax readability by using a translucent editor selection tint.
+- Restored visible styling for invalid, broken, unimplemented, and deprecated syntax.
+
+### Changed
+
+- Cleaned extension metadata and retained the existing theme identifier with a corrected display label.
+- Limited packaged files to Marketplace release assets.
+- Set the minimum supported VS Code version to 1.34.
+
 ## [2.1.0] - 2025-11-26
 
 ### Fixed
