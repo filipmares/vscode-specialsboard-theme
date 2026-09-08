@@ -1,0 +1,38 @@
+[
+  {
+    "key": "flagship",
+    "id": "specials-board",
+    "label": "Specials Board",
+    "vscodeId": "specials-board",
+    "output": "specialsboard-flagship.json",
+    "inherits": "base",
+    "status": "foundation-preview"
+  },
+  {
+    "key": "classic",
+    "id": "specials-board-classic",
+    "label": "Specials Board Classic",
+    "vscodeId": "specials-board-classic",
+    "output": "specialsboard-classic.json",
+    "inherits": "flagship",
+    "status": "foundation-preview"
+  },
+  {
+    "key": "contrast",
+    "id": "specials-board-contrast",
+    "label": "Specials Board Contrast",
+    "vscodeId": "specials-board-contrast",
+    "output": "specialsboard-contrast.json",
+    "inherits": "flagship",
+    "status": "foundation-preview"
+  },
+  {
+    "key": "legacy",
+    "id": "specials-board-legacy",
+    "label": "Specials Board Legacy",
+    "vscodeId": "Specials Board ",
+    "output": "specialsboard.json",
+    "inherits": "base",
+    "status": "compatibility"
+  }
+]

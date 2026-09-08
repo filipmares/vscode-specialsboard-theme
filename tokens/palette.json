@@ -1,0 +1,1001 @@
+{
+  "$description": "Reference colors only. Historical Coda, reconstructions, and the compatibility palette are deliberately separate.",
+  "palette": {
+    "legacy": {
+      "charcoal": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.2196078431372549,
+            0.2235294117647059,
+            0.2235294117647059
+          ],
+          "alpha": 1,
+          "hex": "#383939"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "phase0",
+            "evidence": "Literal #383939 in the post-Phase-0 theme (c188c33); no claim of Coda authority."
+          }
+        }
+      },
+      "warm-white": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.9019607843137255,
+            0.8823529411764706,
+            0.8627450980392157
+          ],
+          "alpha": 1,
+          "hex": "#e6e1dc"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "phase0",
+            "evidence": "Literal #e6e1dc in the post-Phase-0 theme (c188c33); no claim of Coda authority."
+          }
+        }
+      },
+      "white": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 1,
+          "hex": "#ffffff"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "phase0",
+            "evidence": "Literal #ffffff in the post-Phase-0 theme (c188c33); no claim of Coda authority."
+          }
+        }
+      },
+      "invisible-gray": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.2627450980392157,
+            0.2627450980392157,
+            0.2627450980392157
+          ],
+          "alpha": 1,
+          "hex": "#434343"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "phase0",
+            "evidence": "Literal #434343 in the post-Phase-0 theme (c188c33); no claim of Coda authority."
+          }
+        }
+      },
+      "deep-charcoal": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.1803921568627451,
+            0.17647058823529413,
+            0.17647058823529413
+          ],
+          "alpha": 1,
+          "hex": "#2e2d2d"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "phase0",
+            "evidence": "Literal #2e2d2d in the post-Phase-0 theme (c188c33); no claim of Coda authority."
+          }
+        }
+      },
+      "selection-blue": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.4235294117647059,
+            0.6,
+            0.7333333333333333
+          ],
+          "alpha": 0.2,
+          "hex": "#6c99bb"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "phase0",
+            "evidence": "Literal #6c99bb33 in the post-Phase-0 theme (c188c33); no claim of Coda authority."
+          }
+        }
+      },
+      "copper-accent": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.8156862745098039,
+            0.4,
+            0.22745098039215686
+          ],
+          "alpha": 1,
+          "hex": "#d0663a"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "phase0",
+            "evidence": "Literal #d0663a in the post-Phase-0 theme (c188c33); no claim of Coda authority."
+          }
+        }
+      },
+      "hover-gray": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.403921568627451,
+            0.40784313725490196,
+            0.4117647058823529
+          ],
+          "alpha": 1,
+          "hex": "#676869"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "phase0",
+            "evidence": "Literal #676869 in the post-Phase-0 theme (c188c33); no claim of Coda authority."
+          }
+        }
+      },
+      "terminal-black": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.17647058823529413,
+            0.19215686274509805,
+            0.2235294117647059
+          ],
+          "alpha": 1,
+          "hex": "#2d3139"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "phase0",
+            "evidence": "Literal #2d3139 in the post-Phase-0 theme (c188c33); no claim of Coda authority."
+          }
+        }
+      },
+      "blue": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.3215686274509804,
+            0.5254901960784314,
+            0.7176470588235294
+          ],
+          "alpha": 1,
+          "hex": "#5286b7"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "phase0",
+            "evidence": "Literal #5286b7 in the post-Phase-0 theme (c188c33); no claim of Coda authority."
+          }
+        }
+      },
+      "terminal-gray": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.4980392156862745,
+            0.5176470588235295,
+            0.5568627450980392
+          ],
+          "alpha": 1,
+          "hex": "#7f848e"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "phase0",
+            "evidence": "Literal #7f848e in the post-Phase-0 theme (c188c33); no claim of Coda authority."
+          }
+        }
+      },
+      "pale-blue": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.5254901960784314,
+            0.6627450980392157,
+            0.7686274509803922
+          ],
+          "alpha": 1,
+          "hex": "#86a9c4"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "phase0",
+            "evidence": "Literal #86a9c4 in the post-Phase-0 theme (c188c33); no claim of Coda authority."
+          }
+        }
+      },
+      "olive": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.7254901960784313,
+            0.7843137254901961,
+            0.4980392156862745
+          ],
+          "alpha": 1,
+          "hex": "#b9c87f"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "phase0",
+            "evidence": "Literal #b9c87f in the post-Phase-0 theme (c188c33); no claim of Coda authority."
+          }
+        }
+      },
+      "mauve": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.6627450980392157,
+            0.47843137254901963,
+            0.5490196078431373
+          ],
+          "alpha": 1,
+          "hex": "#a97a8c"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "phase0",
+            "evidence": "Literal #a97a8c in the post-Phase-0 theme (c188c33); no claim of Coda authority."
+          }
+        }
+      },
+      "brick": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.6745098039215687,
+            0.27450980392156865,
+            0.2235294117647059
+          ],
+          "alpha": 1,
+          "hex": "#ac4639"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "phase0",
+            "evidence": "Literal #ac4639 in the post-Phase-0 theme (c188c33); no claim of Coda authority."
+          }
+        }
+      },
+      "lavender": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.8509803921568627,
+            0.8588235294117647,
+            0.9882352941176471
+          ],
+          "alpha": 1,
+          "hex": "#d9dbfc"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "phase0",
+            "evidence": "Literal #d9dbfc in the post-Phase-0 theme (c188c33); no claim of Coda authority."
+          }
+        }
+      },
+      "yellow-olive": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.7686274509803922,
+            0.7372549019607844,
+            0.23529411764705882
+          ],
+          "alpha": 1,
+          "hex": "#c4bc3c"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "phase0",
+            "evidence": "Literal #c4bc3c in the post-Phase-0 theme (c188c33); no claim of Coda authority."
+          }
+        }
+      },
+      "sand": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.7254901960784313,
+            0.6392156862745098,
+            0.4392156862745098
+          ],
+          "alpha": 1,
+          "hex": "#b9a370"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "phase0",
+            "evidence": "Literal #b9a370 in the post-Phase-0 theme (c188c33); no claim of Coda authority."
+          }
+        }
+      },
+      "cool-gray": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.6705882352941176,
+            0.6980392156862745,
+            0.7490196078431373
+          ],
+          "alpha": 1,
+          "hex": "#abb2bf"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "phase0",
+            "evidence": "Literal #abb2bf in the post-Phase-0 theme (c188c33); no claim of Coda authority."
+          }
+        }
+      },
+      "tan": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.8196078431372549,
+            0.6039215686274509,
+            0.4
+          ],
+          "alpha": 1,
+          "hex": "#d19a66"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "phase0",
+            "evidence": "Literal #d19a66 in the post-Phase-0 theme (c188c33); no claim of Coda authority."
+          }
+        }
+      },
+      "coral": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.8784313725490196,
+            0.4235294117647059,
+            0.4588235294117647
+          ],
+          "alpha": 1,
+          "hex": "#e06c75"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "phase0",
+            "evidence": "Literal #e06c75 in the post-Phase-0 theme (c188c33); no claim of Coda authority."
+          }
+        }
+      },
+      "orchid": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.7764705882352941,
+            0.47058823529411764,
+            0.8666666666666667
+          ],
+          "alpha": 1,
+          "hex": "#c678dd"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "phase0",
+            "evidence": "Literal #c678dd in the post-Phase-0 theme (c188c33); no claim of Coda authority."
+          }
+        }
+      },
+      "green": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.596078431372549,
+            0.7647058823529411,
+            0.4745098039215686
+          ],
+          "alpha": 1,
+          "hex": "#98c379"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "phase0",
+            "evidence": "Literal #98c379 in the post-Phase-0 theme (c188c33); no claim of Coda authority."
+          }
+        }
+      },
+      "sky": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.3803921568627451,
+            0.6862745098039216,
+            0.9372549019607843
+          ],
+          "alpha": 1,
+          "hex": "#61afef"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "phase0",
+            "evidence": "Literal #61afef in the post-Phase-0 theme (c188c33); no claim of Coda authority."
+          }
+        }
+      },
+      "error-red": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.9568627450980393,
+            0.2784313725490196,
+            0.2784313725490196
+          ],
+          "alpha": 1,
+          "hex": "#f44747"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "phase0",
+            "evidence": "Literal #f44747 in the post-Phase-0 theme (c188c33); no claim of Coda authority."
+          }
+        }
+      },
+      "cyan": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.33725490196078434,
+            0.7137254901960784,
+            0.7607843137254902
+          ],
+          "alpha": 1,
+          "hex": "#56b6c2"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "phase0",
+            "evidence": "Literal #56b6c2 in the post-Phase-0 theme (c188c33); no claim of Coda authority."
+          }
+        }
+      },
+      "invalid-red": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.6549019607843137,
+            0.11764705882352941,
+            0.09019607843137255
+          ],
+          "alpha": 1,
+          "hex": "#a71e17"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "phase0",
+            "evidence": "Literal #a71e17 in the post-Phase-0 theme (c188c33); no claim of Coda authority."
+          }
+        }
+      },
+      "gold": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.8980392156862745,
+            0.7529411764705882,
+            0.4823529411764706
+          ],
+          "alpha": 1,
+          "hex": "#e5c07b"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "phase0",
+            "evidence": "Literal #e5c07b in the post-Phase-0 theme (c188c33); no claim of Coda authority."
+          }
+        }
+      },
+      "copper": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.803921568627451,
+            0.5529411764705883,
+            0.3058823529411765
+          ],
+          "alpha": 1,
+          "hex": "#cd8d4e"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "phase0",
+            "evidence": "Literal #cd8d4e in the post-Phase-0 theme (c188c33); no claim of Coda authority."
+          }
+        }
+      },
+      "honey": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.9764705882352941,
+            0.8156862745098039,
+            0.5450980392156862
+          ],
+          "alpha": 1,
+          "hex": "#f9d08b"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "phase0",
+            "evidence": "Literal #f9d08b in the post-Phase-0 theme (c188c33); no claim of Coda authority."
+          }
+        }
+      },
+      "burnt-orange": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.8196078431372549,
+            0.403921568627451,
+            0.22745098039215686
+          ],
+          "alpha": 1,
+          "hex": "#d1673a"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "phase0",
+            "evidence": "Literal #d1673a in the post-Phase-0 theme (c188c33); no claim of Coda authority."
+          }
+        }
+      },
+      "pale-honey": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.9803921568627451,
+            0.8156862745098039,
+            0.5450980392156862
+          ],
+          "alpha": 1,
+          "hex": "#fad08b"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "phase0",
+            "evidence": "Literal #fad08b in the post-Phase-0 theme (c188c33); no claim of Coda authority."
+          }
+        }
+      },
+      "slate": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.3607843137254902,
+            0.38823529411764707,
+            0.4392156862745098
+          ],
+          "alpha": 1,
+          "hex": "#5c6370"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "phase0",
+            "evidence": "Literal #5c6370 in the post-Phase-0 theme (c188c33); no claim of Coda authority."
+          }
+        }
+      },
+      "purple": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.5803921568627451,
+            0.4627450980392157,
+            0.8313725490196079
+          ],
+          "alpha": 1,
+          "hex": "#9476d4"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "phase0",
+            "evidence": "Literal #9476d4 in the post-Phase-0 theme (c188c33); no claim of Coda authority."
+          }
+        }
+      },
+      "light-purple": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.7098039215686275,
+            0.611764705882353,
+            0.9058823529411765
+          ],
+          "alpha": 1,
+          "hex": "#b59ce7"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "phase0",
+            "evidence": "Literal #b59ce7 in the post-Phase-0 theme (c188c33); no claim of Coda authority."
+          }
+        }
+      }
+    },
+    "coda1": {
+      "charcoal": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.16862745098039217,
+            0.16862745098039217,
+            0.16862745098039217
+          ],
+          "alpha": 1,
+          "hex": "#2b2b2b"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "coda1",
+            "evidence": "native-syntax-modes/Javascript.seestyle: _Default background (NOT its black foreground)."
+          }
+        }
+      },
+      "warm-white": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.9019607843137255,
+            0.8823529411764706,
+            0.8627450980392157
+          ],
+          "alpha": 1,
+          "hex": "#e6e1dc"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "coda1",
+            "evidence": "custom-syntax-modes/Django-Template.seestyle: /Django-Template/Django-Template foreground."
+          }
+        }
+      },
+      "gray": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.4,
+            0.4,
+            0.4
+          ],
+          "alpha": 1,
+          "hex": "#666666"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "coda1",
+            "evidence": "native-syntax-modes/Javascript.seestyle: /Javascript/Comment."
+          }
+        }
+      },
+      "copper": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.8,
+            0.4627450980392157,
+            0.1803921568627451
+          ],
+          "alpha": 1,
+          "hex": "#cc762e"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "coda1",
+            "evidence": "native-syntax-modes/Javascript.seestyle: /Javascript/Keywords."
+          }
+        }
+      },
+      "olive": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.6274509803921569,
+            0.7607843137254902,
+            0.37254901960784315
+          ],
+          "alpha": 1,
+          "hex": "#a0c25f"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "coda1",
+            "evidence": "native-syntax-modes/Javascript.seestyle: /Javascript/String."
+          }
+        }
+      },
+      "blue": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.4235294117647059,
+            0.6,
+            0.7333333333333333
+          ],
+          "alpha": 1,
+          "hex": "#6c99bb"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "coda1",
+            "evidence": "native-syntax-modes/Javascript.seestyle: /Javascript/Numbers."
+          }
+        }
+      },
+      "red-orange": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.8549019607843137,
+            0.27450980392156865,
+            0.19607843137254902
+          ],
+          "alpha": 1,
+          "hex": "#da4632"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "coda1",
+            "evidence": "native-syntax-modes/Javascript.seestyle: /Javascript/FunctionRegex."
+          }
+        }
+      },
+      "purple": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.5333333333333333,
+            0.33725490196078434,
+            0.8235294117647058
+          ],
+          "alpha": 1,
+          "hex": "#8856d2"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "coda1",
+            "evidence": "native-syntax-modes/Javascript.seestyle: /Javascript/Regular Expressions."
+          }
+        }
+      },
+      "light-purple": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.7450980392156863,
+            0.45098039215686275,
+            0.9921568627450981
+          ],
+          "alpha": 1,
+          "hex": "#be73fd"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "coda1",
+            "evidence": "native-syntax-modes/Javascript.seestyle: /Javascript/Escaped Characters."
+          }
+        }
+      }
+    },
+    "coda2-atom": {
+      "charcoal": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.2235294117647059,
+            0.2235294117647059,
+            0.2235294117647059
+          ],
+          "alpha": 1,
+          "hex": "#393939"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "coda2-atom",
+            "evidence": "Normalized comparison: Background; Atom reconstruction, not native Coda."
+          }
+        }
+      },
+      "warm-white": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.9215686274509803,
+            0.9058823529411765,
+            0.8901960784313725
+          ],
+          "alpha": 1,
+          "hex": "#ebe7e3"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "coda2-atom",
+            "evidence": "Normalized comparison: Foreground; Atom reconstruction."
+          }
+        }
+      },
+      "lavender": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.8156862745098039,
+            0.8156862745098039,
+            1
+          ],
+          "alpha": 1,
+          "hex": "#d0d0ff"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "coda2-atom",
+            "evidence": "Normalized comparison: Variables; Atom reconstruction."
+          }
+        }
+      },
+      "red-orange": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.8941176470588236,
+            0.3686274509803922,
+            0.20784313725490197
+          ],
+          "alpha": 1,
+          "hex": "#e45e35"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "coda2-atom",
+            "evidence": "Normalized comparison: Functions / methods; Atom reconstruction."
+          }
+        }
+      }
+    },
+    "repository-textmate": {
+      "charcoal": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.2235294117647059,
+            0.2235294117647059,
+            0.2235294117647059
+          ],
+          "alpha": 1,
+          "hex": "#393939"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "repository-textmate",
+            "evidence": "Root settings.background."
+          }
+        }
+      },
+      "terracotta": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.6941176470588235,
+            0.45098039215686275,
+            0.44313725490196076
+          ],
+          "alpha": 1,
+          "hex": "#b17371"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "repository-textmate",
+            "evidence": "entity.name.function and support.function foreground."
+          }
+        }
+      },
+      "honey": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            0.7764705882352941,
+            0.42745098039215684
+          ],
+          "alpha": 1,
+          "hex": "#ffc66d"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "repository-textmate",
+            "evidence": "entity.tag foreground."
+          }
+        }
+      },
+      "purple": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.5333333333333333,
+            0.3411764705882353,
+            0.8235294117647058
+          ],
+          "alpha": 1,
+          "hex": "#8857d2"
+        },
+        "$extensions": {
+          "org.specialsboard.provenance": {
+            "source": "repository-textmate",
+            "evidence": "string.regex foreground."
+          }
+        }
+      }
+    }
+  }
+}

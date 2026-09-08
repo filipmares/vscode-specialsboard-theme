@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://specialsboard.local/schemas/provenance",
+  "type": "object",
+  "minProperties": 1,
+  "propertyNames": { "pattern": "^[a-z][a-z0-9-]*$" },
+  "additionalProperties": {
+    "type": "object",
+    "required": ["authority", "source", "notes"],
+    "additionalProperties": false,
+    "properties": {
+      "authority": { "enum": ["authoritative-coda", "reconstruction", "project-history", "judgment"] },
+      "source": { "type": "string", "minLength": 1 },
+      "notes": { "type": "string", "minLength": 1 }
+    }
+  }
+}

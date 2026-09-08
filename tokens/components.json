@@ -1,0 +1,135 @@
+{
+  "$description": "Portable component/state roles; no VS Code workbench IDs or TextMate scopes.",
+  "$extensions": {
+    "org.specialsboard.provenance": {
+      "source": "phase1-role-extraction",
+      "evidence": "Role extraction from themes/specialsboard.json at c188c33; scope order and assignments retained."
+    }
+  },
+  "component": {
+    "editor": {
+      "background": {
+        "$type": "color",
+        "$value": "{semantic.surface.canvas}"
+      },
+      "foreground": {
+        "$type": "color",
+        "$value": "{semantic.text.primary}"
+      },
+      "cursor": {
+        "$type": "color",
+        "$value": "{semantic.text.warm}"
+      },
+      "whitespace": {
+        "$type": "color",
+        "$value": "{semantic.text.invisible}"
+      },
+      "line-highlight": {
+        "$type": "color",
+        "$value": "{semantic.surface.panel}"
+      },
+      "selection": {
+        "$type": "color",
+        "$value": "{semantic.surface.selection}"
+      }
+    },
+    "badge": {
+      "background": {
+        "$type": "color",
+        "$value": "{semantic.accent.primary}"
+      }
+    },
+    "navigation": {
+      "background": {
+        "$type": "color",
+        "$value": "{semantic.surface.panel}"
+      }
+    },
+    "tab": {
+      "active-background": {
+        "$type": "color",
+        "$value": "{semantic.surface.canvas}"
+      },
+      "active-foreground": {
+        "$type": "color",
+        "$value": "{semantic.text.primary}"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{semantic.surface.panel}"
+      },
+      "hover-background": {
+        "$type": "color",
+        "$value": "{semantic.surface.hover}"
+      },
+      "inactive-background": {
+        "$type": "color",
+        "$value": "{semantic.surface.panel}"
+      }
+    },
+    "sidebar": {
+      "background": {
+        "$type": "color",
+        "$value": "{semantic.surface.panel}"
+      }
+    },
+    "list": {
+      "active-background": {
+        "$type": "color",
+        "$value": "{semantic.surface.canvas}"
+      },
+      "active-foreground": {
+        "$type": "color",
+        "$value": "{semantic.text.primary}"
+      },
+      "hover-background": {
+        "$type": "color",
+        "$value": "{semantic.surface.hover}"
+      },
+      "inactive-background": {
+        "$type": "color",
+        "$value": "{semantic.surface.hover}"
+      }
+    },
+    "console": {
+      "foreground": {
+        "$type": "color",
+        "$value": "{semantic.terminal.foreground}"
+      }
+    },
+    "status": {
+      "background": {
+        "$type": "color",
+        "$value": "{semantic.surface.canvas}"
+      },
+      "foreground": {
+        "$type": "color",
+        "$value": "{semantic.text.warm}"
+      },
+      "debug-background": {
+        "$type": "color",
+        "$value": "{semantic.surface.canvas}"
+      },
+      "debug-border": {
+        "$type": "color",
+        "$value": "{semantic.surface.canvas}"
+      },
+      "debug-foreground": {
+        "$type": "color",
+        "$value": "{semantic.text.primary}"
+      },
+      "hover-background": {
+        "$type": "color",
+        "$value": "{semantic.surface.hover}"
+      },
+      "remote-background": {
+        "$type": "color",
+        "$value": "{semantic.accent.remote}"
+      },
+      "remote-foreground": {
+        "$type": "color",
+        "$value": "{semantic.text.warm}"
+      }
+    }
+  }
+}

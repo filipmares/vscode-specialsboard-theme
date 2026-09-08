@@ -8,3 +8,12 @@ themes/*.tmTheme
 .gitignore
 screenshot.png
 vsc-extension-quickstart.md
+tokens/**
+adapters/**
+scripts/**
+schemas/**
+tests/**
+docs/**
+node_modules/**
+package-lock.json
+.gitattributes

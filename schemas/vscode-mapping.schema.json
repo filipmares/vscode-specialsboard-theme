@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://specialsboard.local/schemas/vscode-mapping",
+  "type": "object",
+  "required": ["workbench", "textMate", "semanticTokens", "ansi"],
+  "additionalProperties": false,
+  "properties": {
+    "workbench": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": { "pattern": "^[a-zA-Z][a-zA-Z0-9]*(\\.[a-zA-Z][a-zA-Z0-9]*)+$" },
+      "additionalProperties": { "$ref": "tokens#/definitions/alias" }
+    },
+    "textMate": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["scope", "settings"],
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string" },
+          "scope": {
+            "oneOf": [
+              { "type": "string", "minLength": 1 },
+              { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } }
+            ]
+          },
+          "settings": {
+            "type": "object",
+            "minProperties": 1,
+            "additionalProperties": false,
+            "properties": {
+              "foreground": { "$ref": "tokens#/definitions/alias" },
+              "background": { "$ref": "tokens#/definitions/alias" },
+              "fontStyle": { "type": "string", "pattern": "^(|(?:italic|bold|underline|strikethrough)(?: (?:italic|bold|underline|strikethrough))*)$" }
+            }
+          }
+        }
+      }
+    },
+    "semanticTokens": {
+      "type": "object",
+      "additionalProperties": {
+        "oneOf": [
+          { "$ref": "tokens#/definitions/alias" },
+          {
+            "type": "object",
+            "minProperties": 1,
+            "additionalProperties": false,
+            "properties": {
+              "foreground": { "$ref": "tokens#/definitions/alias" },
+              "bold": { "type": "boolean" },
+              "italic": { "type": "boolean" },
+              "underline": { "type": "boolean" },
+              "strikethrough": { "type": "boolean" }
+            }
+          }
+        ]
+      }
+    },
+    "ansi": {
+      "type": "object",
+      "minProperties": 16,
+      "maxProperties": 16,
+      "propertyNames": { "enum": ["black", "red", "green", "yellow", "blue", "magenta", "cyan", "white", "brightBlack", "brightRed", "brightGreen", "brightYellow", "brightBlue", "brightMagenta", "brightCyan", "brightWhite"] },
+      "additionalProperties": { "$ref": "tokens#/definitions/alias" }
+    }
+  }
+}

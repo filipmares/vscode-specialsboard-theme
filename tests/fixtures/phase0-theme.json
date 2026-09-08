@@ -1,37 +1,30 @@
 {
   "$schema": "vscode://schemas/color-theme",
+  "name": "Specials Board",
   "author": "Filip Mares",
+  "type": "dark",
   "colors": {
-    "activityBar.background": "#2e2d2d",
-    "activityBarBadge.background": "#d0663a",
-    "badge.background": "#d0663a",
     "editor.background": "#383939",
-    "editor.foreground": "#ffffff",
+    "editorCursor.foreground": "#e6e1dc",
+    "editor.foreground": "#FFFFFF",
+    "editorWhitespace.foreground": "#434343",
     "editor.lineHighlightBackground": "#2e2d2d",
     "editor.selectionBackground": "#6c99bb33",
-    "editorCursor.foreground": "#e6e1dc",
-    "editorWhitespace.foreground": "#434343",
-    "list.activeSelectionBackground": "#383939",
-    "list.activeSelectionForeground": "#ffffff",
-    "list.hoverBackground": "#676869",
-    "list.inactiveSelectionBackground": "#676869",
-    "sideBar.background": "#2e2d2d",
-    "sideBarSectionHeader.background": "#2e2d2d",
-    "statusBar.background": "#383939",
-    "statusBar.debuggingBackground": "#383939",
-    "statusBar.debuggingBorder": "#383939",
-    "statusBar.debuggingForeground": "#ffffff",
-    "statusBar.foreground": "#e6e1dc",
-    "statusBar.noFolderBackground": "#383939",
-    "statusBarItem.hoverBackground": "#676869",
-    "statusBarItem.remoteBackground": "#5286b7",
-    "statusBarItem.remoteForeground": "#e6e1dc",
+    "badge.background": "#d0663a",
+    "activityBar.background": "#2e2d2d",
+    "activityBarBadge.background": "#d0663a",
     "tab.activeBackground": "#383939",
-    "tab.activeForeground": "#ffffff",
+    "tab.activeForeground": "#FFFFFF",
     "tab.border": "#2e2d2d",
     "tab.hoverBackground": "#676869",
     "tab.inactiveBackground": "#2e2d2d",
     "tab.unfocusedHoverBackground": "#676869",
+    "sideBar.background": "#2e2d2d",
+    "sideBarSectionHeader.background": "#2e2d2d",
+    "list.activeSelectionBackground": "#383939",
+    "list.activeSelectionForeground": "#ffffff",
+    "list.hoverBackground": "#676869",
+    "list.inactiveSelectionBackground": "#676869",
     "terminal.ansiBlack": "#2d3139",
     "terminal.ansiBlue": "#5286b7",
     "terminal.ansiBrightBlack": "#7f848e",
@@ -48,9 +41,17 @@
     "terminal.ansiRed": "#ac4639",
     "terminal.ansiWhite": "#d9dbfc",
     "terminal.ansiYellow": "#c4bc3c",
-    "terminal.foreground": "#d9dbfc"
+    "terminal.foreground": "#d9dbfc",
+    "statusBar.background": "#383939",
+    "statusBar.debuggingBackground": "#383939",
+    "statusBar.debuggingBorder": "#383939",
+    "statusBar.debuggingForeground": "#ffffff",
+    "statusBar.foreground": "#e6e1dc",
+    "statusBar.noFolderBackground": "#383939",
+    "statusBarItem.hoverBackground": "#676869",
+    "statusBarItem.remoteBackground": "#5286b7",
+    "statusBarItem.remoteForeground": "#e6e1dc"
   },
-  "name": "Specials Board Legacy",
   "tokenColors": [
     {
       "name": "[VSCODE-CUSTOM] Markdown Quote",
@@ -459,7 +460,7 @@
         "punctuation.definition.constant.end.markdown"
       ],
       "settings": {
-        "foreground": "#ffffff"
+        "foreground": "#fff"
       }
     },
     {
@@ -1214,6 +1215,5 @@
         "fontStyle": "italic"
       }
     }
-  ],
-  "type": "dark"
+  ]
 }
