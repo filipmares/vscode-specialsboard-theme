@@ -571,3 +571,40 @@ still does not paint them. Any other warning or unknown color fails the smoke.
 not another saved-ID migration or syntax redesign. Older hosts need an earlier
 compatible extension version. The runtime package remains declarative: no
 activation code, dependencies, telemetry or automatic settings changes.
+
+## Oh My Posh prompt adapter
+
+`adapters/oh-my-posh.json` maps native palette keys only to `semantic.prompt.*`.
+These are authored prompt meanings, not inherited syntax or ANSI semantics.
+The `prompt-adapter` provenance record documents the original ASCII layout and
+the decision to reuse existing surface/text/feedback families. No raw color or
+independent variant palette is added: background follows the canvas, path follows
+primary text, duration/separators follow muted text, clean/success follow success
+feedback, local changes/behind follow warning, staged follows accent, ahead follows
+info, and diverged/failure follow error. Different meanings can share a hue;
+labels, counters and exit codes remain authoritative.
+
+`scripts/oh-my-posh.mjs` consumes `compileSources`, exports an opaque native RGB
+`palette` and references it through `p:name` in every foreground/background and
+conditional template. Oh My Posh 31.2.1 automatically discovers Git probes from
+named fields in templates; deprecated `fetch_status`/`source` options are not
+emitted. Git color precedence is diverged, modified, staged, ahead, behind, clean;
+the text independently retains simultaneous states. The original layout uses
+only plain segments and ASCII separators; no third-party preset is imported.
+
+New prompt roles need documented meaning and provenance. Override aliases through
+the existing variant graph when necessary, never hand-edit generated `.omp.json`
+or recolor existing targets. Prompt-specific overrides must not affect VS Code,
+Windows Terminal, Neovim or sibling variants. Legacy is deliberately not exported.
+Offline tests cover strict source/native shape, role resolution, inheritance,
+existing-target byte locks and drift. `ports:validate` also validates the pinned
+upstream schema; `posh:smoke` checks actual native rendering in synthetic local
+repositories with isolated configuration.
+
+`scripts/oh-my-posh-accessibility.mjs` generates the separate
+[prompt color report](oh-my-posh-accessibility.md), without changing the VS Code
+report. Generation blocks Contrast regressions (7:1 path, 4.5:1 all other text,
+including separators). Any new conditional foreground, background, inline color,
+separator geometry or layout must extend measurements and native fixtures.
+Passing these floors is not a claim for arbitrary custom prompts or terminal UI.
+See [installation, palette reuse and limits](ports.md#install-in-oh-my-posh).

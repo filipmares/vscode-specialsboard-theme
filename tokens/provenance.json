@@ -1,4 +1,9 @@
 {
+  "prompt-adapter": {
+    "authority": "judgment",
+    "source": "Oh My Posh adapter (#21); scripts/oh-my-posh.mjs and docs/ports.md.",
+    "notes": "Original restrained ASCII layout and prompt-specific semantic roles. Existing feedback families express clean/success, local changes, staged work, upstream movement, divergence/failure; labels and counts carry meaning independently of hue. Surface and feedback aliases inherit variant decisions without recoloring existing targets. No third-party preset copied; provenance is not permission and historical licensing remains unresolved."
+  },
   "brand-icon": {
     "authority": "judgment",
     "source": "Package icon artwork (#20); scripts/icon.mjs geometry and docs/branding.md.",

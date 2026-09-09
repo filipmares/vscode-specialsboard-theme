@@ -110,7 +110,7 @@ test('ports regenerate byte-identically, ignore object order, and need no VS Cod
   delete portableSources.manifest;
   assert.deepEqual(buildPorts(portableSources, mappings), outputs);
   assert.equal(stableJson({ sources, mappings }), before);
-  assert.equal(outputs.size, 6);
+  assert.equal(outputs.size, 9);
   for (const [file, bytes] of outputs) {
     assert.doesNotMatch(file, /legacy/);
     assert.equal(bytes.includes('\r'), false);

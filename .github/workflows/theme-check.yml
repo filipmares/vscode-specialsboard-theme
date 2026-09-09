@@ -4,6 +4,8 @@ on:
   push:
     branches: [master]
   pull_request:
+  release:
+    types: [published]
 
 permissions:
   contents: read
@@ -30,7 +32,9 @@ jobs:
         if: always()
         with:
           name: color-accessibility-evidence
-          path: docs/accessibility-report.md
+          path: |
+            docs/accessibility-report.md
+            docs/oh-my-posh-accessibility.md
           if-no-files-found: error
 
   portable:
@@ -62,6 +66,30 @@ jobs:
           path: portable-evidence
           if-no-files-found: error
 
+  prompt:
+    needs: themes
+    runs-on: windows-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npm run check
+      - name: Install isolated pinned Oh My Posh engine
+        shell: pwsh
+        run: |
+          $path = Join-Path $env:RUNNER_TEMP 'specialsboard-oh-my-posh.exe'
+          Invoke-WebRequest 'https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v31.2.1/posh-windows-amd64.exe' -OutFile $path
+          if ((Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash.ToLowerInvariant() -ne '13c8b6142f71323f8937508388e57e055140d30bcd781599b1d30b26e32d6dd0') {
+            throw 'Oh My Posh binary hash mismatch'
+          }
+          "OH_MY_POSH_EXECUTABLE=$path" >> $env:GITHUB_ENV
+      - name: Native isolated prompt state and RGB fixtures
+        run: npm run posh:smoke
+
   native:
     needs: themes
     runs-on: windows-latest
@@ -90,3 +118,39 @@ jobs:
           name: native-${{ matrix.vscode }}
           path: native-evidence
           if-no-files-found: error
+
+  publish-ports:
+    if: github.event_name == 'release'
+    needs: [themes, portable, prompt, native]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: generated-port-archives
+          path: release-artifacts
+      - name: Attach version-matched checksummed platform archives
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+          RELEASE_REPO: ${{ github.repository }}
+        run: |
+          $version = (Get-Content -LiteralPath package.json -Raw | ConvertFrom-Json).version
+          if ($env:RELEASE_TAG -cne "v$version") { throw 'Release tag must match package.json version' }
+          $assets = @()
+          foreach ($target in @('windows-terminal', 'neovim', 'oh-my-posh')) {
+            $path = Join-Path 'release-artifacts' "specials-board-$target-$version.zip"
+            if (!(Test-Path -LiteralPath $path) -or !(Test-Path -LiteralPath "$path.sha256")) {
+              throw "Missing release artifact: $path"
+            }
+            $expected = (Get-Content -LiteralPath "$path.sha256" -Raw).Split(' ')[0]
+            if ((Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash.ToLowerInvariant() -cne $expected) {
+              throw "Release artifact hash mismatch: $path"
+            }
+            $assets += $path, "$path.sha256"
+          }
+          gh release upload $env:RELEASE_TAG --repo $env:RELEASE_REPO @assets
+          if ($LASTEXITCODE -ne 0) { throw 'Release upload failed; existing assets are not overwritten' }

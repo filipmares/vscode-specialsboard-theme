@@ -1,0 +1,90 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://specialsboard.local/schemas/oh-my-posh-theme",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "version", "palette", "blocks", "final_space"],
+  "properties": {
+    "$schema": { "type": "string", "pattern": "^https://" },
+    "version": { "const": 4 },
+    "final_space": { "const": true },
+    "palette": {
+      "type": "object",
+      "required": ["background", "path", "separator", "duration", "git-clean", "git-modified", "git-staged", "git-ahead", "git-behind", "git-diverged", "success", "failure"],
+      "additionalProperties": false,
+      "properties": {
+        "background": { "$ref": "#/definitions/rgb" },
+        "path": { "$ref": "#/definitions/rgb" },
+        "separator": { "$ref": "#/definitions/rgb" },
+        "duration": { "$ref": "#/definitions/rgb" },
+        "git-clean": { "$ref": "#/definitions/rgb" },
+        "git-modified": { "$ref": "#/definitions/rgb" },
+        "git-staged": { "$ref": "#/definitions/rgb" },
+        "git-ahead": { "$ref": "#/definitions/rgb" },
+        "git-behind": { "$ref": "#/definitions/rgb" },
+        "git-diverged": { "$ref": "#/definitions/rgb" },
+        "success": { "$ref": "#/definitions/rgb" },
+        "failure": { "$ref": "#/definitions/rgb" }
+      }
+    },
+    "blocks": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["type", "alignment", "segments"],
+        "properties": {
+          "type": { "const": "prompt" },
+          "alignment": { "const": "left" },
+          "segments": {
+            "type": "array",
+            "minItems": 4,
+            "maxItems": 4,
+            "items": { "$ref": "#/definitions/segment" }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "rgb": { "type": "string", "pattern": "^#[0-9a-f]{6}$" },
+    "reference": { "type": "string", "pattern": "^p:[a-z][a-z-]*$" },
+    "segment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "style", "foreground", "background", "template", "options"],
+      "properties": {
+        "type": { "enum": ["path", "git", "executiontime", "status"] },
+        "style": { "const": "plain" },
+        "foreground": { "$ref": "#/definitions/reference" },
+        "background": { "const": "p:background" },
+        "template": { "type": "string", "minLength": 1 },
+        "foreground_templates": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "pattern": "^\\{\\{ if .+ \\}\\}p:[a-z][a-z-]*\\{\\{ end \\}\\}$" }
+        },
+        "options": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "style": { "enum": ["full", "austin"] },
+            "native_status": { "const": false },
+            "branch_icon": { "const": "" },
+            "commit_icon": { "const": "commit:" },
+            "tag_icon": { "const": "tag:" },
+            "rebase_icon": { "const": "rebase:" },
+            "cherry_pick_icon": { "const": "cherry-pick:" },
+            "revert_icon": { "const": "revert:" },
+            "merge_icon": { "const": "merge:" },
+            "no_commits_icon": { "const": "new:" },
+            "threshold": { "const": 500 },
+            "always_enabled": { "const": true }
+          }
+        }
+      }
+    }
+  }
+}

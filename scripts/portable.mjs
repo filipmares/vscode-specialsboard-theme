@@ -42,7 +42,7 @@ export function renderAnsi(mapping, model) {
 
 export function syncPorts(outputs, directory, check) {
   for (const file of outputs.keys()) {
-    if (!/^[a-z0-9-]+\/(?:colors\/)?[a-z0-9-]+\.(json|lua)$/.test(file)) {
+    if (!/^[a-z0-9-]+\/(?:colors\/)?[a-z0-9-]+\.(json|omp\.json|lua)$/.test(file)) {
       throw new Error(`Unsafe portable output path: ${file}`);
     }
   }
