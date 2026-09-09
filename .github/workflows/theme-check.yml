@@ -1,4 +1,4 @@
-name: Theme foundation
+name: Theme quality
 
 on:
   push:
@@ -18,3 +18,9 @@ jobs:
           cache: npm
       - run: npm ci --ignore-scripts
       - run: npm run package
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: color-accessibility-evidence
+          path: docs/accessibility-report.md
+          if-no-files-found: error

@@ -1,3 +1,75 @@
 {
-  "$description": "Undifferentiated preview inheriting flagship, including Phase 2 identity restoration. No accessibility guarantee; Contrast differentiation and broad gates belong to Phase 4."
+  "$description": "Accessibility-focused dark warm interpretation with shared Coda role semantics. Quantified scope and limits are in docs/accessibility.md; this is not a VS Code conformance claim.",
+  "$extensions": {
+    "org.specialsboard.provenance": {
+      "source": "phase4-accessibility",
+      "evidence": "Contrast-only role overrides. Retain olive, dusty blue, lavender and warm white; selectively adjust copper, terracotta, orange, honey and purple while darkening surfaces. Generated contrast/CVD evidence protects the declared states."
+    }
+  },
+  "semantic": {
+    "surface": {
+      "canvas": { "$type": "color", "$value": "{palette.phase4.canvas}" }
+    },
+    "syntax": {
+      "keyword": { "$type": "color", "$value": "{palette.phase4.copper}" },
+      "function": { "$type": "color", "$value": "{palette.phase4.terracotta}" },
+      "attribute": { "$type": "color", "$value": "{palette.phase4.orange}" },
+      "type": { "$type": "color", "$value": "{palette.phase4.honey}" },
+      "regexp": { "$type": "color", "$value": "{palette.phase4.purple}" },
+      "escape": { "$type": "color", "$value": "{palette.phase4.escape}" },
+      "comment": { "$type": "color", "$value": "{palette.phase4.comment}" }
+    },
+    "feedback": {
+      "error": { "$type": "color", "$value": "{palette.phase4.error}" }
+    },
+    "workbench": {
+      "ambient": { "$type": "color", "$value": "{palette.phase4.ambient}" },
+      "navigation": { "$type": "color", "$value": "{palette.phase4.navigation}" },
+      "raised": { "$type": "color", "$value": "{palette.phase4.raised}" },
+      "hover": { "$type": "color", "$value": "{palette.phase4.hover}" },
+      "active": { "$type": "color", "$value": "{palette.phase4.active}" },
+      "inactive": { "$type": "color", "$value": "{palette.phase4.inactive}" },
+      "border": { "$type": "color", "$value": "{palette.phase4.border}" },
+      "guide": { "$type": "color", "$value": "{palette.phase4.guide}" },
+      "muted": { "$type": "color", "$value": "{palette.phase4.muted}" },
+      "disabled": { "$type": "color", "$value": "{palette.phase4.disabled}" },
+      "accent": { "$type": "color", "$value": "{semantic.syntax.keyword}" },
+      "accent-hover": { "$type": "color", "$value": "{semantic.syntax.type}" },
+      "error": { "$type": "color", "$value": "{semantic.feedback.error}" },
+      "warning": { "$type": "color", "$value": "{semantic.syntax.type}" },
+      "error-fill": { "$type": "color", "$value": "{palette.phase4.error-fill}" },
+      "warning-fill": { "$type": "color", "$value": "{palette.phase4.warning-fill}" },
+      "info-fill": { "$type": "color", "$value": "{palette.phase4.info-fill}" },
+      "selection": { "$type": "color", "$value": "{palette.phase4.selection}" },
+      "occurrence": { "$type": "color", "$value": "{palette.phase4.occurrence}" },
+      "find": { "$type": "color", "$value": "{palette.phase4.find}" },
+      "warning-tint": { "$type": "color", "$value": "{palette.phase4.warning-tint}" },
+      "success-tint": { "$type": "color", "$value": "{palette.phase4.success-tint}" },
+      "success-strong": { "$type": "color", "$value": "{palette.phase4.success-strong}" },
+      "error-tint": { "$type": "color", "$value": "{palette.phase4.error-tint}" },
+      "error-strong": { "$type": "color", "$value": "{palette.phase4.error-strong}" },
+      "success-label": { "$type": "color", "$value": "{palette.phase4.success-label}" },
+      "error-label": { "$type": "color", "$value": "{palette.phase4.error-label}" },
+      "line": { "$type": "color", "$value": "{palette.phase4.line}" },
+      "scroll": { "$type": "color", "$value": "{palette.phase4.scroll}" },
+      "scroll-hover": { "$type": "color", "$value": "{palette.phase4.scroll-hover}" },
+      "scroll-active": { "$type": "color", "$value": "{palette.phase4.scroll-active}" },
+      "unnecessary": { "$type": "color", "$value": "{palette.phase4.opaque}" },
+      "bracket-first": { "$type": "color", "$value": "{semantic.syntax.type}" }
+    },
+    "terminal": {
+      "black": { "$type": "color", "$value": "{palette.phase4.terminal-black}" },
+      "bright-black": { "$type": "color", "$value": "{palette.phase4.terminal-bright-black}" },
+      "red": { "$type": "color", "$value": "{palette.phase4.terminal-red}" },
+      "green": { "$type": "color", "$value": "{palette.phase4.terminal-green}" },
+      "yellow": { "$type": "color", "$value": "{palette.phase4.terminal-yellow}" },
+      "blue": { "$type": "color", "$value": "{semantic.syntax.number}" },
+      "magenta": { "$type": "color", "$value": "{palette.phase4.terminal-magenta}" },
+      "cyan": { "$type": "color", "$value": "{palette.phase4.terminal-cyan}" },
+      "bright-red": { "$type": "color", "$value": "{palette.phase4.terminal-bright-red}" },
+      "bright-green": { "$type": "color", "$value": "{palette.phase4.terminal-bright-green}" },
+      "bright-magenta": { "$type": "color", "$value": "{palette.phase4.terminal-bright-magenta}" },
+      "bright-white": { "$type": "color", "$value": "{palette.phase4.terminal-bright-white}" }
+    }
+  }
 }

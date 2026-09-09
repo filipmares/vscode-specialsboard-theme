@@ -78,7 +78,7 @@ test('four normalized IDs and labels identify deprecated VS Code Legacy', () => 
     assert.equal(variant.vscodeId, variant.id);
     const output = JSON.parse(themes.get(variant.output));
     assert.equal(output.name, variant.label);
-    assert.equal(variant.status, { legacy: 'compatibility', contrast: 'foundation-preview', flagship: 'restored', classic: 'restored' }[variant.key]);
+    assert.equal(variant.status, { legacy: 'compatibility', contrast: 'accessibility-focused', flagship: 'restored', classic: 'restored' }[variant.key]);
   }
 });
 
@@ -117,6 +117,7 @@ test('small role overrides flow through inheritance without touching Legacy or s
   const input = structuredClone(sources);
   input.overrides.flagship = overrides('syntax', 'keyword', 'palette.coda1.copper');
   input.overrides.classic = overrides('syntax', 'keyword', 'palette.coda1.blue');
+  input.overrides.contrast = { $description: 'Synthetic unoverridden child for inheritance coverage.' };
   const models = compileSources(input);
   const expected = { flagship: '#cc762e', classic: '#6c99bb', contrast: '#cc762e', legacy: '#ac4639' };
   for (const model of models) {
@@ -206,6 +207,7 @@ test('rejects mapping literals and direct palette references on every platform s
     for (const mutate of [
       s => { s.mapping.workbench['editor.foreground'] = reference; },
       s => { s.mapping.legacyWorkbench['editor.foreground'] = reference; },
+      s => { s.mapping.contrastWorkbench['contrastBorder'] = reference; },
       s => { s.mapping.textMate[0].settings.foreground = reference; },
       s => { s.mapping.legacyTextMate[0].settings.foreground = reference; },
       s => { s.mapping.ansi.white = reference; },

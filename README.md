@@ -4,9 +4,9 @@ Specials Board interprets the Coda editor's theme for Visual Studio Code.
 
 [Get it from the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=filipmares.theme-specialsboard)
 
-Version **3.1.0** adds a warm three-plane workbench, modern editor/tooling states,
-semantic highlighting and a sixteen-color terminal palette while preserving the
-3.0.0 syntax palettes and theme IDs. Read the [changelog](CHANGELOG.md) for
+Version **3.2.0** adds a differentiated **Specials Board Contrast** variant and
+reproducible color-accessibility gates. Flagship, Classic and deprecated Legacy
+keep their exact 3.1.0 appearance and saved IDs. Read the [changelog](CHANGELOG.md) for
 compatibility details. Building a local VSIX does not publish an extension update.
 
 Requires **VS Code 1.101.0 or newer**. Older VS Code versions need an earlier
@@ -21,10 +21,18 @@ types/tags, orange properties, and purple regex. **Specials Board Classic** uses
 historically grounded Coda 1 colors and neutral variables, with documented
 readability exceptions for comments and invalid syntax.
 
-**Specials Board Contrast remains an undifferentiated preview.** It currently
-inherits the flagship appearance; its accessibility differentiation is deferred.
-Neither its name nor the flagship's readability adjustments are an
-accessibility-conformance claim.
+**Specials Board Contrast** uses darker warm surfaces and selective
+hue-preserving adjustments, retaining the same Coda color families. Its measured
+base/current-line syntax and primary UI text meet 7:1; other covered text and
+composited states have a 4.5:1 floor, with 3:1 for measured focus/boundary indicators.
+Twelve selected semantic pairs pass a documented differentiation gate under
+normal vision and deuteranopia, protanopia and tritanopia simulations.
+
+These are specific color-model results, **not a claim that a theme makes VS Code
+WCAG-conformant**. Subtle selection fills, host/extension behavior, user overrides
+and untested AI-provider states have explicit limits. See the
+[accessibility contract](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.2.0/docs/accessibility.md)
+and [generated evidence](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.2.0/docs/accessibility-report.md).
 
 The restored variants now cover navigation, controls, suggestions/hover, search,
 diagnostics, SCM/diffs/merge/review, testing/debugging, notebooks, notifications,
@@ -65,7 +73,9 @@ runtime code or dependencies.
 ```sh
 npm ci --ignore-scripts
 npm run generate
+npm run accessibility:generate
 npm run check
+npm run accessibility
 npm test
 npm run package
 ```
@@ -73,7 +83,9 @@ npm run package
 Edit `tokens/` and `adapters/vscode.json`, not generated `themes/*.json`.
 Commit generated files together with their sources. `check` validates schemas,
 references, inheritance, manifest contributions, and byte-for-byte output drift.
-Packaging runs that check and the tests instead of silently fixing stale output.
+Packaging also checks the committed accessibility evidence and tests instead of
+silently fixing stale output. Classic's known low-contrast colors are reported,
+not relabeled as passing Contrast's contract.
 
 See [the token architecture and authoring guide](docs/theme-tokens.md) for the
 exact palette, workbench/state coverage and limits, native evidence versus modern judgments, grammar limitations,

@@ -4,3 +4,4 @@ tokens/variants/*.json text eol=lf
 adapters/*.json text eol=lf
 schemas/*.json text eol=lf
 tests/fixtures/*.json text eol=lf
+docs/accessibility-report.md text eol=lf

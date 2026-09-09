@@ -21,7 +21,7 @@ Run commands from the repository root. The examples below use PowerShell.
 | `adapters/vscode.json` | Workbench, TextMate, semantic-token, and ANSI mappings. |
 | `themes/specialsboard-flagship.json` | Generated Specials Board theme. |
 | `themes/specialsboard-classic.json` | Generated Specials Board Classic theme. |
-| `themes/specialsboard-contrast.json` | Generated Contrast preview, currently identical to flagship except its name. |
+| `themes/specialsboard-contrast.json` | Generated differentiated Contrast variant with measured color targets. |
 | `themes/specialsboard.json` | Generated deprecated VS Code Legacy appearance. |
 | `test files/identity/` | Current language fixtures for visual and automated token inspection. |
 | `test files/modern/` | TS/TSX, JSONC, shell, Rust, Go, notebook, diff and merge workflow fixtures. |
@@ -54,8 +54,8 @@ assign a license.
 | Specials Board Contrast | `specials-board-contrast` |
 | Specials Board VS Code Legacy [Deprecated] | `specials-board-legacy` |
 
-Contrast is not yet independently differentiated and makes no accessibility
-guarantee. Deprecated Legacy remains available, with its old VS Code appearance;
+Contrast has a [bounded, reproducible color contract](docs/accessibility.md), not
+a whole-editor accessibility guarantee. Deprecated Legacy retains its old VS Code appearance;
 it is not the historically grounded Classic variant.
 
 **Breaking selection change:** the historical `"Specials Board "` ID is no longer
@@ -91,7 +91,8 @@ they are not TextMate syntax colors. See the
 [VS Code syntax highlighting guide](https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide)
 for the inspector and scope-matching model.
 
-Run `npm run check` and `npm test` before committing generated output with its
+After palette edits, run `npm run accessibility:generate` and review the evidence.
+Run `npm run check`, `npm run accessibility` and `npm test` before committing generated output with its
 sources. The package version comes from `package.json`; release changes are
 documented in the [changelog](CHANGELOG.md). Local packaging does not increment
 the version or publish a release. Versioning, release notes, licensing decisions,

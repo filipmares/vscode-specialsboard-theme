@@ -1,4 +1,9 @@
 {
+  "phase4-accessibility": {
+    "authority": "judgment",
+    "source": "Phase 4 (#7); docs/accessibility.md and generated accessibility evidence.",
+    "notes": "Darker warm planes and selective hue-preserving changes to existing families. Explicit composited sRGB text/indicator floors and selected-role CVD regression thresholds are engineering contracts, not complete WCAG conformance or a CVD user study. Flagship, Classic and Legacy are unchanged."
+  },
   "phase3-workbench": {
     "authority": "judgment",
     "source": "Phase 3 (#9); docs/theme-tokens.md modern workbench and semantic coverage.",
