@@ -1,0 +1,18 @@
+{
+  "black": "{semantic.terminal.black}",
+  "red": "{semantic.terminal.red}",
+  "green": "{semantic.terminal.green}",
+  "yellow": "{semantic.terminal.yellow}",
+  "blue": "{semantic.terminal.blue}",
+  "magenta": "{semantic.terminal.magenta}",
+  "cyan": "{semantic.terminal.cyan}",
+  "white": "{semantic.terminal.white}",
+  "brightBlack": "{semantic.terminal.bright-black}",
+  "brightRed": "{semantic.terminal.bright-red}",
+  "brightGreen": "{semantic.terminal.bright-green}",
+  "brightYellow": "{semantic.terminal.bright-yellow}",
+  "brightBlue": "{semantic.terminal.bright-blue}",
+  "brightMagenta": "{semantic.terminal.bright-magenta}",
+  "brightCyan": "{semantic.terminal.bright-cyan}",
+  "brightWhite": "{semantic.terminal.bright-white}"
+}

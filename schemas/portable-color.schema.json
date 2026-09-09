@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://specialsboard.local/schemas/portable-color",
+  "oneOf": [
+    { "$ref": "#/definitions/role" },
+    {
+      "type": "object",
+      "required": ["over"],
+      "additionalProperties": false,
+      "properties": {
+        "over": {
+          "description": "Encoded-sRGB source-over layers, bottom to top. The first role must be opaque.",
+          "type": "array",
+          "minItems": 2,
+          "items": { "$ref": "#/definitions/role" }
+        }
+      }
+    }
+  ],
+  "definitions": {
+    "role": {
+      "type": "string",
+      "pattern": "^\\{(semantic|component)(\\.[a-z][a-z0-9-]*)+\\}$"
+    }
+  }
+}

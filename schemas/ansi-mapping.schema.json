@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://specialsboard.local/schemas/ansi-mapping",
+  "type": "object",
+  "minProperties": 16,
+  "maxProperties": 16,
+  "propertyNames": {
+    "enum": ["black", "red", "green", "yellow", "blue", "magenta", "cyan", "white", "brightBlack", "brightRed", "brightGreen", "brightYellow", "brightBlue", "brightMagenta", "brightCyan", "brightWhite"]
+  },
+  "additionalProperties": {
+    "type": "string",
+    "pattern": "^\\{semantic\\.terminal\\.(black|red|green|yellow|blue|magenta|cyan|white|bright-black|bright-red|bright-green|bright-yellow|bright-blue|bright-magenta|bright-cyan|bright-white)\\}$"
+  }
+}

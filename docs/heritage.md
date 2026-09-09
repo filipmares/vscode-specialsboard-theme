@@ -9,7 +9,8 @@ This VS Code project continues that lineage independently; it is not a Panic pro
 **Fidelity means traceable decisions, not identical pixels.** Coda's per-language
 style system, TextMate scopes, semantic providers and the modern VS Code
 workbench do not have one-to-one equivalents. All four generated themes in
-3.3.0 are byte-identical to 3.2.0; this document explains them, not a new palette.
+3.4.0 are byte-identical to 3.3.0; the new native [ports](ports.md) translate the
+same roles and are modern engineering judgments, not new Coda-native evidence.
 
 ## Which evidence has authority?
 
@@ -78,7 +79,8 @@ TextMate-based port; 2.0 (2019) moved to JSON and broader language coverage;
 2.1.1 fixed selection/invalid-token data; 2.2 introduced generated variants;
 3.0 restored flagship/Classic and normalized Legacy's ID; 3.1 added modern
 workbench/semantic coverage; 3.2 differentiated Contrast; 3.3 refreshes the
-public presentation without recoloring. See [migration and rollback](migration.md).
+public presentation without recoloring; 3.4 adds generated Windows Terminal and
+Neovim ports without changing VS Code themes. See [migration and rollback](migration.md).
 
 ## Unresolved licensing
 
@@ -92,5 +94,5 @@ the existing packaging license exception remains an explicit unresolved caveat.
 This is the release-facing distillation of historical comparison blob
 `94a1e18eaaa76d50a96a4260d366ca30b02e925a`, not a copy of its exhaustive tables.
 That report predates the Phase 0 fixes: its columns called "current VS Code"
-describe the old port, **not 3.3.0**. The generated themes, frozen fixtures,
+describe the old port, **not 3.4.0**. The generated themes, frozen fixtures,
 source registry and maintained token/accessibility guides govern current behavior.

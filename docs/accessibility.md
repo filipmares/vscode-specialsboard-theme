@@ -232,6 +232,21 @@ claimed as individually visually inspected in this release pass. Their
 deterministic color/state checks and native API exercises remain distinct
 evidence. No real screen-reader or CVD-participant pass is claimed.
 
+## 3.4.0 portable scope
+
+The [Windows Terminal and Neovim adapters](ports.md) reuse these source roles;
+all four VS Code theme files and this generated VS Code report remain unchanged.
+Additional portable tests require Contrast's mapped native syntax foregrounds
+to retain 7:1 on base/current-line and 4.5:1 on selected/search/diff sample
+backgrounds, with 7:1 terminal default text and 4.5:1 unselected ANSI slots.
+Normal/bright ANSI partners remain distinct with luminance separation above 0.1.
+
+These are selected **opaque native-output color-model checks**, not transfer of
+the full VS Code state/indicator contract. Native overlays replace or flatten
+layers; Terminal can replace selected foregrounds; Neovim cues depend on native
+groups, terminal style support and providers. No new focus-geometry, universal
+selection, screen-reader, live LSP or CVD-participant claim is made.
+
 ## Sources and pins
 
 Official sources checked 2026-09-08; paraphrased here rather than claiming

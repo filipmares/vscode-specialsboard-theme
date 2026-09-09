@@ -3,6 +3,8 @@ import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { compileSources, loadSources, root, stableJson } from './tokens.mjs';
 import { renderVSCode, validateContributions } from './vscode.mjs';
+import { buildPorts } from './ports.mjs';
+import { syncPorts } from './portable.mjs';
 
 export function buildThemes(sources = loadSources()) {
   const models = compileSources(sources);
@@ -39,7 +41,9 @@ if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1]
     throw new Error('Usage: node scripts/generate.mjs [--check]');
   }
   const outputs = buildThemes();
+  const ports = buildPorts();
   const check = args[0] === '--check';
   syncThemes(outputs, resolve(root, 'themes'), check);
-  console.log(`${check ? 'Checked' : 'Generated'} ${outputs.size} themes.`);
+  syncPorts(ports, resolve(root, 'ports'), check);
+  console.log(`${check ? 'Checked' : 'Generated'} ${outputs.size} themes and ${ports.size} portable files.`);
 }

@@ -16,6 +16,9 @@ themes/*.tmTheme
 vsc-extension-quickstart.md
 tokens/**
 adapters/**
+ports/**
+release-artifacts/**
+portable-evidence/**
 scripts/**
 schemas/**
 tests/**

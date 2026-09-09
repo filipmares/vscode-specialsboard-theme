@@ -3,13 +3,15 @@
 	"displayName": "Specials Board",
 	"description": "Coda heritage, warm charcoal and copper syntax. Four dark variants: modern Specials Board, Classic, measured Contrast, and deprecated VS Code Legacy.",
 	"icon": "icon.png",
-	"version": "3.3.0",
+	"version": "3.4.0",
 	"publisher": "filipmares",
 	"scripts": {
 		"generate": "node scripts/generate.mjs",
 		"check": "node scripts/generate.mjs --check",
 		"accessibility:generate": "node scripts/accessibility.mjs --generate",
 		"accessibility": "node scripts/accessibility.mjs",
+		"ports:validate": "npm run check && node scripts/validate-port-formats.mjs",
+		"ports:package": "npm run check && pwsh -NoProfile -File scripts/package-ports.ps1",
 		"test": "node --test",
 		"vscode:prepublish": "npm run check && npm run accessibility",
 		"package": "npm run check && npm run accessibility && npm test && vsce package --skip-license"

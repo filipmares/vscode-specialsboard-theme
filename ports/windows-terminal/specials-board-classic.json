@@ -1,0 +1,23 @@
+{
+  "background": "#2b2b2b",
+  "black": "#24211f",
+  "blue": "#6c99bb",
+  "brightBlack": "#80776e",
+  "brightBlue": "#a9c9df",
+  "brightCyan": "#a0cfc6",
+  "brightGreen": "#c4d68c",
+  "brightPurple": "#ceb0d8",
+  "brightRed": "#ed9687",
+  "brightWhite": "#f4ede5",
+  "brightYellow": "#f3d398",
+  "cursorColor": "#e6e1dc",
+  "cyan": "#78aaa3",
+  "foreground": "#e6e1dc",
+  "green": "#91aa61",
+  "name": "Specials Board Classic",
+  "purple": "#aa83b5",
+  "red": "#c96f64",
+  "selectionBackground": "#434c53",
+  "white": "#ccc4bb",
+  "yellow": "#c9a363"
+}

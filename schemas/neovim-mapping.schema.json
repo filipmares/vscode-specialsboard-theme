@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://specialsboard.local/schemas/neovim-mapping",
+  "description": "Project-authored nvim_set_hl subset; native names are independently checked against the pinned runtime by the native smoke.",
+  "type": "object",
+  "required": ["highlights"],
+  "additionalProperties": false,
+  "properties": {
+    "highlights": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": { "$ref": "#/definitions/group" },
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "type": "object",
+            "required": ["link"],
+            "additionalProperties": false,
+            "properties": { "link": { "$ref": "#/definitions/group" } }
+          },
+          {
+            "type": "object",
+            "minProperties": 1,
+            "additionalProperties": false,
+            "properties": {
+              "fg": { "$ref": "portable-color" },
+              "bg": { "$ref": "portable-color" },
+              "sp": { "$ref": "portable-color" },
+              "italic": { "type": "boolean" },
+              "bold": { "type": "boolean" },
+              "underline": { "type": "boolean" },
+              "undercurl": { "type": "boolean" },
+              "strikethrough": { "type": "boolean" }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "group": {
+      "oneOf": [
+        { "type": "string", "pattern": "^[A-Za-z][A-Za-z0-9]*$" },
+        { "$ref": "neovim-captures" },
+        {
+          "type": "string",
+          "pattern": "^@lsp\\.(type\\.(class|comment|decorator|enum|enumMember|event|function|interface|keyword|macro|method|modifier|namespace|number|operator|parameter|property|regexp|string|struct|type|typeParameter|variable)|typemod\\.(variable|property)\\.readonly|mod\\.deprecated)$"
+        }
+      ]
+    }
+  }
+}
