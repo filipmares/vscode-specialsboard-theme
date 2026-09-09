@@ -1,4 +1,14 @@
 {
+  "contrastWorkbench": {
+    "contrastActiveBorder": "{component.interaction.focus}",
+    "contrastBorder": "{component.workbench.border}",
+    "editor.lineHighlightBorder": "{component.workbench.border}",
+    "editorUnnecessaryCode.border": "{component.workbench.muted}",
+    "diffEditor.insertedTextBorder": "{component.feedback.success}",
+    "diffEditor.removedTextBorder": "{component.feedback.error}",
+    "merge.commonHeaderBackground": "{component.interaction.line}",
+    "gitDecoration.ignoredResourceForeground": "{component.workbench.muted}"
+  },
   "workbench": {
     "foreground": "{component.workbench.foreground}",
     "descriptionForeground": "{component.workbench.muted}",

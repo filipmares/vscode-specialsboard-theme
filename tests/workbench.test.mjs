@@ -163,7 +163,8 @@ test('role changes propagate across workflow families without recoloring Legacy 
   input.semantic.semantic.workbench.accent.$value = '{palette.phase2.blue}';
   const changed = buildThemes(input);
   assert.equal(changed.get('specialsboard.json'), outputs.get('specialsboard.json'));
-  for (const { key, theme } of restored) {
+  assert.equal(changed.get('specialsboard-contrast.json'), outputs.get('specialsboard-contrast.json'));
+  for (const { key, theme } of restored.filter(item => item.key !== 'contrast')) {
     const next = JSON.parse(changed.get(`specialsboard-${key}.json`));
     for (const id of ['focusBorder', 'tab.activeBorderTop', 'button.background', 'progressBar.background']) {
       assert.equal(next.colors[id], '#8aafcb', id);

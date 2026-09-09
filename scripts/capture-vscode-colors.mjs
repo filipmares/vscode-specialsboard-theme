@@ -17,11 +17,11 @@ assert.equal(report.success, true);
 assert.equal(report.vscode, version, 'Capture must come from the exact engine floor, not a newer runtime');
 const mapping = JSON.parse(readFileSync(resolve(root, 'adapters', 'vscode.json'), 'utf8'));
 const ids = [...new Set([
-  ...Object.keys(mapping.workbench), ...Object.keys(mapping.legacyWorkbench),
+  ...Object.keys(mapping.workbench), ...Object.keys(mapping.contrastWorkbench ?? {}), ...Object.keys(mapping.legacyWorkbench),
   ...Object.keys(mapping.ansi).map(slot => `terminal.ansi${slot[0].toUpperCase()}${slot.slice(1)}`)
 ])].sort();
-const observed = report.variants.find(variant => variant.id === 'specials-board');
-assert.ok(observed, 'Missing flagship runtime observation');
+const observed = report.variants.find(variant => variant.id === 'specials-board-contrast');
+assert.ok(observed, 'Missing Contrast runtime observation (the superset including its extra borders)');
 assert.deepEqual(observed.unregisteredColors, []);
 assert.deepEqual(observed.colorIds, ids, 'The runtime report is stale or used a different mapping');
 const url = `https://raw.githubusercontent.com/microsoft/vscode-docs/${docsCommit}/api/references/theme-color.md`;

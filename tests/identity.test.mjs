@@ -92,7 +92,7 @@ test('all restored syntax, markup, feedback and diff roles terminate in cited Co
       if (!/^semantic\.(syntax|markup|feedback|diff)\./.test(path)) continue;
       let target = path;
       while (typeof tokens.get(target).$value === 'string') target = aliasTarget(tokens.get(target).$value);
-      assert.match(target, /^palette\.(coda1|phase2)\./, `${key}: ${path} still depends on ${target}`);
+      assert.match(target, key === 'contrast' ? /^palette\.(coda1|phase2|phase4)\./ : /^palette\.(coda1|phase2)\./, `${key}: ${path} still depends on ${target}`);
     }
   }
   assert.equal(sources.provenance.coda1.authority, 'authoritative-coda');
@@ -103,13 +103,14 @@ test('all restored syntax, markup, feedback and diff roles terminate in cited Co
   }
 });
 
-test('Contrast stays a flagship preview; Legacy chrome, ANSI and selection stay isolated', () => {
+test('Contrast is differentiated; Legacy chrome, ANSI and selection stay isolated', () => {
   const [flagship, classic, contrast, legacy] = themes;
-  assert.deepEqual({ ...contrast, name: flagship.name }, flagship);
+  assert.notDeepEqual(contrast.tokenColors, flagship.tokenColors);
+  assert.notDeepEqual(contrast.colors, flagship.colors);
   assert.notDeepEqual(classic.tokenColors, flagship.tokenColors);
   for (const theme of [flagship, classic, contrast]) {
-    assert.deepEqual(Object.keys(theme.colors), Object.keys(flagship.colors));
-    assert.equal(theme.colors['editor.selectionBackground'], '#8aafcb40');
+    assert.ok(Object.keys(flagship.colors).every(id => Object.hasOwn(theme.colors, id)));
+    assert.equal(theme.colors['editor.selectionBackground'], theme === contrast ? '#8aafcb18' : '#8aafcb40');
     assert.equal(theme.semanticHighlighting, true);
     assert.notDeepEqual(theme.colors, legacy.colors);
   }

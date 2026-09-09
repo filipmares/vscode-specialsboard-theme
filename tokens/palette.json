@@ -1,6 +1,62 @@
 {
   "$description": "Reference colors only. Historical Coda, reconstructions, and the compatibility palette are deliberately separate.",
   "palette": {
+    "phase4": {
+      "$extensions": {
+        "org.specialsboard.provenance": {
+          "source": "phase4-accessibility",
+          "evidence": "Contrast-only authored sRGB values. Dark warm planes, selective family lightness changes, low-alpha text overlays and explicit borders. See docs/accessibility.md for measured targets, CVD pair selection and limits."
+        }
+      },
+      "ambient": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.0627451, 0.05882353, 0.05490196], "hex": "#100f0e" } },
+      "navigation": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.07843137, 0.0745098, 0.07058824], "hex": "#141312" } },
+      "canvas": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.09411765, 0.09019608, 0.08235294], "hex": "#181715" } },
+      "raised": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.12941176, 0.12156863, 0.10980392], "hex": "#211f1c" } },
+      "hover": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.16862745, 0.15294118, 0.1372549], "hex": "#2b2723" } },
+      "active": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.19607843, 0.17647059, 0.15294118], "hex": "#322d27" } },
+      "inactive": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.15294118, 0.1372549, 0.12156863], "hex": "#27231f" } },
+      "border": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.63921569, 0.59607843, 0.54509804], "hex": "#a3988b" } },
+      "guide": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.45882353, 0.41960784, 0.37647059], "hex": "#756b60" } },
+      "muted": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.76078431, 0.71764706, 0.66666667], "hex": "#c2b7aa" } },
+      "disabled": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.58039216, 0.5372549, 0.49019608], "hex": "#94897d" } },
+      "copper": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.90196078, 0.68235294, 0.45490196], "hex": "#e6ae74" } },
+      "terracotta": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.90980392, 0.55686275, 0.45882353], "hex": "#e88e75" } },
+      "orange": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.85098039, 0.61176471, 0.38823529], "hex": "#d99c63" } },
+      "purple": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.71764706, 0.59607843, 0.89019608], "hex": "#b798e3" } },
+      "escape": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.81176471, 0.6627451, 0.94117647], "hex": "#cfa9f0" } },
+      "honey": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.94509804, 0.78039216, 0.50980392], "hex": "#f1c782" } },
+      "comment": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.70588235, 0.6627451, 0.61568627], "hex": "#b4a99d" } },
+      "error": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.94117647, 0.55294118, 0.50980392], "hex": "#f08d82" } },
+      "error-fill": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.20392157, 0.1254902, 0.10980392], "hex": "#34201c" } },
+      "warning-fill": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.18823529, 0.15686275, 0.10196078], "hex": "#30281a" } },
+      "info-fill": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.10980392, 0.16078431, 0.2], "hex": "#1c2933" } },
+      "selection": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.54117647, 0.68627451, 0.79607843], "hex": "#8aafcb", "alpha": 0.09411765 } },
+      "occurrence": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.54117647, 0.68627451, 0.79607843], "hex": "#8aafcb", "alpha": 0.03921569 } },
+      "find": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.9372549, 0.75686275, 0.48235294], "hex": "#efc17b", "alpha": 0.03921569 } },
+      "warning-tint": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.9372549, 0.75686275, 0.48235294], "hex": "#efc17b", "alpha": 0.02352941 } },
+      "success-tint": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.69803922, 0.78431373, 0.4745098], "hex": "#b2c879", "alpha": 0.02352941 } },
+      "success-strong": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.69803922, 0.78431373, 0.4745098], "hex": "#b2c879", "alpha": 0.04705882 } },
+      "error-tint": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.92941176, 0.45490196, 0.41960784], "hex": "#ed746b", "alpha": 0.02352941 } },
+      "error-strong": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.92941176, 0.45490196, 0.41960784], "hex": "#ed746b", "alpha": 0.04705882 } },
+      "success-label": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.69803922, 0.78431373, 0.4745098], "hex": "#b2c879", "alpha": 0.94901961 } },
+      "error-label": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.94117647, 0.55294118, 0.50980392], "hex": "#f08d82", "alpha": 0.94901961 } },
+      "line": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.72941176, 0.69019608, 0.64705882], "hex": "#bab0a5", "alpha": 0.01960784 } },
+      "scroll": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.76078431, 0.71764706, 0.66666667], "hex": "#c2b7aa", "alpha": 0.53333333 } },
+      "scroll-hover": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.76078431, 0.71764706, 0.66666667], "hex": "#c2b7aa", "alpha": 0.65098039 } },
+      "scroll-active": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.76078431, 0.71764706, 0.66666667], "hex": "#c2b7aa", "alpha": 0.8 } },
+      "opaque": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0, 0, 0], "hex": "#000000" } },
+      "terminal-black": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.60784314, 0.56862745, 0.5254902], "hex": "#9b9186" } },
+      "terminal-bright-black": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.76470588, 0.71764706, 0.6627451], "hex": "#c3b7a9" } },
+      "terminal-red": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.8745098, 0.5372549, 0.45490196], "hex": "#df8974" } },
+      "terminal-green": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.65098039, 0.74117647, 0.43921569], "hex": "#a6bd70" } },
+      "terminal-yellow": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.84313725, 0.70196078, 0.43921569], "hex": "#d7b370" } },
+      "terminal-magenta": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.72156863, 0.60392157, 0.76862745], "hex": "#b89ac4" } },
+      "terminal-cyan": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.50980392, 0.70588235, 0.67058824], "hex": "#82b4ab" } },
+      "terminal-bright-red": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [1, 0.75294118, 0.68235294], "hex": "#ffc0ae" } },
+      "terminal-bright-green": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.81568627, 0.89411765, 0.61176471], "hex": "#d0e49c" } },
+      "terminal-bright-magenta": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.86666667, 0.74509804, 0.90588235], "hex": "#ddbee7" } },
+      "terminal-bright-white": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [1, 0.96862745, 0.92941176], "hex": "#fff7ed" } }
+    },
     "phase3": {
       "$extensions": {
         "org.specialsboard.provenance": {

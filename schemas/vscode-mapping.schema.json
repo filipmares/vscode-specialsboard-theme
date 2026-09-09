@@ -12,6 +12,7 @@
       "additionalProperties": { "$ref": "tokens#/definitions/alias" }
     },
     "legacyWorkbench": { "$ref": "#/properties/workbench" },
+    "contrastWorkbench": { "$ref": "#/properties/workbench" },
     "legacyTextMate": { "$ref": "#/properties/textMate" },
     "textMate": {
       "type": "array",

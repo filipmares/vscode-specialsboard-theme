@@ -24,7 +24,7 @@
     "vscodeId": "specials-board-contrast",
     "output": "specialsboard-contrast.json",
     "inherits": "flagship",
-    "status": "foundation-preview"
+    "status": "accessibility-focused"
   },
   {
     "key": "legacy",

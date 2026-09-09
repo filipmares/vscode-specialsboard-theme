@@ -6,10 +6,11 @@ introduced the portable architecture. Phase 2
 the flagship and Classic syntax identities within that architecture. Phase 3
 ([#9](https://github.com/filipmares/vscode-specialsboard-theme/issues/9)) extends
 the restored variants across modern workbench and semantic-token surfaces. Legacy's
-appearance remains frozen, with an intentional breaking identity rename and
-deprecation label; Contrast remains an undifferentiated preview.
+appearance remains frozen, with the 3.0.0 breaking identity rename and
+deprecation label. Phase 4 ([#7](https://github.com/filipmares/vscode-specialsboard-theme/issues/7))
+now differentiates Contrast with [measured accessibility gates](accessibility.md).
 
-This guide describes the [3.1.0 token system](../CHANGELOG.md), retaining the
+This guide describes the [3.2.0 token system](../CHANGELOG.md), retaining the
 3.0.0 identity migration.
 For local installation and development-host instructions, use the
 [contributor quickstart](../vsc-extension-quickstart.md).
@@ -18,12 +19,12 @@ For local installation and development-host instructions, use the
 
 | Layer | File | Responsibility |
 |---|---|---|
-| Reference palette | `tokens/palette.json` | The only authored raw colors. Separate `legacy`, `coda1`, `phase2`/`phase3` judgments, `coda2-atom`, and `repository-textmate` groups. |
+| Reference palette | `tokens/palette.json` | The only authored raw colors. Separate `legacy`, `coda1`, `phase2`/`phase3`/`phase4` judgments, `coda2-atom`, and `repository-textmate` groups. |
 | Semantic roles | `tokens/semantic.json` | Editor-independent syntax, markup, feedback, diff, surfaces, text, accents, and terminal colors. |
 | Component/state roles | `tokens/components.json` | Shared workbench planes, interaction states, controls, feedback and brackets, plus frozen compatibility component roles. |
 | Variant registry | `tokens/variants.json` | Stable portable IDs, labels, VS Code IDs, output filenames, inheritance, and readiness. |
 | Variant overrides | `tokens/variants/*.json` | Sparse semantic/component alias replacements, applied after inheritance. |
-| Platform adapter | `adapters/vscode.json` | Modern `workbench`/`textMate`, frozen `legacyWorkbench`/`legacyTextMate`, semantic-token selectors, and ANSI slots in separate sections. |
+| Platform adapter | `adapters/vscode.json` | Modern `workbench`/`textMate`, optional Contrast-only `contrastWorkbench`, frozen `legacyWorkbench`/`legacyTextMate`, semantic-token selectors, and ANSI slots in separate sections. |
 | Provenance | `tokens/provenance.json` | Source authority classifications and immutable historical anchors. |
 
 The dependency direction is palette -> semantic -> component -> adapter.
@@ -97,14 +98,14 @@ while palette tokens record the underlying color evidence.
 |---|---|---|---|---|
 | `flagship` / `specials-board` | Specials Board | `specials-board` | base | Restored modern interpretation |
 | `classic` / `specials-board-classic` | Specials Board Classic | `specials-board-classic` | flagship | Restored Coda 1-grounded interpretation |
-| `contrast` / `specials-board-contrast` | Specials Board Contrast | `specials-board-contrast` | flagship | Undifferentiated foundation preview |
+| `contrast` / `specials-board-contrast` | Specials Board Contrast | `specials-board-contrast` | flagship | Differentiated accessibility-focused variant |
 | `legacy` / `specials-board-legacy` | Specials Board VS Code Legacy [Deprecated] | `specials-board-legacy` | base | Deprecated compatibility appearance |
 
-All four are generated and contributed to the extension. Contrast intentionally
-inherits the restored flagship without overrides: keeping its old appearance
-would break the declared inheritance model or introduce a second Legacy.
-Its unchanged stable label has no temporary suffix, but it has **no accessibility
-guarantee or independent differentiation**. That work belongs to Phase 4.
+All four are generated and contributed to the extension. Contrast inherits
+flagship's semantic relationships and supplies sparse palette/state overrides.
+Its optional adapter section adds meaningful borders without leaking extra
+colors into the other variants. The [color contract](accessibility.md) documents
+targets, known limits and reproducible results, not whole-editor conformance.
 
 Legacy retains `themes/specialsboard.json`, but intentionally replaces the
 historical stored ID `"Specials Board "` (including the final space) with
@@ -131,7 +132,7 @@ rules in order, exact scope strings/arrays, and font styles. Comparisons permit
 only equivalent hex casing/short-form expansion and the new display name.
 No semantic-token settings are emitted for Legacy. The renderer excludes Legacy
 from modern workbench and semantic mappings, even as those mappings evolve.
-Flagship, Classic and Contrast preview enable semantic highlighting deliberately.
+Flagship, Classic and Contrast enable semantic highlighting deliberately.
 
 Keep the shared base and Legacy independent of flagship restoration. The
 renderer selects `legacyTextMate` only for Legacy; the original 156 rules remain
@@ -185,9 +186,9 @@ each variant's editor canvas are:
 
 These are specific opaque editor samples, not a WCAG-conformance claim. The
 focused regression test protects the four relative improvements and readable
-invalid treatment. Selection compositing, every workbench pair, color-vision
-simulation, and differentiation thresholds belong to Phase 4. Classic deliberately
-retains some historically low-contrast colors.
+invalid treatment. Phase 4 now reports composited states and selected CVD pairs
+without changing these swatches. Classic deliberately retains some historically
+low-contrast colors, explicitly reported rather than treated as passing Contrast.
 
 ## Ordered TextMate classification
 
@@ -283,7 +284,9 @@ must match its evidence floor. Generation itself remains network-free.
 ```sh
 npm ci --ignore-scripts
 npm run generate
+npm run accessibility:generate
 npm run check
+npm run accessibility
 npm test
 npm run package
 ```
@@ -309,7 +312,7 @@ identities, deterministic sorting without source
 mutation, sparse override inheritance/isolation, reference/layer/type failures,
 alpha/fallback conversion, provenance, ANSI separation, semantic-token
 mapping, output schema, drift error paths, restored role families and provenance
-paths, Contrast preview inheritance, and real language-token output. The fixture's
+paths, Contrast differentiation/inheritance, and real language-token output. The fixture's
 SHA-256 is fixed in the test and must not be regenerated from current tokens.
 
 `npm run package` runs checks/tests and pinned `@vscode/vsce`; `vscode:prepublish`
@@ -361,8 +364,8 @@ consume the same resolved model without changing any palette/role file.
 
 Phase 3 preserves the exact Phase 2 TextMate output, while modern workbench and
 semantic coverage use independent shared roles. The 16-slot ANSI table is also
-portable token data, not yet a standalone terminal export. Phase 4 will differentiate
-Contrast and establish reproducible accessibility/color-differentiation gates.
+portable token data, not yet a standalone terminal export. Phase 4 differentiates
+Contrast and adds reproducible accessibility/color-differentiation gates.
 Phase 5 owns release positioning/screenshots. Phase 6 owns actual terminal and
 second-editor exports. No repository license is chosen in this phase.
 
@@ -399,7 +402,8 @@ Foreground overrides are deliberately absent for editor selections/search: synta
 colors must remain visible under the tint. Fine-grained diff words have stronger
 alpha than their enclosing line. Merge current/incoming content uses olive/blue
 with headers and borders; resolved and unresolved review states use distinct
-roles. These engineering invariants are not Phase 4 contrast/differentiation gates.
+roles. Phase 4 adds Contrast-specific tint budgets and explicit numerical gates;
+the Phase 3 values described here remain unchanged in flagship and Classic.
 
 ### Covered workflow families
 
@@ -483,9 +487,9 @@ no authenticated provider is available.
 
 The testing/debugging/notebook/review fixtures exercise public UI mechanisms,
 not every language server, kernel or debugger. No arbitrary key-count target is
-used as a coverage or accessibility score. Contrast remains byte-identical to
-flagship except for its name; no Phase 4 palette changes or compliance claim
-are included.
+used as a coverage or accessibility score. Contrast's independently differentiated
+palette and measured states are documented in [the Phase 4 contract](accessibility.md).
+No variant claims whole-application compliance.
 
 ### Public API pins and minimum version
 

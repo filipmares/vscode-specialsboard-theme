@@ -2,4 +2,5 @@
 /.playwright-mcp
 .DS_Store
 /node_modules
+/native-evidence
 *.vsix

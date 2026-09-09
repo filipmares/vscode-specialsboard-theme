@@ -33,7 +33,11 @@ export function renderVSCode(mapping, model) {
     if (!resolved) throw new Error(`Unresolved mapping token: ${target}`);
     return colorToHex(resolved);
   }
-  const colors = Object.fromEntries(Object.entries(legacy ? mapping.legacyWorkbench : mapping.workbench).map(([key, value]) => {
+  const workbench = legacy ? mapping.legacyWorkbench : {
+    ...mapping.workbench,
+    ...(model.variant.key === 'contrast' ? mapping.contrastWorkbench : {})
+  };
+  const colors = Object.fromEntries(Object.entries(workbench).map(([key, value]) => {
     if (key.startsWith('terminal.ansi')) throw new Error(`ANSI slot belongs in mapping.ansi: ${key}`);
     return [key, color(value)];
   }));

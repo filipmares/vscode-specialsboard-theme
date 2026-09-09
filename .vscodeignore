@@ -1,6 +1,7 @@
 .vscode/**
 .playwright-mcp/**
 .vscode-test/**
+native-evidence/**
 .github/**
 test files/**
 screenshots/**

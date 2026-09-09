@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.2.0] - 2026-09-08
+
+### Added
+
+- Differentiated Specials Board Contrast: darker warm planes, selective hue-preserving copper/terracotta/purple/honey adjustments, readable orange keys distinct from olive values, and unchanged dusty blue/lavender/olive families.
+- Blocking 7:1 base/current-line syntax and primary UI text targets, 4.5:1 floors for other covered text/composited states, and 3:1 meaningful indicator/boundary checks.
+- Deterministic encoded-sRGB composition, linear-light luminance and selected-role CVD checks for normal vision, Machado deuteranopia/protanopia and Brettel tritanopia.
+- Human-readable generated evidence for all four variants, explicit historical shortfalls, reference/mutation tests and CI regression gates.
+- Contrast-only active/focus, current-line, unnecessary-code and diff text borders. Unnecessary code is underlined instead of faded; native severity/status icons, labels and diagnostic cues remain supported.
+
+### Compatibility and limits
+
+- Minor release: all four saved IDs, the VS Code 1.101.0 engine floor, and the exact flagship, Classic and deprecated Legacy theme bytes are unchanged from 3.1.0.
+- Contrast replaces its former undifferentiated preview without changing syntax classification or semantics-on/off behavior. Its ANSI black is now readable warm gray; normal/bright slots stay distinct.
+- Selected syntax remains readable over modeled overlays, but subtle selection fills do not themselves meet 3:1. Host focus geometry, arbitrary webviews/terminal colors, user overrides and authenticated AI-provider rendering remain outside the bounded claim.
+- CVD separation is a documented engineering threshold, not universal perception, a participant study or WCAG conformance. Classic's historical low-contrast colors and Legacy's unsupported token backgrounds are explicitly reported and frozen.
+- No Marketplace imagery/positioning redesign, additional platform adapter, runtime settings changes or license assignment.
+
 ## [3.1.0] - 2026-09-08
 
 ### Added
