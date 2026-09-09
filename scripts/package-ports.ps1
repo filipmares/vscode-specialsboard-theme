@@ -15,6 +15,37 @@ function Get-Digest([byte[]] $Bytes) {
     [Convert]::ToHexString([Security.Cryptography.SHA256]::HashData($Bytes)).ToLowerInvariant()
 }
 
+function Set-PortableZipPlatform([string] $Path) {
+    # ZIP APPNOTE 4.3.12: the high byte of "version made by" records the host OS.
+    # ZipArchive exposes attributes, but not that field. Canonicalize only this
+    # metadata in our small, single-disk, comment-free archives; never payloads.
+    $bytes = [IO.File]::ReadAllBytes($Path)
+    $end = $bytes.Length - 22
+    if ($end -lt 0 -or [BitConverter]::ToUInt32($bytes, $end) -ne 0x06054b50 -or
+        [BitConverter]::ToUInt16($bytes, $end + 4) -ne 0 -or
+        [BitConverter]::ToUInt16($bytes, $end + 6) -ne 0 -or
+        [BitConverter]::ToUInt16($bytes, $end + 20) -ne 0) {
+        throw 'Expected a single-disk ZIP without an archive comment'
+    }
+    $count = [BitConverter]::ToUInt16($bytes, $end + 10)
+    $offset = [long] [BitConverter]::ToUInt32($bytes, $end + 16)
+    if ($count -ne 5 -or $count -ne [BitConverter]::ToUInt16($bytes, $end + 8) -or
+        $offset + [BitConverter]::ToUInt32($bytes, $end + 12) -ne $end) {
+        throw 'Unexpected ZIP central directory shape'
+    }
+    for ($i = 0; $i -lt $count; $i++) {
+        if ($offset + 46 -gt $end -or [BitConverter]::ToUInt32($bytes, $offset) -ne 0x02014b50) {
+            throw 'Invalid ZIP central directory entry'
+        }
+        if ($bytes[$offset + 5] -notin @(0, 3)) { throw 'Unreviewed ZIP host platform' }
+        $bytes[$offset + 5] = 0
+        $offset += 46 + [BitConverter]::ToUInt16($bytes, $offset + 28) +
+            [BitConverter]::ToUInt16($bytes, $offset + 30) + [BitConverter]::ToUInt16($bytes, $offset + 32)
+    }
+    if ($offset -ne $end) { throw 'Unexpected trailing ZIP directory data' }
+    [IO.File]::WriteAllBytes($Path, $bytes)
+}
+
 # Store entries without compression, with fixed metadata and ordinal names, so
 # archive identity is independent of zlib versions, local time and file mtimes.
 foreach ($target in @('windows-terminal', 'neovim')) {
@@ -48,6 +79,7 @@ foreach ($target in @('windows-terminal', 'neovim')) {
             }
         } finally { $zip.Dispose() }
     } finally { $stream.Dispose() }
+    Set-PortableZipPlatform $path
     $digest = Get-Digest ([IO.File]::ReadAllBytes($path))
     [IO.File]::WriteAllText("$path.sha256", "$digest  $([IO.Path]::GetFileName($path))`n", $utf8)
     Write-Host "$digest  $path"

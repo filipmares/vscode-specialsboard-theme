@@ -7,6 +7,7 @@ role mappings, and compatibility constraints, see the
 ## Prerequisites
 
 Use Node.js 22.12+, npm, and a current VS Code installation for development.
+Portable archive checks also require PowerShell 7 on every development platform.
 The extension's declared minimum VS Code version is 1.101.0; Node.js and the test
 dependencies are development tools, not runtime requirements.
 
