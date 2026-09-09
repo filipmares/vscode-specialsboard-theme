@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.4.0] - 2026-09-09
+
+### Added
+
+- Generated Windows Terminal scheme JSON and native Neovim Lua colorschemes for flagship, Classic and Contrast, resolving the existing canonical roles without platform palette copies.
+- Complete independent normal/bright ANSI mapping, cursor/selection/default colors, explicit opaque source-over composition, and strict source/native-format validation.
+- All 90 standard Neovim Tree-sitter captures, standard LSP families and typed readonly refinements, Markdown/config/diff/regex Vim-syntax fallbacks, and native UI/diagnostic groups.
+- A platform capability/loss matrix, installation instructions, official format pins and future-adapter contribution guidance.
+- Portable drift, inheritance, role/style, meaningful ANSI separation, color-floor and byte-regeneration invariants; isolated official Neovim floor/stable smoke tooling.
+- Deterministic, separately checksummed platform archives for GitHub releases. Cross-app files stay outside the lean Marketplace VSIX.
+
+### Compatibility and limits
+
+- All four VS Code theme files are byte-identical to v3.3.0. Stored IDs, labels, engine `^1.101.0`, palette, variants and VS Code mappings are unchanged.
+- Deprecated Legacy remains available only in VS Code. Its old scope/duplicate-ANSI compatibility data is not a new cross-app contract.
+- Windows Terminal exports target native scheme support from 1.0; Neovim's supported floor is 0.11.4 with truecolor. Neither port configures user profiles or installs parsers/providers.
+- Opaque selection/overlay translation and provider/grammar/style limits are explicit. No whole-application accessibility guarantee, third-party theme implementation, or project license assignment.
+
 ## [3.3.0] - 2026-09-09
 
 ### Added

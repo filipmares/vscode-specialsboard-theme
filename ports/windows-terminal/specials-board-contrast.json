@@ -1,0 +1,23 @@
+{
+  "background": "#181715",
+  "black": "#9b9186",
+  "blue": "#8aafcb",
+  "brightBlack": "#c3b7a9",
+  "brightBlue": "#a9c9df",
+  "brightCyan": "#a0cfc6",
+  "brightGreen": "#d0e49c",
+  "brightPurple": "#ddbee7",
+  "brightRed": "#ffc0ae",
+  "brightWhite": "#fff7ed",
+  "brightYellow": "#f3d398",
+  "cursorColor": "#e6e1dc",
+  "cyan": "#82b4ab",
+  "foreground": "#e6e1dc",
+  "green": "#a6bd70",
+  "name": "Specials Board Contrast",
+  "purple": "#b89ac4",
+  "red": "#df8974",
+  "selectionBackground": "#232526",
+  "white": "#ccc4bb",
+  "yellow": "#d7b370"
+}

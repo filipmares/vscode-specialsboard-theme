@@ -1,7 +1,9 @@
 # Upgrading and rolling back
 
-**3.3.0 preserves all four 3.2.0 theme files and saved IDs exactly.**
-No color/theme selection migration is needed from 3.2.0. Earlier versions have
+**3.4.0 preserves all four 3.3.0 theme files and saved IDs exactly.**
+The new [cross-app ports](ports.md) are separate optional downloads, not installed
+into other applications by the VS Code extension. No color/theme selection
+migration is needed from 3.2.0 or 3.3.0. Earlier versions have
 the changes below; you can upgrade directly without installing intermediate releases.
 
 ## Choose the intended variant
@@ -61,11 +63,12 @@ yours and can change both the appearance and the measured contrast results.
 
 ## Users already on 3.x
 
-| Installed version | What changes on the way to 3.3.0 |
+| Installed version | What changes on the way to 3.4.0 |
 |---|---|
 | 3.0.x | IDs remain valid. 3.1 adds workbench and semantic-token coverage and raises the engine floor. 3.2 differentiates Contrast. |
 | 3.1.x | IDs remain valid; flagship, Classic and Legacy bytes stay fixed. Contrast replaces its undifferentiated preview with darker surfaces and measured adjustments in 3.2. |
 | 3.2.x | No theme-byte, engine or ID change. 3.3 refreshes documentation, Marketplace metadata and screenshots. |
+| 3.3.x | No VS Code theme-byte, engine or ID change. 3.4 adds separately downloaded Windows Terminal/Neovim ports. |
 
 Semantic highlighting in the restored variants can refine classifications when
 a language provider is available. To compare TextMate fallback, change
@@ -77,7 +80,7 @@ the extension's theme files. Legacy does not opt into semantic highlighting.
 | Extension release | Declared VS Code requirement |
 |---|---|
 | 2.2.0 and 3.0.0 | `^1.34.0` |
-| 3.1.0, 3.2.0 and 3.3.0 | `^1.101.0` |
+| 3.1.0 through 3.4.0 | `^1.101.0` |
 
 The floors above are verified against those release manifests, not inferred from
 the version number. Check other historical versions' own manifests.

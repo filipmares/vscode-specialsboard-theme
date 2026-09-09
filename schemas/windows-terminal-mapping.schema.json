@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://specialsboard.local/schemas/windows-terminal-mapping",
+  "type": "object",
+  "required": ["background", "foreground", "cursorColor", "selectionBackground"],
+  "additionalProperties": false,
+  "properties": {
+    "background": { "$ref": "portable-color" },
+    "foreground": { "$ref": "portable-color" },
+    "cursorColor": { "$ref": "portable-color" },
+    "selectionBackground": { "$ref": "portable-color" }
+  }
+}

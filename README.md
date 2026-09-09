@@ -7,6 +7,9 @@ dusty-blue literals and terracotta functions. Specials Board brings a documented
 Coda heritage to today's editor without turning every language into the same
 pastel palette.
 
+Now also generated for **Windows Terminal and Neovim** from the same source roles.
+[Cross-app downloads, installation and capability matrix](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.4.0/docs/ports.md).
+
 [Install from the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=filipmares.theme-specialsboard)
 · [Visual gallery](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.3.0/docs/gallery.md)
 · [History and fidelity](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.3.0/docs/heritage.md)
@@ -95,10 +98,11 @@ profile, workspace and preferred-theme settings that reference the old ID.
 The three 2.2 preview IDs, and all four IDs from 3.0 onward, remain stable.
 
 **Already on 3.x?** Version 3.1 expanded workbench/semantic coverage and raised
-the engine floor; 3.2 differentiated Contrast. **3.3.0 changes presentation,
-not colors:** all four generated themes are byte-identical to 3.2.0.
-[Migration and rollback guide](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.3.0/docs/migration.md)
-· [Changelog](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.3.0/CHANGELOG.md)
+the engine floor; 3.2 differentiated Contrast; 3.3 refreshed presentation.
+**3.4.0 adds portable adapters, not new VS Code colors:** all four generated
+VS Code themes are byte-identical to 3.3.0.
+[Migration and rollback guide](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.4.0/docs/migration.md)
+· [Changelog](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.4.0/CHANGELOG.md)
 
 ## More than syntax colors
 
@@ -125,8 +129,17 @@ isolated native checks cover the supported engine floor and a pinned stable host
 The installed extension is declarative: **no activation code, runtime
 dependencies, telemetry or settings mutations**.
 
-[Development and local installation](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.3.0/vsc-extension-quickstart.md)
-· [Token architecture](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.3.0/docs/theme-tokens.md)
+The separate [GitHub release archives](https://github.com/filipmares/vscode-specialsboard-theme/releases/tag/v3.4.0)
+provide flagship, Classic and Contrast for Windows Terminal (native schemes)
+and Neovim 0.11.4+ (native Lua, Tree-sitter/LSP groups and syntax fallbacks).
+They are not installed by this extension. Deprecated Legacy stays VS Code-only.
+Terminal palettes cannot express syntax roles, and opaque native overlays do
+not reproduce every VS Code state. The
+[cross-app guide](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.4.0/docs/ports.md)
+documents the losses, requirements, bounded color evidence and installation.
+
+[Development and local installation](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.4.0/vsc-extension-quickstart.md)
+· [Token architecture](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.4.0/docs/theme-tokens.md)
 · [Reproduce the screenshots](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.3.0/docs/capturing.md)
 · [Report a problem](https://github.com/filipmares/vscode-specialsboard-theme/issues)
 

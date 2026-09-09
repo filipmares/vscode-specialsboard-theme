@@ -1,0 +1,8 @@
+{
+  "background": "{component.workbench.canvas}",
+  "foreground": "{component.console.foreground}",
+  "cursorColor": "{component.workbench.foreground}",
+  "selectionBackground": {
+    "over": ["{component.workbench.canvas}", "{component.interaction.selection}"]
+  }
+}

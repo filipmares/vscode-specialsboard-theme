@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://specialsboard.local/schemas/windows-terminal-theme",
+  "description": "Project-authored complete subset of the native SchemeList item. Source: microsoft/terminal@5a830b2bf7c053d5c7ac22208fe5a346cb5dd3dc doc/cascadia/profiles.schema.json. No upstream implementation or default colors copied.",
+  "type": "object",
+  "required": ["name", "background", "foreground", "cursorColor", "selectionBackground", "black", "red", "green", "yellow", "blue", "purple", "cyan", "white", "brightBlack", "brightRed", "brightGreen", "brightYellow", "brightBlue", "brightPurple", "brightCyan", "brightWhite"],
+  "properties": {
+    "name": { "type": "string", "minLength": 1 },
+    "background": { "$ref": "#/definitions/color" },
+    "foreground": { "$ref": "#/definitions/color" },
+    "cursorColor": { "$ref": "#/definitions/color" },
+    "selectionBackground": { "$ref": "#/definitions/color" },
+    "black": { "$ref": "#/definitions/color" },
+    "red": { "$ref": "#/definitions/color" },
+    "green": { "$ref": "#/definitions/color" },
+    "yellow": { "$ref": "#/definitions/color" },
+    "blue": { "$ref": "#/definitions/color" },
+    "purple": { "$ref": "#/definitions/color" },
+    "cyan": { "$ref": "#/definitions/color" },
+    "white": { "$ref": "#/definitions/color" },
+    "brightBlack": { "$ref": "#/definitions/color" },
+    "brightRed": { "$ref": "#/definitions/color" },
+    "brightGreen": { "$ref": "#/definitions/color" },
+    "brightYellow": { "$ref": "#/definitions/color" },
+    "brightBlue": { "$ref": "#/definitions/color" },
+    "brightPurple": { "$ref": "#/definitions/color" },
+    "brightCyan": { "$ref": "#/definitions/color" },
+    "brightWhite": { "$ref": "#/definitions/color" }
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "color": { "type": "string", "pattern": "^#[0-9a-f]{6}$" }
+  }
+}

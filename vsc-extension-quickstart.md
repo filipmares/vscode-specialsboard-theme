@@ -7,6 +7,7 @@ role mappings, and compatibility constraints, see the
 ## Prerequisites
 
 Use Node.js 22.12+, npm, and a current VS Code installation for development.
+Portable archive checks also require PowerShell 7 on every development platform.
 The extension's declared minimum VS Code version is 1.101.0; Node.js and the test
 dependencies are development tools, not runtime requirements.
 
@@ -20,6 +21,8 @@ Run commands from the repository root. The examples below use PowerShell.
 | `package.json` | Extension metadata, theme contributions, and npm commands. |
 | `tokens/` | Palette, portable roles, variant overrides, and provenance. |
 | `adapters/vscode.json` | Workbench, TextMate, semantic-token, and ANSI mappings. |
+| `adapters/windows-terminal.json`, `adapters/neovim.json`, `adapters/ansi.json` | Native portable role mappings and a separate terminal ANSI table. |
+| `ports/` | Six generated cross-app outputs, distributed separately from the VSIX. |
 | `themes/specialsboard-flagship.json` | Generated Specials Board theme. |
 | `themes/specialsboard-classic.json` | Generated Specials Board Classic theme. |
 | `themes/specialsboard-contrast.json` | Generated differentiated Contrast variant with measured color targets. |
@@ -111,12 +114,18 @@ checks the manifest, image budgets, public document links/JSON examples and
 purpose-written grammar fixtures. The [migration guide](docs/migration.md)
 covers old saved IDs, compatible versions and rollback.
 
+The [cross-app guide and capability matrix](docs/ports.md) documents generated
+Windows Terminal and Neovim ports, their installation, native format evidence,
+opaque-overlay losses, isolated Neovim validation and adding future adapters.
+`npm run ports:validate` checks pinned official formats; `npm run ports:package`
+creates deterministic platform ZIPs/checksums without rebuilding the VSIX.
+
 `npm run package` runs all existing generation drift/schema/invariant,
 accessibility and Node test gates. It does not silently regenerate stale
 sources, accessibility evidence or screenshots. The VSIX contains only its
 container metadata, extension manifest, README, changelog, historical icon and
 four theme JSON files. The Markdown uses HTTPS release-tag links; screenshots,
-docs, fixture/capture code, test evidence, lockfile and development dependencies
+docs, cross-app ports, fixture/capture code, test evidence, lockfile and development dependencies
 are excluded.
 
 For release, inspect the actual ZIP inventory and compare all four theme files

@@ -4,7 +4,11 @@ import { fileURLToPath } from 'node:url';
 import Ajv from 'ajv';
 
 export const root = fileURLToPath(new URL('../', import.meta.url));
-const schemaNames = ['tokens', 'vscode-colors', 'vscode-mapping', 'variants', 'provenance', 'vscode-theme'];
+const schemaNames = [
+  'tokens', 'vscode-colors', 'vscode-mapping', 'variants', 'provenance', 'vscode-theme',
+  'portable-color', 'ansi-mapping', 'windows-terminal-mapping', 'windows-terminal-theme',
+  'neovim-captures', 'neovim-mapping'
+];
 const ajv = new Ajv({ strict: true, allErrors: true });
 for (const name of schemaNames) {
   ajv.addSchema(JSON.parse(readFileSync(resolve(root, 'schemas', `${name}.schema.json`), 'utf8')));
