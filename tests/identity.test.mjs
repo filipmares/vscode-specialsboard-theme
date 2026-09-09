@@ -107,15 +107,15 @@ test('Contrast stays a flagship preview; Legacy chrome, ANSI and selection stay 
   const [flagship, classic, contrast, legacy] = themes;
   assert.deepEqual({ ...contrast, name: flagship.name }, flagship);
   assert.notDeepEqual(classic.tokenColors, flagship.tokenColors);
-  for (const theme of themes) {
-    assert.deepEqual(Object.keys(theme.colors), Object.keys(legacy.colors));
-    assert.equal(theme.colors['editor.selectionBackground'], '#6c99bb33');
-    assert.equal(Object.hasOwn(theme, 'semanticHighlighting'), false);
-    assert.equal(Object.hasOwn(theme, 'semanticTokenColors'), false);
-    for (const [id, value] of Object.entries(legacy.colors)) {
-      if (id.startsWith('terminal.')) assert.equal(theme.colors[id], value);
-    }
+  for (const theme of [flagship, classic, contrast]) {
+    assert.deepEqual(Object.keys(theme.colors), Object.keys(flagship.colors));
+    assert.equal(theme.colors['editor.selectionBackground'], '#8aafcb40');
+    assert.equal(theme.semanticHighlighting, true);
+    assert.notDeepEqual(theme.colors, legacy.colors);
   }
+  assert.equal(legacy.colors['editor.selectionBackground'], '#6c99bb33');
+  assert.equal(Object.hasOwn(legacy, 'semanticHighlighting'), false);
+  assert.equal(Object.hasOwn(legacy, 'semanticTokenColors'), false);
   assert.equal(sources.mapping.legacyTextMate.length, 156);
   const noOneDark = ['#abb2bf', '#e06c75', '#c678dd', '#98c379', '#61afef', '#56b6c2', '#d19a66', '#e5c07b'];
   for (const theme of [flagship, classic]) {

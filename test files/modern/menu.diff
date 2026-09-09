@@ -1,0 +1,11 @@
+diff --git a/menu.json b/menu.json
+index 12ab345..67cd890 100644
+--- a/menu.json
++++ b/menu.json
+@@ -1,4 +1,4 @@
+ {
+-  "name": "Winter menu",
+-  "price": 11.5
++  "name": "Garden menu",
++  "price": 12.5
+ }

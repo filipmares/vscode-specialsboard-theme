@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.1.0] - 2026-09-08
+
+### Added
+
+- Deliberate ambient/navigation/content workbench hierarchy with reusable normal, hover, active, unfocused-selection, focus, disabled and feedback roles.
+- Public theme-color coverage for navigation, tabs/panels, trees/quick input, controls/forms, suggestions/hover/signature help, search/occurrences, diagnostics, SCM/diff/merge/review, testing/debugging, notebooks, notifications, peek, minimap/overview, inlay hints, sticky scroll, bracket pairs and inline-edit/chat editor surfaces.
+- Deliberate semantic highlighting with compact standard role mappings, including readonly constants, without adding syntax hue families.
+- Sixteen distinct normal/bright ANSI colors and themed terminal interaction states.
+- Modern language fixtures, state/alpha/ANSI/semantic regressions and an isolated VS Code extension-host smoke harness.
+
+### Compatibility
+
+- Requires VS Code **1.101.0+**, the first stable version with the selected public chat line-count colors. Older VS Code installations should retain an earlier compatible extension version.
+- Minor feature release: all four saved theme IDs remain unchanged from 3.0.0.
+- Flagship and Classic retain their exact 3.0.0 TextMate syntax rules and colors, also used when semantic highlighting is unavailable or disabled.
+- Deprecated Legacy retains its normalized ID, label, output path, all 47 workbench/ANSI entries, all 156 ordered syntax rules and the absence of semantic highlighting.
+- Contrast remains an undifferentiated flagship preview. No Phase 4 accessibility palette differentiation or compliance claim is included.
+- Public color IDs do not activate AI providers, kernels or debugger extensions, and cannot style arbitrary webviews. Historical licensing remains unresolved; no license is assigned.
+
 ## [3.0.0] - 2026-09-08
 
 ### Added

@@ -3,11 +3,14 @@
 Phase 1 ([#5](https://github.com/filipmares/vscode-specialsboard-theme/issues/5))
 introduced the portable architecture. Phase 2
 ([#8](https://github.com/filipmares/vscode-specialsboard-theme/issues/8)) restores
-the flagship and Classic syntax identities within that architecture. Legacy's
+the flagship and Classic syntax identities within that architecture. Phase 3
+([#9](https://github.com/filipmares/vscode-specialsboard-theme/issues/9)) extends
+the restored variants across modern workbench and semantic-token surfaces. Legacy's
 appearance remains frozen, with an intentional breaking identity rename and
 deprecation label; Contrast remains an undifferentiated preview.
 
-This guide describes the [3.0.0 token system and migration](../CHANGELOG.md).
+This guide describes the [3.1.0 token system](../CHANGELOG.md), retaining the
+3.0.0 identity migration.
 For local installation and development-host instructions, use the
 [contributor quickstart](../vsc-extension-quickstart.md).
 
@@ -15,12 +18,12 @@ For local installation and development-host instructions, use the
 
 | Layer | File | Responsibility |
 |---|---|---|
-| Reference palette | `tokens/palette.json` | The only authored raw colors. Separate `legacy`, `coda1`, `phase2` judgments, `coda2-atom`, and `repository-textmate` groups. |
+| Reference palette | `tokens/palette.json` | The only authored raw colors. Separate `legacy`, `coda1`, `phase2`/`phase3` judgments, `coda2-atom`, and `repository-textmate` groups. |
 | Semantic roles | `tokens/semantic.json` | Editor-independent syntax, markup, feedback, diff, surfaces, text, accents, and terminal colors. |
-| Component/state roles | `tokens/components.json` | Editor, tabs, navigation, sidebar, list, status, badges, and console states. |
+| Component/state roles | `tokens/components.json` | Shared workbench planes, interaction states, controls, feedback and brackets, plus frozen compatibility component roles. |
 | Variant registry | `tokens/variants.json` | Stable portable IDs, labels, VS Code IDs, output filenames, inheritance, and readiness. |
 | Variant overrides | `tokens/variants/*.json` | Sparse semantic/component alias replacements, applied after inheritance. |
-| Platform adapter | `adapters/vscode.json` | Workbench IDs, restored `textMate`, frozen `legacyTextMate`, semantic-token selectors, and ANSI slots in separate sections. |
+| Platform adapter | `adapters/vscode.json` | Modern `workbench`/`textMate`, frozen `legacyWorkbench`/`legacyTextMate`, semantic-token selectors, and ANSI slots in separate sections. |
 | Provenance | `tokens/provenance.json` | Source authority classifications and immutable historical anchors. |
 
 The dependency direction is palette -> semantic -> component -> adapter.
@@ -126,9 +129,9 @@ package; its frozen appearance is still available under the new ID.
 The baseline fixture preserves all 47 workbench/ANSI entries, all 156 TextMate
 rules in order, exact scope strings/arrays, and font styles. Comparisons permit
 only equivalent hex casing/short-form expansion and the new display name.
-No semantic-token settings are emitted for any shipped variant. The renderer
-also excludes Legacy from future semantic-token mappings, even when those
-mappings are populated for other variants.
+No semantic-token settings are emitted for Legacy. The renderer excludes Legacy
+from modern workbench and semantic mappings, even as those mappings evolve.
+Flagship, Classic and Contrast preview enable semantic highlighting deliberately.
 
 Keep the shared base and Legacy independent of flagship restoration. The
 renderer selects `legacyTextMate` only for Legacy; the original 156 rules remain
@@ -230,7 +233,9 @@ YAML grammar does not distinguish quoted keys from quoted values. We do not turn
 all paragraphs into headings or all YAML strings into properties. Python bare
 identifiers can be unscoped and stay neutral; a constructor/call or a `const`
 declaration/reference may be classified differently without semantic information.
-These are grammar boundaries, not reasons to enable broad semantic tokens early.
+These are grammar boundaries: Phase 3 semantic highlighting can refine symbol
+classification when a language provider is available, but never supplies a missing
+grammar or language server.
 Installed extensions, grammar versions, semantic highlighting settings, and
 editor decorations such as bracket-pair colorization can change the visible result.
 The listed colors describe our token roles, not a guarantee that every editor
@@ -269,10 +274,11 @@ references see the override. Unknown references and inheritance/alias cycles fai
 
 Node.js 22.12+ is development tooling only. Ajv validates the checked-in draft-07
 JSON Schemas in strict mode, offline. The generated-theme schema covers the
-adapter's supported VS Code shape, not the entire upstream VS Code color-ID
-registry. Existing **workbench color IDs** are retained unchanged; this does not
-refer to the intentionally renamed Legacy theme-selection ID. New platform
-coverage and current upstream registry validation belong with Phase 3.
+adapter's supported VS Code shape. Public color-ID evidence is separate from the
+shape schema; adding an arbitrary syntactically valid ID is not sufficient.
+`schemas/vscode-colors.schema.json` is an offline, explicitly reviewed public
+subset, enforced for adapter keys and generated theme keys. The minimum engine
+must match its evidence floor. Generation itself remains network-free.
 
 ```sh
 npm ci --ignore-scripts
@@ -301,7 +307,7 @@ development-only grammar/tokenization data and an engine, not a runtime extensio
 dependency or a second test runner. Tests cover the frozen baseline, all four
 identities, deterministic sorting without source
 mutation, sparse override inheritance/isolation, reference/layer/type failures,
-alpha/fallback conversion, provenance, ANSI separation, future semantic-token
+alpha/fallback conversion, provenance, ANSI separation, semantic-token
 mapping, output schema, drift error paths, restored role families and provenance
 paths, Contrast preview inheritance, and real language-token output. The fixture's
 SHA-256 is fixed in the test and must not be regenerated from current tokens.
@@ -353,11 +359,187 @@ mapping. `scripts/vscode.mjs` alone translates selectors and serializes colors f
 VS Code; `scripts/generate.mjs` orchestrates its outputs. Another adapter can
 consume the same resolved model without changing any palette/role file.
 
-Phase 2 restores flagship/Classic syntax without expanding the workbench key set.
-Existing component aliases see the changed canvas/default foreground; other
-workbench colors and all ANSI/terminal colors are deliberately retained, not
-promoted to historical Coda authority. Phase 3 will expand workbench/semantic-token
-coverage (and revisit the minimum VS Code engine if needed). Phase 4 will differentiate
+Phase 3 preserves the exact Phase 2 TextMate output, while modern workbench and
+semantic coverage use independent shared roles. The 16-slot ANSI table is also
+portable token data, not yet a standalone terminal export. Phase 4 will differentiate
 Contrast and establish reproducible accessibility/color-differentiation gates.
 Phase 5 owns release positioning/screenshots. Phase 6 owns actual terminal and
 second-editor exports. No repository license is chosen in this phase.
+
+## Phase 3 workbench and state design
+
+The hierarchy has three persistent planes, not a different color per widget:
+
+| Plane | Flagship / Classic | Surfaces |
+|---|---|---|
+| Ambient | `#211f1e` / same | Activity, title and status bars; restrained peripheral chrome. |
+| Navigation | `#282624` / same | Sidebar, inactive tabs, input fields, notebook framing. |
+| Content | `#302e2c` / `#2b2b2b` | Existing editor canvas, active tabs, panels, terminal and notebook cell editors. |
+
+Transient suggestions, hovers, quick input, menus, peek titles and notifications
+sit on a warm raised `#3a3734` surface. That overlay treatment is not a fourth
+persistent plane. Borders and quiet indent guides define edges without using
+hard black dividers. Classic keeps its original canvas and all syntax swatches;
+its workbench feedback deliberately shares flagship's modern lightness, rather
+than using the dimmer native syntax swatches for small control labels.
+
+| State | Shared treatment | Representative surfaces |
+|---|---|---|
+| Normal | Warm-white text, muted secondary text, plane-specific background | Chrome, tabs, controls, menus, tooltips |
+| Hover | `#46413c` | Lists, tabs, menu actions, toolbars, sticky scroll |
+| Active / selected | `#544c43`, warm-white foreground | Lists, quick input, suggestions, menu selections |
+| Selected but unfocused | `#454039`, text still readable | Trees/lists, inactive focus, notebook selection |
+| Keyboard focus | Copper border, not just fill | Lists, forms, tabs, notebook cells, status actions |
+| Disabled | `#80776e`, native disabled opacity where the widget uses it | Controls, unverified/disabled breakpoints, skipped tests |
+| Warning | Honey icon/border; opaque dark fill for validation popups | Diagnostics, forms, notifications, conflicts |
+| Error | Visible red icon/border; opaque dark fill for validation popups | Diagnostics, forms, failed tests, debug errors |
+| Editor overlays | Translucent blue selection/occurrences; honey search; olive/red diff | Editor, terminal, minimap, merge and inline edits |
+
+Foreground overrides are deliberately absent for editor selections/search: syntax
+colors must remain visible under the tint. Fine-grained diff words have stronger
+alpha than their enclosing line. Merge current/incoming content uses olive/blue
+with headers and borders; resolved and unresolved review states use distinct
+roles. These engineering invariants are not Phase 4 contrast/differentiation gates.
+
+### Covered workflow families
+
+| Workflow | Intentional coverage |
+|---|---|
+| Navigation/chrome | Title/command center, activity bar including top location, sidebars, breadcrumbs, status/remote/debug states |
+| Tabs/panels | Active/inactive/unfocused/hover/modified tabs, editor groups, panel titles and sections |
+| Lists/trees/quick input | Active/unfocused selection, keyboard focus, hover, match emphasis, drop targets, guides and table rows |
+| Controls/forms | Primary/secondary buttons, inputs and validation, dropdowns, checkbox/radio states, menus, toolbar, settings fields, progress and scrollbars |
+| Language tools | Suggestions and symbol icons, hover and shared signature-help widget, links, code lens and diagnostic/lightbulb feedback |
+| Editor interaction | Search, selections, read/write/text occurrences, gutters, indent guides, bracket matching, inlay hints, sticky scroll and ghost text |
+| SCM/review | Git decorations, text/line/gutter diff, merge headers/content/conflict borders, review comments and peek results |
+| Testing/debugging | Test states/messages, debug controls and breakpoints, stack frames, inline values and console tokens |
+| Notebooks | Cell/editor/output framing, selection/focus/hover, insertion indicators and execution states |
+| Notifications/peek | Normal/secondary text, headers, borders, severity icons and result selection/matches |
+| Minimap/overview | Search, selection, occurrences, diagnostics, diff and merge markers; translucent slider states |
+| AI-adjacent editor | Public ghost-text, inline-edit, inline-chat/input/diff, chat request/command/avatar/change-summary colors |
+| Terminal | Canvas, cursor, find/selection/drop states, command decorations and sixteen independent ANSI slots |
+
+Role reuse is deliberate: controls and feedback do not introduce unrelated hue
+families, and the adapter never contains raw colors. Legacy's separate profile
+emits only its frozen 47 entries; none of the new color IDs leak into it.
+
+### Semantic highlighting
+
+The compact set uses standard symbol and lexical token types. Types, namespaces,
+classes/interfaces/structs/enums and type parameters share honey; variables and
+parameters use their existing neutral/ lavender roles; properties/events use
+orange; functions/methods/decorators use terracotta. Readonly variables,
+readonly properties and enum members use the existing blue constant role.
+Comments retain their quiet italic style. Keywords, strings, numbers, regex and
+operators retain their TextMate families.
+
+There is no blanket `*.readonly`, `*.defaultLibrary`, declaration-bold rule or
+language-specific palette. Default-library modifiers inherit their actual token
+type: builtin methods remain functions, not a new accent. Unknown/custom token
+types use VS Code's documented semantic-to-TextMate fallback; classification
+still depends on the installed language provider. With semantic highlighting off,
+the **exact v3.0.0 TextMate arrays** remain available and hash-protected. On/off
+classification can legitimately differ (for example a readonly member or a bare
+identifier), but the hues do not. No runtime extension code changes users' settings.
+
+`test files/modern/` supplements the original identity fixtures with TypeScript,
+TSX, JSON/JSONC, YAML, shell, Rust and Go. Shiki tests exercise TextMate fallback;
+the isolated VS Code smoke uses the actual TypeScript semantic, completion, hover
+and signature providers. Shiki does not prove semantic-provider behavior.
+
+Additional pinned-grammar limits are recorded in those tests: Go builtin types
+use `storage.type` and retain the copper storage fallback; Go member selectors
+can share variable scopes. Rust enum variants may be classified as types,
+parameters/fields share variable scopes, and decimal dots have punctuation scopes.
+Shell bare assignment values remain strings even when numeric. No broad selector
+heuristic recolors unrelated language constructs to hide these limits; a real
+language provider can supply more precise semantic types.
+
+### Terminal and bracket decisions
+
+The terminal has sixteen unique, opaque colors. Every bright slot is lighter
+than its normal partner; neither blue/cyan nor normal/bright aliases are collapsed.
+Warm red, olive, honey, dusty blue, muted magenta and desaturated cyan preserve the
+overall warmth while respecting terminal ANSI meaning. Terminal magenta/cyan do
+not become syntax roles. Terminal applications can override colors, use truecolor,
+or ask VS Code to adjust contrast; `terminal.integrated.minimumContrastRatio`
+is a user setting and is not modified by this theme.
+
+Bracket-pair colors repeat a restrained honey/lavender/blue triad across six
+depths. Inactive guides remain quiet; active guides follow the bracket. This is
+coherent navigation, not a promise of color-vision-safe depth differentiation.
+
+### Explicit limits
+
+A color theme cannot style arbitrary extension webviews, notebook renderer HTML,
+native OS title/menu/dialog chrome, application-supplied terminal truecolor, or
+private/experimental extension decorations. Signature help uses VS Code's shared
+editor widget colors; there is no invented `signatureHelp.*` color namespace.
+Ghost text needs a completion provider; inline edits and chat additionally need
+a supporting extension/service and, where required, an authenticated account.
+Defining public color IDs does not activate those services or validate a model's
+output. Provider-dependent AI editing states are not claimed as live tested when
+no authenticated provider is available.
+
+The testing/debugging/notebook/review fixtures exercise public UI mechanisms,
+not every language server, kernel or debugger. No arbitrary key-count target is
+used as a coverage or accessibility score. Contrast remains byte-identical to
+flagship except for its name; no Phase 4 palette changes or compliance claim
+are included.
+
+### Public API pins and minimum version
+
+The engine floor is **VS Code 1.101.0**, commit
+`dfaf44141ea9deb3b4096f7cd6d24e00c147a4b1`. The limiting selected public IDs are
+`chat.linesAddedForeground` and `chat.linesRemovedForeground`, registered in
+[1.101.0 chat colors](https://github.com/microsoft/vscode/blob/dfaf44141ea9deb3b4096f7cd6d24e00c147a4b1/src/vs/workbench/contrib/chat/common/chatColors.ts#L61-L69)
+and absent through
+[1.100.3](https://github.com/microsoft/vscode/blob/258e40fedc6cb8edf399a463ce3a9d32e7e1f6f3/src/vs/workbench/contrib/chat/common/chatColors.ts#L46-L55).
+The complete public inline-edit family needs 1.99.0: the separate original/modified
+Tab-accept borders and gutter borders are not available at the 1.97 preview floor.
+See the [1.99 inline-edit registrations](https://github.com/microsoft/vscode/blob/4437686ffebaf200fa4a6e6e67f735f3edf24ada/src/vs/editor/contrib/inlineCompletions/browser/view/inlineEdits/theme.ts#L64-L172).
+
+Public documentation was checked against the live
+[theme color reference](https://code.visualstudio.com/api/references/theme-color)
+and pinned to `microsoft/vscode-docs@14f745e318ef4adb978f17dd8aff7f94591fccb4`,
+[`api/references/theme-color.md`](https://github.com/microsoft/vscode-docs/blob/14f745e318ef4adb978f17dd8aff7f94591fccb4/api/references/theme-color.md).
+The pinned document SHA-256 is
+`72e254ccc477fa699a7e8c91046d77c7d8ee660ecf7016fa3da44c88710db21a`.
+Semantic rules follow the official
+[semantic highlighting guide](https://code.visualstudio.com/api/language-extensions/semantic-highlight-guide)
+and its standard token types, modifiers and TextMate fallback model.
+
+The allowlist is the intersection of explicitly documented definitions with the
+selected IDs resolved by the **actual 1.101.0 runtime**, corroborated by the
+versioned production-source audit. The audit includes bundled Git's
+`contributes.colors` and dynamic ANSI registrations, not just literal
+`registerColor` calls. It is not a claim that all current public colors existed
+at the minimum version. Undocumented `inlineEdit.indicator.*`, newer unselected
+colors and the nonexistent `testing.message.error.decorationForeground` are
+not accepted by namespace analogy.
+
+To refresh the reviewed subset after a deliberate coverage change, run the
+isolated floor smoke against the new generated themes, then:
+
+```powershell
+node scripts\capture-vscode-colors.mjs C:\path\to\fresh-floor-report\live-report.json
+```
+
+The maintenance command checks the exact engine version, successful native
+registry comparison, current adapter ID set, pinned documentation bytes and
+explicit public definitions before generating the schema. It is never run
+implicitly by generation, tests or packaging. An intentional engine-floor
+change requires updating the evidence and guard together.
+
+The native harness checks both schema errors **and warnings**. Translucent
+minimap/overview markers honor overlap requirements; the two chat summary label
+registrations also require transparency despite upstream opaque defaults, so
+their shared label roles use 95% alpha. Restored variants have no native schema
+warnings. The only allowed Legacy exceptions are its five exact historical
+`#a71e17` TextMate-background warnings; those settings remain frozen, and VS Code
+still does not paint them. Any other warning or unknown color fails the smoke.
+
+3.1.0 is a minor feature release with a documented host-version requirement,
+not another saved-ID migration or syntax redesign. Older hosts need an earlier
+compatible extension version. The runtime package remains declarative: no
+activation code, dependencies, telemetry or automatic settings changes.

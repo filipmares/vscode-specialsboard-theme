@@ -1,0 +1,17 @@
+# Plain keys are properties; this grammar treats quoted keys as strings.
+defaults: &defaults
+  enabled: true
+  "course": "starter"
+  price: 12.5
+  note: "Soup\nBread"
+specials:
+  - <<: *defaults
+    id: soup
+    tags: [seasonal, vegan]
+    detail: { portions: [1, 2], fresh: true }
+  - id: salad
+    enabled: false
+fallback: null
+message: |
+  Garden soup
+  Served with bread

@@ -7,6 +7,70 @@
     }
   },
   "component": {
+    "workbench": {
+      "$extensions": { "org.specialsboard.provenance": { "source": "phase3-workbench", "evidence": "Three persistent planes: ambient chrome, navigation and existing variant canvas. Raised surfaces are transient overlays, not a fourth persistent plane." } },
+      "ambient": { "$type": "color", "$value": "{semantic.workbench.ambient}" },
+      "navigation": { "$type": "color", "$value": "{semantic.workbench.navigation}" },
+      "canvas": { "$type": "color", "$value": "{semantic.surface.canvas}" },
+      "raised": { "$type": "color", "$value": "{semantic.workbench.raised}" },
+      "foreground": { "$type": "color", "$value": "{semantic.text.primary}" },
+      "muted": { "$type": "color", "$value": "{semantic.workbench.muted}" },
+      "disabled": { "$type": "color", "$value": "{semantic.workbench.disabled}" },
+      "border": { "$type": "color", "$value": "{semantic.workbench.border}" },
+      "guide": { "$type": "color", "$value": "{semantic.workbench.guide}" },
+      "shadow": { "$type": "color", "$value": "{semantic.workbench.shadow}" },
+      "clear": { "$type": "color", "$value": "{semantic.workbench.clear}" }
+    },
+    "interaction": {
+      "$extensions": { "org.specialsboard.provenance": { "source": "phase3-workbench", "evidence": "Shared hover, active, unfocused-selected, focus and translucent editor overlay states across all modern surfaces." } },
+      "hover": { "$type": "color", "$value": "{semantic.workbench.hover}" },
+      "active": { "$type": "color", "$value": "{semantic.workbench.active}" },
+      "inactive": { "$type": "color", "$value": "{semantic.workbench.inactive}" },
+      "focus": { "$type": "color", "$value": "{semantic.workbench.accent}" },
+      "selection": { "$type": "color", "$value": "{semantic.workbench.selection}" },
+      "occurrence": { "$type": "color", "$value": "{semantic.workbench.occurrence}" },
+      "find": { "$type": "color", "$value": "{semantic.workbench.find}" },
+      "line": { "$type": "color", "$value": "{semantic.workbench.line}" },
+      "scroll": { "$type": "color", "$value": "{semantic.workbench.scroll}" },
+      "scroll-hover": { "$type": "color", "$value": "{semantic.workbench.scroll-hover}" },
+      "scroll-active": { "$type": "color", "$value": "{semantic.workbench.scroll-active}" },
+      "unnecessary": { "$type": "color", "$value": "{semantic.workbench.unnecessary}" }
+    },
+    "control": {
+      "$extensions": { "org.specialsboard.provenance": { "source": "phase3-workbench", "evidence": "Forms share navigation fills; primary copper controls use dark text, secondary controls use warm white on muted surfaces." } },
+      "background": { "$type": "color", "$value": "{component.workbench.navigation}" },
+      "primary": { "$type": "color", "$value": "{semantic.workbench.accent}" },
+      "primary-hover": { "$type": "color", "$value": "{semantic.workbench.accent-hover}" },
+      "on-primary": { "$type": "color", "$value": "{component.workbench.ambient}" },
+      "secondary": { "$type": "color", "$value": "{semantic.workbench.hover}" }
+    },
+    "feedback": {
+      "$extensions": { "org.specialsboard.provenance": { "source": "phase3-workbench", "evidence": "Stable feedback roles independent of Classic syntax intensity; line/word overlays remain translucent while validation popups use opaque fills." } },
+      "error": { "$type": "color", "$value": "{semantic.workbench.error}" },
+      "warning": { "$type": "color", "$value": "{semantic.workbench.warning}" },
+      "info": { "$type": "color", "$value": "{semantic.workbench.info}" },
+      "success": { "$type": "color", "$value": "{semantic.workbench.success}" },
+      "error-fill": { "$type": "color", "$value": "{semantic.workbench.error-fill}" },
+      "warning-fill": { "$type": "color", "$value": "{semantic.workbench.warning-fill}" },
+      "info-fill": { "$type": "color", "$value": "{semantic.workbench.info-fill}" },
+      "warning-tint": { "$type": "color", "$value": "{semantic.workbench.warning-tint}" },
+      "success-tint": { "$type": "color", "$value": "{semantic.workbench.success-tint}" },
+      "success-strong": { "$type": "color", "$value": "{semantic.workbench.success-strong}" },
+      "error-tint": { "$type": "color", "$value": "{semantic.workbench.error-tint}" },
+      "error-strong": { "$type": "color", "$value": "{semantic.workbench.error-strong}" },
+      "success-label": { "$type": "color", "$value": "{semantic.workbench.success-label}" },
+      "error-label": { "$type": "color", "$value": "{semantic.workbench.error-label}" },
+      "info-marker": { "$type": "color", "$value": "{semantic.workbench.info-marker}" },
+      "warning-marker": { "$type": "color", "$value": "{semantic.workbench.warning-marker}" },
+      "accent-marker": { "$type": "color", "$value": "{semantic.workbench.accent-marker}" },
+      "muted-marker": { "$type": "color", "$value": "{semantic.workbench.muted-marker}" }
+    },
+    "bracket": {
+      "$extensions": { "org.specialsboard.provenance": { "source": "phase3-workbench", "evidence": "A restrained repeating honey/lavender/blue triad uses existing Phase 2 families, with quiet inactive guides and no color-vision differentiation claim." } },
+      "first": { "$type": "color", "$value": "{semantic.workbench.bracket-first}" },
+      "second": { "$type": "color", "$value": "{semantic.workbench.bracket-second}" },
+      "third": { "$type": "color", "$value": "{semantic.workbench.bracket-third}" }
+    },
     "editor": {
       "background": {
         "$type": "color",

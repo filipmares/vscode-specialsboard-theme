@@ -1,0 +1,13 @@
+{
+  // Keep the grammar fallback visible with semantic highlighting switched off.
+  "editor.semanticHighlighting.enabled": false,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+  /* Quoted keys, a block comment, escapes and a valid JSONC trailing comma. */
+  "specialsboard.preview": {
+    "title": "Garden menu",
+    "count": 3,
+    "note": "Soup\nBread",
+    "groups": [{ "entries": ["soup", "salad"] }],
+  },
+}

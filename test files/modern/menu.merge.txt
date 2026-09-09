@@ -1,0 +1,15 @@
+Open this purpose-written conflict as JSON to inspect VS Code merge decorations.
+The theme supplies workbench colors; TextMate does not implement the merge editor.
+
+{
+<<<<<<< current
+  "title": "Garden soup",
+  "price": 12.5
+||||||| base
+  "title": "Soup",
+  "price": 11.5
+=======
+  "title": "Roasted tomato soup",
+  "price": 13
+>>>>>>> incoming
+}

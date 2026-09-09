@@ -7,6 +7,26 @@
     }
   },
   "semantic": {
+    "terminal": {
+      "$extensions": { "org.specialsboard.provenance": { "source": "phase3-workbench", "evidence": "Sixteen distinct opaque terminal slots with brighter partners; shared across restored variants, completely isolated from Legacy and syntax." } },
+      "foreground": { "$type": "color", "$value": "{semantic.text.primary}" },
+      "black": { "$type": "color", "$value": "{palette.phase3.terminal-black}" },
+      "red": { "$type": "color", "$value": "{palette.phase3.terminal-red}" },
+      "green": { "$type": "color", "$value": "{palette.phase3.terminal-green}" },
+      "yellow": { "$type": "color", "$value": "{palette.phase3.terminal-yellow}" },
+      "blue": { "$type": "color", "$value": "{palette.coda1.blue}" },
+      "magenta": { "$type": "color", "$value": "{palette.phase3.terminal-magenta}" },
+      "cyan": { "$type": "color", "$value": "{palette.phase3.terminal-cyan}" },
+      "white": { "$type": "color", "$value": "{palette.phase3.terminal-white}" },
+      "bright-black": { "$type": "color", "$value": "{palette.phase3.disabled}" },
+      "bright-red": { "$type": "color", "$value": "{palette.phase3.bright-red}" },
+      "bright-green": { "$type": "color", "$value": "{palette.phase3.bright-green}" },
+      "bright-yellow": { "$type": "color", "$value": "{palette.phase3.bright-yellow}" },
+      "bright-blue": { "$type": "color", "$value": "{palette.phase3.bright-blue}" },
+      "bright-magenta": { "$type": "color", "$value": "{palette.phase3.bright-magenta}" },
+      "bright-cyan": { "$type": "color", "$value": "{palette.phase3.bright-cyan}" },
+      "bright-white": { "$type": "color", "$value": "{palette.phase3.bright-white}" }
+    },
     "text": {
       "primary": { "$type": "color", "$value": "{palette.coda1.warm-white}" },
       "warm": { "$type": "color", "$value": "{semantic.text.primary}" }

@@ -4,9 +4,13 @@ Specials Board interprets the Coda editor's theme for Visual Studio Code.
 
 [Get it from the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=filipmares.theme-specialsboard)
 
-Version **3.0.0** includes the restored Coda palettes and a breaking Legacy ID
-rename. Read the [changelog](CHANGELOG.md) and upgrade guidance below before
-updating. Building a local VSIX does not publish an extension update.
+Version **3.1.0** adds a warm three-plane workbench, modern editor/tooling states,
+semantic highlighting and a sixteen-color terminal palette while preserving the
+3.0.0 syntax palettes and theme IDs. Read the [changelog](CHANGELOG.md) for
+compatibility details. Building a local VSIX does not publish an extension update.
+
+Requires **VS Code 1.101.0 or newer**. Older VS Code versions need an earlier
+compatible extension release; no saved-theme-ID migration is required from 3.0.0.
 
 ## Variants
 
@@ -21,6 +25,14 @@ readability exceptions for comments and invalid syntax.
 inherits the flagship appearance; its accessibility differentiation is deferred.
 Neither its name nor the flagship's readability adjustments are an
 accessibility-conformance claim.
+
+The restored variants now cover navigation, controls, suggestions/hover, search,
+diagnostics, SCM/diffs/merge/review, testing/debugging, notebooks, notifications,
+peek, minimap, inlay hints, sticky scroll, bracket pairs and public inline-edit/chat
+surfaces. Semantic highlighting refines classification using the same syntax
+families; TextMate-only rendering remains available when semantics are off or a
+language provider is missing. Provider-dependent features are not enabled by a
+theme, and arbitrary extension webviews cannot be themed comprehensively.
 
 **Specials Board VS Code Legacy [Deprecated]** preserves the post-Phase-0 2.1.1
 appearance, including translucent selection and historical invalid-token settings.
@@ -64,9 +76,9 @@ references, inheritance, manifest contributions, and byte-for-byte output drift.
 Packaging runs that check and the tests instead of silently fixing stale output.
 
 See [the token architecture and authoring guide](docs/theme-tokens.md) for the
-exact palette, native evidence versus modern judgments, grammar limitations,
+exact palette, workbench/state coverage and limits, native evidence versus modern judgments, grammar limitations,
 DTCG profile, and future adapter contract. Purpose-written language examples
-live in `test files/identity/`; tests tokenize them with pinned TextMate grammars.
+live in `test files/identity/` and `test files/modern/`; tests tokenize them with pinned TextMate grammars.
 The [contributor quickstart](vsc-extension-quickstart.md) covers local VSIX
 installation, development-host previews, and token inspection.
 Licensing remains deferred because historical sources have conflicting provenance;
