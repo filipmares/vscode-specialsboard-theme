@@ -1,0 +1,22 @@
+/* Warm neutrals, olive strings and blue units. */
+:root {
+  --space: 12px;
+}
+
+#menu .special {
+  display: grid;
+  gap: var(--space);
+  padding: calc(2 * var(--space));
+  border: 1px solid #a0c25f;
+  font-family: "Menu Serif", serif;
+}
+
+.special:hover::before {
+  content: "Seasonal\A specials";
+  white-space: pre;
+  opacity: 0.85;
+}
+
+@media (min-width: 600px) {
+  #menu { max-width: 48rem; }
+}

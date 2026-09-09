@@ -1,9 +1,9 @@
 {
 	"name": "theme-specialsboard",
 	"displayName": "Specials Board",
-	"description": "Specials Board - Inspired by the original Coda text editor theme",
+	"description": "Coda heritage, warm charcoal and copper syntax. Four dark variants: modern Specials Board, Classic, measured Contrast, and deprecated VS Code Legacy.",
 	"icon": "icon.png",
-	"version": "3.2.0",
+	"version": "3.3.0",
 	"publisher": "filipmares",
 	"scripts": {
 		"generate": "node scripts/generate.mjs",
@@ -27,10 +27,18 @@
 	],
 	"keywords": [
 		"coda",
-		"panic",
 		"warm",
 		"dark theme",
-		"syntax highlighting"
+		"syntax highlighting",
+		"copper",
+		"charcoal",
+		"classic",
+		"contrast",
+		"semantic highlighting",
+		"typescript",
+		"python",
+		"rust",
+		"go"
 	],
 	"contributes": {
 		"themes": [
@@ -61,7 +69,7 @@
 		]
 	},
 	"galleryBanner": {
-		"color": "#393939",
+		"color": "#211f1e",
 		"theme": "dark"
 	},
 	"bugs": {

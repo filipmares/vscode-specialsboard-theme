@@ -1,104 +1,137 @@
-# Specials Board Theme
+# Specials Board
 
-Specials Board interprets the Coda editor's theme for Visual Studio Code.
+**Coda roots. Warm color. Modern VS Code.**
 
-[Get it from the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=filipmares.theme-specialsboard)
+A dark theme with warm charcoal surfaces, copper declarations, olive strings,
+dusty-blue literals and terracotta functions. Specials Board brings a documented
+Coda heritage to today's editor without turning every language into the same
+pastel palette.
 
-Version **3.2.0** adds a differentiated **Specials Board Contrast** variant and
-reproducible color-accessibility gates. Flagship, Classic and deprecated Legacy
-keep their exact 3.1.0 appearance and saved IDs. Read the [changelog](CHANGELOG.md) for
-compatibility details. Building a local VSIX does not publish an extension update.
+[Install from the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=filipmares.theme-specialsboard)
+· [Visual gallery](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.3.0/docs/gallery.md)
+· [History and fidelity](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.3.0/docs/heritage.md)
 
-Requires **VS Code 1.101.0 or newer**. Older VS Code versions need an earlier
-compatible extension release; no saved-theme-ID migration is required from 3.0.0.
+![Specials Board flagship: TypeScript menu with copper declarations, olive strings and terracotta functions, warm Explorer and status bar, and labeled normal and bright ANSI terminal colors.](https://raw.githubusercontent.com/filipmares/vscode-specialsboard-theme/v3.3.0/screenshots/flagship-workbench.png)
 
-## Variants
+*Flagship in VS Code 1.136.2 (serve-web). The terminal is a deterministic ANSI fixture, not a
+build log. Screenshots use only bundled language support and a local capture
+fixture; they do not show an AI service or a third-party language server.*
 
-Specials Board uses shared, generated semantic roles. **Specials Board** is the
-modern Coda interpretation: warm off-white text, copper declarations, olive
-strings, dusty-blue literals, terracotta functions, lavender variables, honey
-types/tags, orange properties, and purple regex. **Specials Board Classic** uses
-historically grounded Coda 1 colors and neutral variables, with documented
-readability exceptions for comments and invalid syntax.
+## Four ways to use Specials Board
 
-**Specials Board Contrast** uses darker warm surfaces and selective
-hue-preserving adjustments, retaining the same Coda color families. Its measured
-base/current-line syntax and primary UI text meet 7:1; other covered text and
-composited states have a 4.5:1 floor, with 3:1 for measured focus/boundary indicators.
-Twelve selected semantic pairs pass a documented differentiation gate under
-normal vision and deuteranopia, protanopia and tritanopia simulations.
+| Variant in the theme picker | Choose it for |
+|---|---|
+| **Specials Board** | Everyday coding with the modern warm palette, lavender variables, readable italic comments and a coordinated workbench. |
+| **Specials Board Classic** | Coda 1-grounded syntax swatches and neutral variables. A historically informed translation, with documented exceptions and some low-contrast colors; not a Coda emulator. |
+| **Specials Board Contrast** | Darker warm surfaces, stronger text and boundary contrast, and selected-role color-vision differentiation gates. The same syntax families, not a different language classification. |
+| **Specials Board VS Code Legacy [Deprecated]** | The old VS Code port's post-2.1.1 appearance. Frozen for compatibility, not the Coda-grounded Classic palette. Still included; no removal date is announced. |
 
-These are specific color-model results, **not a claim that a theme makes VS Code
-WCAG-conformant**. Subtle selection fills, host/extension behavior, user overrides
-and untested AI-provider states have explicit limits. See the
-[accessibility contract](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.2.0/docs/accessibility.md)
-and [generated evidence](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.2.0/docs/accessibility-report.md).
+### Classic: history, not nostalgia by guesswork
 
-The restored variants now cover navigation, controls, suggestions/hover, search,
-diagnostics, SCM/diffs/merge/review, testing/debugging, notebooks, notifications,
-peek, minimap, inlay hints, sticky scroll, bracket pairs and public inline-edit/chat
-surfaces. Semantic highlighting refines classification using the same syntax
-families; TextMate-only rendering remains available when semantics are off or a
-language provider is missing. Provider-dependent features are not enabled by a
-theme, and arbitrary extension webviews cannot be themed comprehensively.
+![Specials Board Classic: Python dataclass and regular expressions alongside JavaScript regex examples, showing neutral variables, copper keywords, olive strings, purple regex and quiet italic comments.](https://raw.githubusercontent.com/filipmares/vscode-specialsboard-theme/v3.3.0/screenshots/classic-python.png)
 
-**Specials Board VS Code Legacy [Deprecated]** preserves the post-Phase-0 2.1.1
-appearance, including translucent selection and historical invalid-token settings.
-It is the old VS Code port, not the Coda-grounded Classic variant. Restored variants
-use visible red underlined invalid text rather than relying on TextMate backgrounds.
+Classic draws on surviving, language-specific Coda 1 `.seestyle` data.
+Community Coda 2 reconstructions and later TextMate ports are documented
+separately, not treated as original Panic exports. Warm-white defaults, universal
+role mappings, modern workbench colors, comment readability and invalid-token
+underlines include explicit project judgments. Read the
+[cited fidelity notes](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.3.0/docs/heritage.md).
 
-### Upgrading from the historical theme
+### Contrast: specific, reproducible color targets
 
-**Breaking change:** Legacy's saved ID is now `"specials-board-legacy"`, matching
-the other variants' naming convention. The historical `"Specials Board "` ID
-(including its final space) is deliberately removed, without an alias or automatic
-migration. Existing selections referencing it may fall back to a default VS Code
-theme after updating or reloading.
+![Specials Board Contrast: Rust and Go menu examples on darker warm canvases, with visible current-line outlines and distinct copper declarations, honey types, olive strings and terracotta calls.](https://raw.githubusercontent.com/filipmares/vscode-specialsboard-theme/v3.3.0/screenshots/contrast-systems.png)
 
-Open **Preferences: Color Theme** and choose **Specials Board** to try the restored
-flagship, **Specials Board Classic** for the Coda 1-grounded palette, or
-**Specials Board VS Code Legacy [Deprecated]** to retain the old appearance.
-VS Code does not automatically open the selector. Update any profiles, workspace
-settings, or preferred-theme settings that still reference the retired ID.
+The Contrast variant's release gates require **7:1** for measured base/current-line
+syntax and primary UI text, **4.5:1** for other covered text and composited states,
+and **3:1** for measured meaningful focus/boundary indicators. Twelve selected
+semantic pairs are tested in normal vision and simulated deuteranopia, protanopia
+and tritanopia using a documented OKLab-distance regression threshold.
 
-Users already on the 2.2.0 flagship, Classic, or Contrast previews keep their
-saved IDs but receive the corresponding restored palettes. Users of other
-extensions' themes are not switched to Specials Board.
+These are bounded color-model results, **not a claim that this theme makes
+VS Code WCAG-conformant**. The pair threshold is not a perceptual guarantee or
+a participant study. Subtle selection fills do not themselves meet 3:1.
+User overrides, host behavior, arbitrary webviews, terminal application colors
+and untested AI-provider states have explicit limits. Classic and Legacy's
+shortfalls remain visible in the report rather than being called passes.
 
-## Development
+[Accessibility contract and limitations](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.3.0/docs/accessibility.md)
+· [Generated evidence for all four variants](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.3.0/docs/accessibility-report.md)
 
-Use Node.js 22.12+ and npm. Tooling is development-only; the extension has no
-runtime code or dependencies.
+### Legacy: keep the old VS Code appearance
+
+![Deprecated Specials Board VS Code Legacy: the same TypeScript menu used in the flagship workbench image, with its historical cooler variables, mauve functions and flat gray editor surface.](https://raw.githubusercontent.com/filipmares/vscode-specialsboard-theme/v3.3.0/screenshots/legacy-code.png)
+
+Legacy preserves the old port's colors and ordered syntax rules, including
+known historical limitations. It does not receive the restored variants' semantic
+highlighting or expanded workbench mappings.
+
+## Install and choose a variant
+
+Requires **VS Code 1.101.0 or newer**. In Extensions, search for **Specials Board**
+by **filipmares**, or use the VS Code CLI:
 
 ```sh
-npm ci --ignore-scripts
-npm run generate
-npm run accessibility:generate
-npm run check
-npm run accessibility
-npm test
-npm run package
+code --install-extension filipmares.theme-specialsboard
 ```
 
-Edit `tokens/` and `adapters/vscode.json`, not generated `themes/*.json`.
-Commit generated files together with their sources. `check` validates schemas,
-references, inheritance, manifest contributions, and byte-for-byte output drift.
-Packaging also checks the committed accessibility evidence and tests instead of
-silently fixing stale output. Classic's known low-contrast colors are reported,
-not relabeled as passing Contrast's contract.
+Open the Command Palette, run **Preferences: Color Theme**, and choose a variant.
+To select the flagship in your own `settings.json`:
 
-See [the token architecture and authoring guide](docs/theme-tokens.md) for the
-exact palette, workbench/state coverage and limits, native evidence versus modern judgments, grammar limitations,
-DTCG profile, and future adapter contract. Purpose-written language examples
-live in `test files/identity/` and `test files/modern/`; tests tokenize them with pinned TextMate grammars.
-The [contributor quickstart](vsc-extension-quickstart.md) covers local VSIX
-installation, development-host previews, and token inspection.
-Licensing remains deferred because historical sources have conflicting provenance;
-packaging explicitly skips the missing-license gate without assigning a license.
+```json
+{
+  "workbench.colorTheme": "specials-board"
+}
+```
 
-## Historical screenshot
+The other saved IDs are `specials-board-classic`, `specials-board-contrast` and
+`specials-board-legacy`. The extension does not change your settings or
+automatically switch themes.
 
-Historical pre-restoration screenshot; it does not represent the restored
-flagship or Classic. Updated Marketplace imagery belongs to the release-positioning phase.
+**Upgrading from 2.x?** Version 3.0 retired the saved ID `"Specials Board "`
+(including its trailing space), without an alias or automatic migration.
+If VS Code falls back to a default theme, choose the deprecated Legacy entry
+to retain the old port, or choose one of the restored variants. Update saved
+profile, workspace and preferred-theme settings that reference the old ID.
+The three 2.2 preview IDs, and all four IDs from 3.0 onward, remain stable.
 
-![Historical pre-restoration Specials Board syntax highlighting in VS Code](https://user-images.githubusercontent.com/249027/71357793-2c97f880-25ca-11ea-80c4-fc79fcf1de4a.png)
+**Already on 3.x?** Version 3.1 expanded workbench/semantic coverage and raised
+the engine floor; 3.2 differentiated Contrast. **3.3.0 changes presentation,
+not colors:** all four generated themes are byte-identical to 3.2.0.
+[Migration and rollback guide](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.3.0/docs/migration.md)
+· [Changelog](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.3.0/CHANGELOG.md)
+
+## More than syntax colors
+
+The restored variants coordinate navigation, controls, suggestions/hover,
+search, diagnostics, diff/merge/review, testing/debugging, notebooks,
+notifications, inlay hints, sticky scroll, bracket pairs, sixteen ANSI colors
+and public inline-edit/chat color surfaces.
+
+Semantic highlighting uses the same role families when a language provider
+classifies a symbol. TextMate fallback remains available when semantics are off
+or a provider is missing. A theme supplies colors; it does **not** install
+grammars, language servers, debuggers, notebook kernels or AI services.
+
+The [nine-scene gallery](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.3.0/docs/gallery.md)
+also shows TSX, HTML/CSS, Markdown with YAML frontmatter, JSON/JSONC and actual
+VS Code diff, local review and merge surfaces. Static images and explanatory
+captions carry the same information; there is no animation.
+
+## Built to be maintained
+
+Four themes are generated from shared palette, semantic and component/state
+roles. Schema, drift, compatibility, grammar and accessibility checks run in CI;
+isolated native checks cover the supported engine floor and a pinned stable host.
+The installed extension is declarative: **no activation code, runtime
+dependencies, telemetry or settings mutations**.
+
+[Development and local installation](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.3.0/vsc-extension-quickstart.md)
+· [Token architecture](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.3.0/docs/theme-tokens.md)
+· [Reproduce the screenshots](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.3.0/docs/capturing.md)
+· [Report a problem](https://github.com/filipmares/vscode-specialsboard-theme/issues)
+
+**Provenance and licensing:** historical sources contain conflicting license
+statements. No license has been assigned or inferred for this repository.
+Attribution and source availability do not resolve permission; see the
+[unresolved provenance caveat](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.3.0/docs/heritage.md).
+This is an independent VS Code theme project, not a Panic product.

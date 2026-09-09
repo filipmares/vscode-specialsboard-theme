@@ -1,0 +1,9 @@
+{
+  "title": "Garden menu",
+  "season": "autumn",
+  "specials": [
+    { "name": "Garden soup", "price": 12.5 },
+    { "name": "Salad", "price": 9 }
+  ],
+  "note": "Ask about ingredients"
+}

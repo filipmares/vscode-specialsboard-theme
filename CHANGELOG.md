@@ -5,6 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.3.0] - 2026-09-09
+
+### Added
+
+- A Marketplace introduction built around documented Coda heritage, warm visual identity and reproducible engineering/accessibility evidence.
+- A concise, cited history/fidelity guide separating native Coda 1 data, Coda 2 reconstructions, TextMate ports and project judgments.
+- Migration and rollback guidance for historical 2.x, 3.0/3.1 and current users, including the normalized deprecated Legacy ID.
+- Nine static visual scenes covering all four variants, TypeScript/TSX, Python/regex, Rust/Go, HTML/CSS, Markdown/YAML frontmatter, JSON/JSONC, diff/review, merge and integrated ANSI terminal surfaces.
+- Purpose-written presentation fixtures, an isolated capture workflow, useful image descriptions and a documented distinction between real language providers and deterministic local UI fixtures.
+
+### Changed
+
+- Refreshed discovery keywords and the warm gallery banner; replaced historical Marketplace imagery with current, reproducible captures.
+- Expanded contributor, packaging and release documentation. Screenshots and capture tooling stay outside the runtime VSIX.
+
+### Compatibility and limits
+
+- Minor presentation release: all four generated theme files are byte-identical to 3.2.0. No palette, scope, semantic classification, saved ID, label or engine change.
+- Still requires VS Code 1.101.0+. The historical `"Specials Board "` ID remains retired; deprecated Legacy uses `specials-board-legacy`.
+- Accessibility claims remain bounded by the existing color contract and evidence. No new WCAG, screen-reader, CVD-participant or authenticated AI-provider claim.
+- No runtime code, new platform adapter, license assignment or resolution of conflicting historical licensing.
+
 ## [3.2.0] - 2026-09-08
 
 ### Added

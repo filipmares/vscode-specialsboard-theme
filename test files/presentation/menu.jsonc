@@ -1,0 +1,18 @@
+{
+  // A data fixture, not VS Code settings.
+  "title": "Garden menu",
+  "enabled": true,
+  "fallback": null,
+  "revision": 3,
+  "specials": [
+    {
+      "id": "soup",
+      "price": 12.5,
+      "tags": ["seasonal", "vegan"],
+      "note": "Soup\nBread",
+      "path": "menus\\daily"
+    }
+  ],
+  /* JSONC adds comments to JSON data. */
+  "layout": { "columns": 2 }
+}
