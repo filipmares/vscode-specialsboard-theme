@@ -5,6 +5,7 @@ adapters/*.json text eol=lf
 schemas/*.json text eol=lf
 tests/fixtures/*.json text eol=lf
 docs/accessibility-report.md text eol=lf
+docs/oh-my-posh-accessibility.md text eol=lf
 assets/*.svg text eol=lf
 screenshots/manifest.json text eol=lf
 ports/** text eol=lf
