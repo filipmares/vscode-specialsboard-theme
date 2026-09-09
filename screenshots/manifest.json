@@ -1,0 +1,93 @@
+{
+  "host": {
+    "commit": "88e44fa0e00b08f7758b4f6d05632e4fd5e4df6f",
+    "platform": "Windows",
+    "scale": 1,
+    "surface": "serve-web",
+    "version": "1.136.2"
+  },
+  "images": [
+    {
+      "bytes": 94612,
+      "file": "classic-python.png",
+      "height": 1000,
+      "sha256": "05496f12ac58908b5eaaba4d4df2da600e80d6aba0aac5703a12e93e97c21aa2",
+      "width": 1440
+    },
+    {
+      "bytes": 80070,
+      "file": "contrast-merge.png",
+      "height": 1000,
+      "sha256": "d03a4d7f378e5f2b53c54234826a1b1c60a8e5885f60abecc9d2c087d5e4481f",
+      "width": 1440
+    },
+    {
+      "bytes": 63218,
+      "file": "contrast-review.png",
+      "height": 1000,
+      "sha256": "57d2c386058682c96c26ae1cdf7a613837f9133e1980b07985c869c6e0cfe554",
+      "width": 1440
+    },
+    {
+      "bytes": 101070,
+      "file": "contrast-systems.png",
+      "height": 1000,
+      "sha256": "4af5bffb5d3f911cfbf676b6a686447124f4c7d9a8ce41e81424c88e8698e4a0",
+      "width": 1440
+    },
+    {
+      "bytes": 85420,
+      "file": "flagship-content.png",
+      "height": 1000,
+      "sha256": "6f9e41cf0337fd8019e14a4a737de623df6601e3065422c0c990f8502e647205",
+      "width": 1440
+    },
+    {
+      "bytes": 99153,
+      "file": "flagship-tsx.png",
+      "height": 1000,
+      "sha256": "ab3c56c0f3b3e5394649c2be2620646967811892a98a520f395a3a343d799dff",
+      "width": 1440
+    },
+    {
+      "bytes": 92409,
+      "file": "flagship-web.png",
+      "height": 1000,
+      "sha256": "377b995accec62d6d3c5080d222d2dd2c405a39d87d276c99fec2406461ba7cd",
+      "width": 1440
+    },
+    {
+      "bytes": 133986,
+      "file": "flagship-workbench.png",
+      "height": 1000,
+      "sha256": "d334e288d714f3723da940dcfe20ef4ac1337a1c4df6e2e7e15e80eff842e7c9",
+      "width": 1440
+    },
+    {
+      "bytes": 100685,
+      "file": "legacy-code.png",
+      "height": 1000,
+      "sha256": "0ec3b851403173a7f75f3f422515037561b823ba46dca35664e36c95466eeed8",
+      "width": 1440
+    }
+  ],
+  "themeBaseline": "3.2.0",
+  "themes": [
+    {
+      "id": "specials-board",
+      "sha256": "fdee4d1b84ec6c0edf0d57d800c66353b7cfacf5c2506d8a9f44f5e87c5fb361"
+    },
+    {
+      "id": "specials-board-classic",
+      "sha256": "0b2711e4f39bda94aaa638724fd745f4dea9afe54a25e439c7c7323fdaf35cd4"
+    },
+    {
+      "id": "specials-board-contrast",
+      "sha256": "f5489903fa820f0a1fe85678b8352e45c36eb0b8413c6be5492e3287e456f7ff"
+    },
+    {
+      "id": "specials-board-legacy",
+      "sha256": "fee187b5cac5c7f04ee4ca00a5bbb56ced8453c22487ccaeccf67950eb9ba5dc"
+    }
+  ]
+}

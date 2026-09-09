@@ -1,0 +1,15 @@
+{
+  "name": "specialsboard-capture-fixture",
+  "displayName": "Specials Board capture fixture (development only)",
+  "publisher": "specialsboard-local",
+  "version": "1.0.0",
+  "engines": { "vscode": "^1.101.0" },
+  "main": "./main.cjs",
+  "extensionKind": ["workspace"],
+  "activationEvents": ["onStartupFinished"],
+  "contributes": {
+    "commands": [
+      { "command": "specialsboard.capture", "title": "Specials Board Capture: Choose Scene" }
+    ]
+  }
+}

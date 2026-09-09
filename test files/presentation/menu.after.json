@@ -1,0 +1,9 @@
+{
+  "title": "Seasonal menu",
+  "season": "autumn",
+  "specials": [
+    { "name": "Roasted squash soup", "price": 13 },
+    { "name": "Autumn salad", "price": 10 }
+  ],
+  "note": "Ask about seasonal ingredients"
+}

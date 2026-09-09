@@ -2,13 +2,17 @@
 .playwright-mcp/**
 .vscode-test/**
 native-evidence/**
+.native-smoke/**
+.native-evidence/**
+presentation-evidence/**
+*.log
+*.sha256
 .github/**
 test files/**
 screenshots/**
 themes/*.tmTheme
 *.vsix
 .gitignore
-screenshot.png
 vsc-extension-quickstart.md
 tokens/**
 adapters/**

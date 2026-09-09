@@ -12,6 +12,7 @@ dependencies are development tools, not runtime requirements.
 
 Run commands from the repository root. The examples below use PowerShell.
 
+
 ## Sources and generated files
 
 | Path | Purpose |
@@ -25,6 +26,8 @@ Run commands from the repository root. The examples below use PowerShell.
 | `themes/specialsboard.json` | Generated deprecated VS Code Legacy appearance. |
 | `test files/identity/` | Current language fixtures for visual and automated token inspection. |
 | `test files/modern/` | TS/TSX, JSONC, shell, Rust, Go, notebook, diff and merge workflow fixtures. |
+| `test files/presentation/` | Compact, purpose-written public-gallery fixtures; no external application dependencies. |
+| `scripts/presentation/` | Development-only capture extension and isolated settings; never shipped in the VSIX. |
 
 Do not edit generated theme JSON directly. The checked-in `.tmTheme` and older
 top-level files in `test files/` are historical material, not current theme sources.
@@ -97,6 +100,31 @@ sources. The package version comes from `package.json`; release changes are
 documented in the [changelog](CHANGELOG.md). Local packaging does not increment
 the version or publish a release. Versioning, release notes, licensing decisions,
 and publication must be handled explicitly for each Marketplace release.
+
+## Presentation and packaging
+
+The [capture guide](docs/capturing.md) reproduces the [nine-scene gallery](docs/gallery.md)
+using an exact VSIX, a fresh loopback-only VS Code web server/profile and a
+development-only fixture extension. It does not run in or change a normal
+editor profile. Screenshots have a recorded size/hash manifest; `npm test`
+checks the manifest, image budgets, public document links/JSON examples and
+purpose-written grammar fixtures. The [migration guide](docs/migration.md)
+covers old saved IDs, compatible versions and rollback.
+
+`npm run package` runs all existing generation drift/schema/invariant,
+accessibility and Node test gates. It does not silently regenerate stale
+sources, accessibility evidence or screenshots. The VSIX contains only its
+container metadata, extension manifest, README, changelog, historical icon and
+four theme JSON files. The Markdown uses HTTPS release-tag links; screenshots,
+docs, fixture/capture code, test evidence, lockfile and development dependencies
+are excluded.
+
+For release, inspect the actual ZIP inventory and compare all four theme files
+to the source bytes. Record SHA-256 of the exact VSIX tested in both isolated
+native hosts. Publish that same bundle to the existing publisher, not a rebuild.
+An annotated Git tag and GitHub release do not publish to Marketplace. Confirm
+the public Marketplace version/engine and advertised plus independently
+downloaded package hashes before claiming publication is complete.
 
 ## Isolated native smoke
 

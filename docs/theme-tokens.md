@@ -10,8 +10,10 @@ appearance remains frozen, with the 3.0.0 breaking identity rename and
 deprecation label. Phase 4 ([#7](https://github.com/filipmares/vscode-specialsboard-theme/issues/7))
 now differentiates Contrast with [measured accessibility gates](accessibility.md).
 
-This guide describes the [3.2.0 token system](../CHANGELOG.md), retaining the
-3.0.0 identity migration.
+This guide describes the token system shipped in [3.3.0](../CHANGELOG.md):
+all four generated themes are byte-identical to 3.2.0, retaining the 3.0.0
+identity migration. For the release-facing history and source distinctions,
+see [heritage and fidelity](heritage.md).
 For local installation and development-host instructions, use the
 [contributor quickstart](../vsc-extension-quickstart.md).
 
@@ -151,7 +153,7 @@ saturation, and warmth adjustments. Its palette is not a Coda 2 reconstruction.
 | Role | Classic | Flagship | Evidence or deliberate judgment |
 |---|---|---|---|
 | Editor canvas | `#2b2b2b` | `#302e2c` | Native JavaScript `_Default` background; flagship is slightly lighter and warmer. |
-| Default text / punctuation | `#e6e1dc` | `#e6e1dc` | Native HTML inline CSS/JavaScript and CSS inside-curly-brackets foreground. Generalizing this to default text is a judgment: many native `_Default` foreground rows are black. |
+| Default text / punctuation | `#e6e1dc` | `#e6e1dc` | Native HTML inline CSS/JavaScript and CSS inside-curly-brackets foreground. The original README also instructs users to set the global foreground to this warm white manually; many serialized `_Default` rows are black. Modern punctuation mapping remains a judgment. See [heritage](heritage.md). |
 | Keywords / declarations / word operators | `#cc762e` | `#d99559` | Native JavaScript/Python keywords and Ruby definitions; flagship lifts copper for small text. |
 | Strings | `#a0c25f` | `#b2c879` | Native JavaScript/CSS/Python strings; flagship softens olive. |
 | Numbers / constants / units | `#6c99bb` | `#8aafcb` | Native numbers and Ruby literals; generalizing all literal constants to dusty blue is a judgment. |
@@ -330,6 +332,8 @@ alone is not evidence that a release has been published.
 
 ## Historical evidence
 
+The concise, public [heritage and fidelity guide](heritage.md) distills the
+research without making it a generation dependency.
 The full research report was authored as `docs/theme-token-comparison.md` in the
 analysis workspace; it is **not a file in this checkout** or a runtime dependency.
 Its immutable Git blob is
@@ -366,8 +370,9 @@ Phase 3 preserves the exact Phase 2 TextMate output, while modern workbench and
 semantic coverage use independent shared roles. The 16-slot ANSI table is also
 portable token data, not yet a standalone terminal export. Phase 4 differentiates
 Contrast and adds reproducible accessibility/color-differentiation gates.
-Phase 5 owns release positioning/screenshots. Phase 6 owns actual terminal and
-second-editor exports. No repository license is chosen in this phase.
+Phase 5 supplies the [public gallery](gallery.md), [capture workflow](capturing.md)
+and [migration guide](migration.md), without changing theme bytes. Phase 6 owns
+actual terminal and second-editor exports. No repository license is chosen.
 
 ## Phase 3 workbench and state design
 
