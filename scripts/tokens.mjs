@@ -7,7 +7,7 @@ export const root = fileURLToPath(new URL('../', import.meta.url));
 const schemaNames = [
   'tokens', 'vscode-colors', 'vscode-mapping', 'variants', 'provenance', 'vscode-theme',
   'portable-color', 'ansi-mapping', 'windows-terminal-mapping', 'windows-terminal-theme',
-  'neovim-captures', 'neovim-mapping'
+  'neovim-captures', 'neovim-mapping', 'oh-my-posh-mapping', 'oh-my-posh-theme'
 ];
 const ajv = new Ajv({ strict: true, allErrors: true });
 for (const name of schemaNames) {

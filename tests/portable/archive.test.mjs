@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { resolve } from 'node:path';
@@ -17,15 +18,18 @@ test('native platform archives are repeatable with canonical ZIP host metadata a
     assert.equal(result.status, 0, result.stderr || result.stdout);
   }
   const { version } = JSON.parse(readFileSync(resolve(root, 'package.json'), 'utf8'));
-  for (const target of ['windows-terminal', 'neovim']) {
+  for (const target of ['windows-terminal', 'neovim', 'oh-my-posh']) {
     const name = `specials-board-${target}-${version}.zip`;
     const bytes = readFileSync(resolve(directory, 'first', name));
     assert.deepEqual(bytes, readFileSync(resolve(directory, 'second', name)));
+    const digest = value => createHash('sha256').update(value).digest('hex');
+    assert.equal(readFileSync(resolve(directory, 'first', `${name}.sha256`), 'utf8'), `${digest(bytes)}  ${name}\n`);
     const end = bytes.length - 22;
     assert.equal(bytes.readUInt32LE(end), 0x06054b50);
     assert.equal(bytes.readUInt16LE(end + 10), 5);
     let offset = bytes.readUInt32LE(end + 16);
     const names = [];
+    const entries = new Map();
     for (let i = 0; i < 5; i++) {
       assert.equal(bytes.readUInt32LE(offset), 0x02014b50);
       assert.equal(bytes[offset + 5], 0, 'Host OS must be canonical on Windows and Unix');
@@ -34,16 +38,22 @@ test('native platform archives are repeatable with canonical ZIP host metadata a
       const nameLength = bytes.readUInt16LE(offset + 28);
       const entryName = bytes.subarray(offset + 46, offset + 46 + nameLength).toString('utf8');
       names.push(entryName);
+      const local = bytes.readUInt32LE(offset + 42);
+      const start = local + 30 + bytes.readUInt16LE(local + 26) + bytes.readUInt16LE(local + 28);
+      const payload = bytes.subarray(start, start + bytes.readUInt32LE(offset + 24));
+      entries.set(entryName, payload);
       if (entryName === 'README.md') {
-        const local = bytes.readUInt32LE(offset + 42);
-        const start = local + 30 + bytes.readUInt16LE(local + 26) + bytes.readUInt16LE(local + 28);
-        const content = bytes.subarray(start, start + bytes.readUInt32LE(offset + 24)).toString('utf8');
+        const content = payload.toString('utf8');
         assert.equal(content, readFileSync(resolve(root, 'docs', 'ports.md'), 'utf8').replaceAll('\r\n', '\n'));
         assert.equal(content.includes('\r'), false);
+      } else if (entryName !== 'MANIFEST.sha256') {
+        assert.deepEqual(payload, readFileSync(resolve(root, 'ports', target, ...entryName.split('/'))));
       }
       offset += 46 + nameLength + bytes.readUInt16LE(offset + 30) + bytes.readUInt16LE(offset + 32);
     }
     assert.equal(offset, end);
     assert.deepEqual(names, [...names].sort());
+    assert.equal(entries.get('MANIFEST.sha256').toString('utf8'),
+      names.filter(entry => entry !== 'MANIFEST.sha256').map(entry => `${digest(entries.get(entry))}  ${entry}\n`).join(''));
   }
 });

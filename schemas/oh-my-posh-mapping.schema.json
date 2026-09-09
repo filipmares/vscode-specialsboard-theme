@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://specialsboard.local/schemas/oh-my-posh-mapping",
+  "type": "object",
+  "required": ["background", "path", "separator", "duration", "git-clean", "git-modified", "git-staged", "git-ahead", "git-behind", "git-diverged", "success", "failure"],
+  "additionalProperties": false,
+  "properties": {
+    "background": { "$ref": "#/definitions/role" },
+    "path": { "$ref": "#/definitions/role" },
+    "separator": { "$ref": "#/definitions/role" },
+    "duration": { "$ref": "#/definitions/role" },
+    "git-clean": { "$ref": "#/definitions/role" },
+    "git-modified": { "$ref": "#/definitions/role" },
+    "git-staged": { "$ref": "#/definitions/role" },
+    "git-ahead": { "$ref": "#/definitions/role" },
+    "git-behind": { "$ref": "#/definitions/role" },
+    "git-diverged": { "$ref": "#/definitions/role" },
+    "success": { "$ref": "#/definitions/role" },
+    "failure": { "$ref": "#/definitions/role" }
+  },
+  "definitions": {
+    "role": { "type": "string", "pattern": "^\\{semantic\\.prompt\\.[a-z][a-z-]*\\}$" }
+  }
+}
