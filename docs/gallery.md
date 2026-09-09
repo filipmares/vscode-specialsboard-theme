@@ -66,7 +66,7 @@ the theme cannot manufacture missing scopes.
 
 ## Contrast: JSON diff and local review
 
-![Side-by-side JSON diff with minus and plus gutter signs, word-change borders, an expanded comment labeled Fixture reviewer and the native Comments panel.](../screenshots/contrast-review.png)
+![Side-by-side JSON diff with minus and plus gutter signs, word-change borders and an expanded native comment thread labeled Fixture reviewer.](../screenshots/contrast-review.png)
 
 The diff is VS Code's actual original/modified editor. A development-only
 fixture registers the native comment thread; this is **not a hosted pull
