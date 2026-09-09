@@ -98,11 +98,11 @@ profile, workspace and preferred-theme settings that reference the old ID.
 The three 2.2 preview IDs, and all four IDs from 3.0 onward, remain stable.
 
 **Already on 3.x?** Version 3.1 expanded workbench/semantic coverage and raised
-the engine floor; 3.2 differentiated Contrast; 3.3 refreshed presentation.
-**3.4.0 adds portable adapters, not new VS Code colors:** all four generated
-VS Code themes are byte-identical to 3.3.0.
-[Migration and rollback guide](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.4.0/docs/migration.md)
-· [Changelog](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.4.0/CHANGELOG.md)
+the engine floor; 3.2 differentiated Contrast; 3.3 refreshed presentation;
+3.4 added portable adapters. **3.5.0 changes branding, not colors:** all four
+generated VS Code themes are byte-identical to 3.3.0.
+[Migration and rollback guide](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.5.0/docs/migration.md)
+· [Changelog](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.5.0/CHANGELOG.md)
 
 ## More than syntax colors
 
@@ -140,6 +140,7 @@ documents the losses, requirements, bounded color evidence and installation.
 
 [Development and local installation](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.4.0/vsc-extension-quickstart.md)
 · [Token architecture](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.4.0/docs/theme-tokens.md)
+· [Brand icon](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.5.0/docs/branding.md)
 · [Reproduce the screenshots](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.3.0/docs/capturing.md)
 · [Report a problem](https://github.com/filipmares/vscode-specialsboard-theme/issues)
 

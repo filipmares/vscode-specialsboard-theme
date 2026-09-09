@@ -9,8 +9,10 @@ This VS Code project continues that lineage independently; it is not a Panic pro
 **Fidelity means traceable decisions, not identical pixels.** Coda's per-language
 style system, TextMate scopes, semantic providers and the modern VS Code
 workbench do not have one-to-one equivalents. All four generated themes in
-3.4.0 are byte-identical to 3.3.0; the new native [ports](ports.md) translate the
-same roles and are modern engineering judgments, not new Coda-native evidence.
+3.5.0 are byte-identical to 3.3.0; the native [ports](ports.md) added in 3.4.0
+translate the same roles and are modern engineering judgments, not new
+Coda-native evidence. The 3.5.0 [package icon](branding.md) is original
+repository artwork drawn from the same palette tokens, not a Coda asset.
 
 ## Which evidence has authority?
 
@@ -94,5 +96,5 @@ the existing packaging license exception remains an explicit unresolved caveat.
 This is the release-facing distillation of historical comparison blob
 `94a1e18eaaa76d50a96a4260d366ca30b02e925a`, not a copy of its exhaustive tables.
 That report predates the Phase 0 fixes: its columns called "current VS Code"
-describe the old port, **not 3.4.0**. The generated themes, frozen fixtures,
+describe the old port, **not 3.5.0**. The generated themes, frozen fixtures,
 source registry and maintained token/accessibility guides govern current behavior.

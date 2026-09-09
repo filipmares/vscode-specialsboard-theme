@@ -132,9 +132,10 @@ Check the packaged README and the public Marketplace rendering after publication
 New tag URLs resolve only after the tag is pushed; validate the same paths
 locally before that point, then verify the public URLs.
 
-All screenshots and capture tooling are excluded from the VSIX. The historical
-icon is retained unchanged with the repository's unresolved provenance caveat;
-the new screenshots introduce no externally sourced artwork.
+All screenshots and capture tooling are excluded from the VSIX. The package icon
+is generated from the repository's own vector master rather than captured here;
+see [brand icon and Marketplace presentation](branding.md). The screenshots
+introduce no externally sourced artwork.
 
 Stop only the server/process tree you started, close its isolated browser tab,
 and remove only your named capture/CLI folders and upload/download scratch.

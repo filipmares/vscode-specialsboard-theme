@@ -321,9 +321,9 @@ SHA-256 is fixed in the test and must not be regenerated from current tokens.
 
 `npm run package` runs checks/tests and pinned `@vscode/vsce`; `vscode:prepublish`
 also checks drift when packaging directly with vsce. The ignore file excludes
-tokens, schemas, adapters, cross-app `ports`, docs, fixtures, scripts, historical `.tmTheme`, lockfile,
+tokens, schemas, adapters, cross-app `ports`, docs, editable icon sources in `assets`, fixtures, scripts, historical `.tmTheme`, lockfile,
 and all development dependencies. Runtime payload is the manifest, README,
-changelog, icon, and four generated themes (plus VSIX container metadata).
+changelog, generated [package icon](branding.md), and four generated themes (plus VSIX container metadata).
 The `--skip-license` flag acknowledges deferred licensing; it is not a license
 decision. Do not add a guessed LICENSE or package license field.
 

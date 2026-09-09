@@ -1,4 +1,9 @@
 {
+  "brand-icon": {
+    "authority": "judgment",
+    "source": "Package icon artwork (#20); scripts/icon.mjs geometry and docs/branding.md.",
+    "notes": "The C2 \"Line Break\" mark was originally drawn for this repository as deterministic vector code: seven token bars and five recessed wells on a 56 px module, resolving only existing palette tokens. No third-party artwork, font, gradient, photograph, trace or generated image is embedded. It replaces an inherited photographic icon of unrecorded origin, which was removed rather than retained. Provenance is not permission: the repository license remains unresolved."
+  },
   "phase4-accessibility": {
     "authority": "judgment",
     "source": "Phase 4 (#7); docs/accessibility.md and generated accessibility evidence.",

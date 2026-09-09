@@ -5,6 +5,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.5.0] - 2026-09-09
+
+### Changed
+
+- Replaced the package icon with **C2 "Line Break"**: original repository artwork drawn as deterministic vector code, seven token bars and five recessed wells on a warm slate plate, resolving only existing palette tokens.
+- Moved `galleryBanner.color` from the plate colour `#211f1e` to `palette.phase2.charcoal` `#302e2c`, the flagship `editor.background`, so the Marketplace tile no longer meets its own background at 1.00:1.
+
+### Added
+
+- `scripts/icon.mjs` and `npm run icon`: a browser-free, dependency-free deterministic renderer that produces the vector master and its 256 × 256 RGBA export from the palette tokens.
+- The editable vector master and documented favicon/avatar sibling sources in `assets/`, and a brand guide covering geometry, safe margins, palette tokens, export settings, provenance and rights.
+- Icon gates in `npm run check` and `npm test`: exact dimensions, 8-bit RGBA colour type, `IHDR`/`IDAT`/`IEND` only, pixel-level regeneration equality, palette-token drift, transparent-corner and keyline-legibility checks, banner/plate inequality and a package-size budget.
+
+### Removed
+
+- The inherited 640 kB photographic icon of unrecorded origin. It is not retained in the repository, the VSIX or the release archives; only its replacement rationale is documented.
+
+### Compatibility and limits
+
+- Branding-only release: all four generated VS Code theme files remain byte-identical to 3.3.0, and the generated Windows Terminal and Neovim files remain byte-identical to 3.4.0. Saved IDs, labels, engine `^1.101.0`, palette, variants and every VS Code mapping are unchanged.
+- The runtime VSIX payload drops from about 640 kB of imagery to about 5 kB; editable vector sources stay in the repository and the GitHub release rather than the package.
+- Icon contrast figures are bounded artwork measurements on named host backgrounds, not a WCAG conformance claim, and the accessibility contract and evidence are untouched.
+- No colour, scope, semantic classification, runtime code, platform adapter, telemetry or licence change. Historical licensing remains unresolved; the new artwork's provenance record is not a licence grant.
+
 ## [3.4.0] - 2026-09-09
 
 ### Added

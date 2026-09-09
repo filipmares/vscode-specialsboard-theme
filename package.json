@@ -3,11 +3,12 @@
 	"displayName": "Specials Board",
 	"description": "Coda heritage, warm charcoal and copper syntax. Four dark variants: modern Specials Board, Classic, measured Contrast, and deprecated VS Code Legacy.",
 	"icon": "icon.png",
-	"version": "3.4.0",
+	"version": "3.5.0",
 	"publisher": "filipmares",
 	"scripts": {
 		"generate": "node scripts/generate.mjs",
-		"check": "node scripts/generate.mjs --check",
+		"icon": "node scripts/icon.mjs",
+		"check": "node scripts/generate.mjs --check && node scripts/icon.mjs --check",
 		"accessibility:generate": "node scripts/accessibility.mjs --generate",
 		"accessibility": "node scripts/accessibility.mjs",
 		"ports:validate": "npm run check && node scripts/validate-port-formats.mjs",
@@ -71,7 +72,7 @@
 		]
 	},
 	"galleryBanner": {
-		"color": "#211f1e",
+		"color": "#302e2c",
 		"theme": "dark"
 	},
 	"bugs": {

@@ -123,9 +123,9 @@ creates deterministic platform ZIPs/checksums without rebuilding the VSIX.
 `npm run package` runs all existing generation drift/schema/invariant,
 accessibility and Node test gates. It does not silently regenerate stale
 sources, accessibility evidence or screenshots. The VSIX contains only its
-container metadata, extension manifest, README, changelog, historical icon and
+container metadata, extension manifest, README, changelog, generated package icon and
 four theme JSON files. The Markdown uses HTTPS release-tag links; screenshots,
-docs, cross-app ports, fixture/capture code, test evidence, lockfile and development dependencies
+docs, cross-app ports, editable icon sources, fixture/capture code, test evidence, lockfile and development dependencies
 are excluded.
 
 For release, inspect the actual ZIP inventory and compare all four theme files
