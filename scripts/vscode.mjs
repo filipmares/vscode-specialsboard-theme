@@ -1,6 +1,9 @@
 import { aliasTarget, colorToHex, stableJson, validateSchema } from './tokens.mjs';
 
 export function validateContributions(manifest, variants) {
+  if (manifest.engines?.vscode !== '^1.101.0') {
+    throw new Error('VS Code engine must match the public color snapshot floor: ^1.101.0');
+  }
   const expected = variants.map(variant => ({
     id: variant.vscodeId,
     label: variant.label,
@@ -20,6 +23,7 @@ export function validateContributions(manifest, variants) {
 
 export function renderVSCode(mapping, model) {
   validateSchema('vscode-mapping', mapping);
+  const legacy = model.variant.key === 'legacy';
   function color(reference) {
     const target = aliasTarget(reference);
     if (!/^(semantic|component)\./.test(target)) {
@@ -29,7 +33,7 @@ export function renderVSCode(mapping, model) {
     if (!resolved) throw new Error(`Unresolved mapping token: ${target}`);
     return colorToHex(resolved);
   }
-  const colors = Object.fromEntries(Object.entries(mapping.workbench).map(([key, value]) => {
+  const colors = Object.fromEntries(Object.entries(legacy ? mapping.legacyWorkbench : mapping.workbench).map(([key, value]) => {
     if (key.startsWith('terminal.ansi')) throw new Error(`ANSI slot belongs in mapping.ansi: ${key}`);
     return [key, color(value)];
   }));
@@ -37,7 +41,6 @@ export function renderVSCode(mapping, model) {
     colors[`terminal.ansi${slot[0].toUpperCase()}${slot.slice(1)}`] = color(value);
   }
   // Legacy's ordered compatibility profile must never inherit restored scope semantics.
-  const legacy = model.variant.key === 'legacy';
   const tokenColors = (legacy ? mapping.legacyTextMate : mapping.textMate).map(rule => ({
     ...rule,
     settings: Object.fromEntries(Object.entries(rule.settings).map(([key, value]) => [

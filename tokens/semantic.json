@@ -7,6 +7,57 @@
     }
   },
   "semantic": {
+    "workbench": {
+      "$extensions": {
+        "org.specialsboard.provenance": {
+          "source": "phase3-workbench",
+          "evidence": "Portable surface, interaction and feedback roles for modern workbenches; separate from the frozen base compatibility roles and syntax palette."
+        }
+      },
+      "ambient": { "$type": "color", "$value": "{palette.phase3.ambient}" },
+      "navigation": { "$type": "color", "$value": "{palette.phase3.navigation}" },
+      "raised": { "$type": "color", "$value": "{palette.phase3.raised}" },
+      "hover": { "$type": "color", "$value": "{palette.phase3.hover}" },
+      "active": { "$type": "color", "$value": "{palette.phase3.active}" },
+      "inactive": { "$type": "color", "$value": "{palette.phase3.inactive}" },
+      "border": { "$type": "color", "$value": "{palette.phase3.border}" },
+      "guide": { "$type": "color", "$value": "{palette.phase3.guide}" },
+      "muted": { "$type": "color", "$value": "{palette.phase3.muted}" },
+      "disabled": { "$type": "color", "$value": "{palette.phase3.disabled}" },
+      "accent": { "$type": "color", "$value": "{palette.phase2.copper}" },
+      "accent-hover": { "$type": "color", "$value": "{palette.phase2.orange}" },
+      "error": { "$type": "color", "$value": "{palette.phase2.error}" },
+      "warning": { "$type": "color", "$value": "{palette.phase2.honey}" },
+      "info": { "$type": "color", "$value": "{palette.phase2.blue}" },
+      "success": { "$type": "color", "$value": "{palette.phase2.olive}" },
+      "error-fill": { "$type": "color", "$value": "{palette.phase3.error-fill}" },
+      "warning-fill": { "$type": "color", "$value": "{palette.phase3.warning-fill}" },
+      "info-fill": { "$type": "color", "$value": "{palette.phase3.info-fill}" },
+      "selection": { "$type": "color", "$value": "{palette.phase3.selection}" },
+      "occurrence": { "$type": "color", "$value": "{palette.phase3.occurrence}" },
+      "find": { "$type": "color", "$value": "{palette.phase3.find}" },
+      "warning-tint": { "$type": "color", "$value": "{palette.phase3.warning-tint}" },
+      "success-tint": { "$type": "color", "$value": "{palette.phase3.success-tint}" },
+      "success-strong": { "$type": "color", "$value": "{palette.phase3.success-strong}" },
+      "error-tint": { "$type": "color", "$value": "{palette.phase3.error-tint}" },
+      "error-strong": { "$type": "color", "$value": "{palette.phase3.error-strong}" },
+      "success-label": { "$type": "color", "$value": "{palette.phase3.success-label}" },
+      "error-label": { "$type": "color", "$value": "{palette.phase3.error-label}" },
+      "info-marker": { "$type": "color", "$value": "{palette.phase3.info-marker}" },
+      "warning-marker": { "$type": "color", "$value": "{palette.phase3.warning-marker}" },
+      "accent-marker": { "$type": "color", "$value": "{palette.phase3.accent-marker}" },
+      "muted-marker": { "$type": "color", "$value": "{palette.phase3.muted-marker}" },
+      "line": { "$type": "color", "$value": "{palette.phase3.line}" },
+      "scroll": { "$type": "color", "$value": "{palette.phase3.scroll}" },
+      "scroll-hover": { "$type": "color", "$value": "{palette.phase3.scroll-hover}" },
+      "scroll-active": { "$type": "color", "$value": "{palette.phase3.scroll-active}" },
+      "shadow": { "$type": "color", "$value": "{palette.phase3.shadow}" },
+      "clear": { "$type": "color", "$value": "{palette.phase3.clear}" },
+      "unnecessary": { "$type": "color", "$value": "{palette.phase3.unnecessary}" },
+      "bracket-first": { "$type": "color", "$value": "{palette.phase2.honey}" },
+      "bracket-second": { "$type": "color", "$value": "{palette.phase2.lavender}" },
+      "bracket-third": { "$type": "color", "$value": "{palette.phase2.blue}" }
+    },
     "markup": {
       "quote": {
         "$type": "color",

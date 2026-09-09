@@ -1,4 +1,9 @@
 {
+  "phase3-workbench": {
+    "authority": "judgment",
+    "source": "Phase 3 (#9); docs/theme-tokens.md modern workbench and semantic coverage.",
+    "notes": "Authored warm three-plane surfaces, reusable interaction states and terminal colors extend the Phase 2 families without changing syntax swatches. Public VS Code IDs are coverage evidence, not color authority. Contrast remains a preview; no accessibility compliance or license grant is implied."
+  },
   "phase0": {
     "authority": "project-history",
     "source": "themes/specialsboard.json at c188c33; Git blob 58d2c3a8d5e6b5d24e24f811209e8867b9cfe97b",

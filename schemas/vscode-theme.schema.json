@@ -12,6 +12,7 @@
     "colors": {
       "type": "object",
       "minProperties": 1,
+      "propertyNames": { "$ref": "vscode-colors" },
       "additionalProperties": { "$ref": "#/definitions/color" }
     },
     "tokenColors": {

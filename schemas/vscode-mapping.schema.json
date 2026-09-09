@@ -2,15 +2,16 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://specialsboard.local/schemas/vscode-mapping",
   "type": "object",
-  "required": ["workbench", "textMate", "legacyTextMate", "semanticTokens", "ansi"],
+  "required": ["workbench", "legacyWorkbench", "textMate", "legacyTextMate", "semanticTokens", "ansi"],
   "additionalProperties": false,
   "properties": {
     "workbench": {
       "type": "object",
       "minProperties": 1,
-      "propertyNames": { "pattern": "^[a-zA-Z][a-zA-Z0-9]*(\\.[a-zA-Z][a-zA-Z0-9]*)+$" },
+      "propertyNames": { "$ref": "vscode-colors" },
       "additionalProperties": { "$ref": "tokens#/definitions/alias" }
     },
+    "legacyWorkbench": { "$ref": "#/properties/workbench" },
     "legacyTextMate": { "$ref": "#/properties/textMate" },
     "textMate": {
       "type": "array",
@@ -42,6 +43,7 @@
     },
     "semanticTokens": {
       "type": "object",
+      "propertyNames": { "pattern": "^(\\*|[a-zA-Z][a-zA-Z0-9]*)(\\.[a-zA-Z][a-zA-Z0-9]*)*(:[a-zA-Z][a-zA-Z0-9-]*)?$" },
       "additionalProperties": {
         "oneOf": [
           { "$ref": "tokens#/definitions/alias" },

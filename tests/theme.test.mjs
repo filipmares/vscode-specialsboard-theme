@@ -136,7 +136,7 @@ test('semantic overrides propagate to component aliases, preserving distinct sem
   const output = JSON.parse(buildThemes(input).get('specialsboard-flagship.json'));
   assert.equal(output.colors['editor.background'], '#2b2b2b');
   assert.equal(output.colors['tab.activeBackground'], '#2b2b2b');
-  assert.equal(output.colors['activityBar.background'], '#2e2d2d');
+  assert.equal(output.colors['activityBar.background'], '#211f1e');
 });
 
 test('token resolver can serve another adapter without VS Code mappings', () => {
@@ -205,6 +205,7 @@ test('rejects mapping literals and direct palette references on every platform s
   for (const reference of ['#ffffff', 'white', '{palette.legacy.white}', '{semantic.missing.color}']) {
     for (const mutate of [
       s => { s.mapping.workbench['editor.foreground'] = reference; },
+      s => { s.mapping.legacyWorkbench['editor.foreground'] = reference; },
       s => { s.mapping.textMate[0].settings.foreground = reference; },
       s => { s.mapping.legacyTextMate[0].settings.foreground = reference; },
       s => { s.mapping.ansi.white = reference; },
@@ -227,7 +228,7 @@ test('rejects unsupported styles, malformed ANSI tables and unmanaged output pro
   assert.throws(() => validateSchema('vscode-theme', { ...output, colors: { 'editor.background': 'blue' } }), /must match pattern/);
 });
 
-test('semantic-token adapter supports role references without enabling them in shipped variants', () => {
+test('semantic-token adapter supports color and style references, always excluding Legacy', () => {
   const input = structuredClone(sources);
   input.mapping.semanticTokens = {
     variable: '{semantic.syntax.variable}',
@@ -251,7 +252,9 @@ test('every generated color is managed by the resolved token graph', () => {
   for (const model of models) {
     const known = new Set([...model.tokens.values()].map(colorToHex));
     const theme = JSON.parse(themes.get(model.variant.output));
-    const emitted = [...Object.values(theme.colors), ...theme.tokenColors.flatMap(rule =>
+    const emitted = [...Object.values(theme.colors), ...Object.values(theme.semanticTokenColors ?? {}).flatMap(style =>
+      typeof style === 'string' ? [style] : style.foreground ? [style.foreground] : []
+    ), ...theme.tokenColors.flatMap(rule =>
       Object.entries(rule.settings).filter(([key]) => key !== 'fontStyle').map(([, color]) => color)
     )];
     for (const color of emitted) assert.ok(known.has(color), `Unmanaged output color: ${color}`);

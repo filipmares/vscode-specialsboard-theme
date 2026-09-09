@@ -7,7 +7,7 @@ role mappings, and compatibility constraints, see the
 ## Prerequisites
 
 Use Node.js 22.12+, npm, and a current VS Code installation for development.
-The extension's declared minimum VS Code version is 1.34; Node.js and the test
+The extension's declared minimum VS Code version is 1.101.0; Node.js and the test
 dependencies are development tools, not runtime requirements.
 
 Run commands from the repository root. The examples below use PowerShell.
@@ -24,6 +24,7 @@ Run commands from the repository root. The examples below use PowerShell.
 | `themes/specialsboard-contrast.json` | Generated Contrast preview, currently identical to flagship except its name. |
 | `themes/specialsboard.json` | Generated deprecated VS Code Legacy appearance. |
 | `test files/identity/` | Current language fixtures for visual and automated token inspection. |
+| `test files/modern/` | TS/TSX, JSONC, shell, Rust, Go, notebook, diff and merge workflow fixtures. |
 
 Do not edit generated theme JSON directly. The checked-in `.tmTheme` and older
 top-level files in `test files/` are historical material, not current theme sources.
@@ -95,3 +96,39 @@ sources. The package version comes from `package.json`; release changes are
 documented in the [changelog](CHANGELOG.md). Local packaging does not increment
 the version or publish a release. Versioning, release notes, licensing decisions,
 and publication must be handled explicitly for each Marketplace release.
+
+## Isolated native smoke
+
+Use an official portable VS Code **1.101.0** build for the engine floor and a
+current stable build for forward coverage. Keep both separate from your normal
+profile, disable updates in their temporary settings, and extract the candidate
+VSIX to a temporary directory. The test runner uses the extracted `extension`
+directory as `--extensionDevelopmentPath`, so the theme bytes being inspected
+are the actual package, not an unrelated source checkout.
+
+```powershell
+$env:SPECIALSBOARD_SMOKE_OUTPUT = "$env:TEMP\specialsboard-smoke-report"
+.\portable-vscode\bin\code.cmd --wait --disable-workspace-trust `
+  --user-data-dir "$env:TEMP\specialsboard-smoke-profile" `
+  --extensions-dir "$env:TEMP\specialsboard-smoke-extensions" `
+  --extensionDevelopmentPath "$env:TEMP\specialsboard-vsix\extension" `
+  --extensionTestsPath "$PWD\scripts\vscode-smoke.cjs"
+```
+
+The report is produced only after all assertions succeed. Do not use CLI exit
+status alone: an updating VS Code installation can exit zero without running
+the test host. Require a fresh `live-report.json` with `success: true`, the expected
+VS Code and extension versions, and no unregistered colors. Use a fresh report
+directory for each run to prevent stale success. The runner compares every
+authored color with VS Code's own resolved theme export, tests real TypeScript
+semantic/completion/hover/signature providers with semantics on/off, and opens
+diagnostic, test, review, diff, notebook and terminal fixtures. It does not call
+an AI service, execute notebook cells or modify your normal profile.
+
+For visual inspection, set `$env:SPECIALSBOARD_SMOKE_HOLD = "1"` before launching.
+The host stays open until a file named `finish` is created in the report directory.
+Inspect lists/quick input, hover/focus/selection, suggestions, error/warning
+feedback, the notebook, diffs and terminal; compare Classic and Legacy via the
+theme picker. Remove only the named temporary test profiles/extractions after
+closing their host. Provider-dependent inline edits/chat and arbitrary webviews
+remain explicitly outside the guaranteed live coverage.
