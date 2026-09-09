@@ -206,6 +206,32 @@ mutation tests, missing-layer checks, actual grammar tokenization and sibling
 byte locks guard the gate itself. Native floor/stable smoke, exact VSIX
 inspection and representative visual review remain separate release steps.
 
+### 3.2.0 native release observations
+
+The exact release candidate was exercised in isolated native **1.101.0** and
+**1.136.2**, with official archive hashes checked and updates disabled before
+launch. Both hosts resolved all 576 Contrast color IDs; flagship/Classic
+retained 570 and Legacy 47. The only permitted theme schema warnings were
+Legacy's five frozen unsupported token backgrounds.
+
+Both hosts exercised TypeScript providers with semantic display on and off,
+exported TextMate fallback rules, selection/inactive selection, find/occurrence,
+suggestion/hover/signature requests, real local ghost-text acceptance,
+diagnostics, testing, labeled SCM resources, review, native diff/merge tabs,
+notebook cells and sixteen ANSI slots. The harness distinguishes registered
+data, provider results, command requests and actual editor mutations; it does
+not assert pixels from those signals.
+
+Direct native screenshots on both hosts were reviewed for the warm dark
+hierarchy, readable source, active/focus outlines, labeled SCM icons (including
+deleted strikethrough), error/warning/info shapes and messages, test markers,
+expanded review comments, and unused/deprecated cues. Further interactive tab
+inspection was refused by the computer-use focus-safety policy. That refusal
+was honored: hover/suggestion/diff/merge/notebook/terminal pixels are **not**
+claimed as individually visually inspected in this release pass. Their
+deterministic color/state checks and native API exercises remain distinct
+evidence. No real screen-reader or CVD-participant pass is claimed.
+
 ## Sources and pins
 
 Official sources checked 2026-09-08; paraphrased here rather than claiming

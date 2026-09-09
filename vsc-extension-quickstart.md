@@ -100,36 +100,39 @@ and publication must be handled explicitly for each Marketplace release.
 
 ## Isolated native smoke
 
-Use an official portable VS Code **1.101.0** build for the engine floor and a
-current stable build for forward coverage. Keep both separate from your normal
-profile, disable updates in their temporary settings, and extract the candidate
-VSIX to a temporary directory. The test runner uses the extracted `extension`
-directory as `--extensionDevelopmentPath`, so the theme bytes being inspected
-are the actual package, not an unrelated source checkout.
+The Windows runner downloads an official portable VS Code **1.101.0** or the
+reviewed current stable **1.136.2**, checks the official archive digest and creates
+a fresh GUID-owned test directory. It disables updates before launch and uses
+only its own user-data/extensions directories. The extracted VSIX `extension`
+directory is `--extensionDevelopmentPath`, so the observed bytes belong to the
+actual candidate, not an unrelated source checkout.
 
 ```powershell
-$env:SPECIALSBOARD_SMOKE_OUTPUT = "$env:TEMP\specialsboard-smoke-report"
-.\portable-vscode\bin\code.cmd --wait --disable-workspace-trust `
-  --user-data-dir "$env:TEMP\specialsboard-smoke-profile" `
-  --extensions-dir "$env:TEMP\specialsboard-smoke-extensions" `
-  --extensionDevelopmentPath "$env:TEMP\specialsboard-vsix\extension" `
-  --extensionTestsPath "$PWD\scripts\vscode-smoke.cjs"
+.\scripts\run-vscode-smoke.ps1 -VSIX .\specialsboard-preview.vsix `
+  -ScratchRoot "$env:TEMP\specialsboard-native" -Version 1.101.0
+.\scripts\run-vscode-smoke.ps1 -VSIX .\specialsboard-preview.vsix `
+  -ScratchRoot "$env:TEMP\specialsboard-native" -Version 1.136.2 -Hold
 ```
 
-The report is produced only after all assertions succeed. Do not use CLI exit
-status alone: an updating VS Code installation can exit zero without running
-the test host. Require a fresh `live-report.json` with `success: true`, the expected
-VS Code and extension versions, and no unregistered colors. Use a fresh report
-directory for each run to prevent stale success. The runner compares every
-authored color with VS Code's own resolved theme export, tests real TypeScript
-semantic/completion/hover/signature providers with semantics on/off, and opens
-diagnostic, test, review, diff, notebook and terminal fixtures. It does not call
-an AI service, execute notebook cells or modify your normal profile.
+Do not use process exit status alone. Both `runner-report.json` and
+`live-report.json` must have fresh matching run IDs, the exact candidate hash,
+host/extension versions, `success: true` and final `phase: complete`. While
+held for visual review, `phase: holding` is not final completion. A failed or
+partial report is retained as failure evidence. The runner compares authored
+colors with native resolved exports, exercises real TypeScript providers with
+semantics on/off, checks exported TextMate rule availability, and opens
+diagnostic, test, review, diff, merge, notebook and ANSI fixtures. A local inline
+completion is accepted into the editor without an AI service. Neither provider
+responses nor command requests prove the painted colors; inspect the native UI
+separately. No kernel is executed and no normal profile is modified.
 
-For visual inspection, set `$env:SPECIALSBOARD_SMOKE_HOLD = "1"` before launching.
-The host stays open until a file named `finish` is created in the report directory.
+For visual inspection use `-Hold`. The host waits for its unique run ID in the
+output's `finish` file (or the documented bounded command protocol), not merely
+for an arbitrary stale file to exist.
 Inspect lists/quick input, hover/focus/selection, suggestions, error/warning
 feedback, the notebook, diffs and terminal; compare Classic and Legacy via the
 theme picker. Remove only the named temporary test profiles/extractions after
-closing their host. Provider-dependent inline edits/chat and arbitrary webviews
-remain explicitly outside the guaranteed live coverage.
+closing their host. The version-specific internal merge command is test tooling,
+not an extension runtime dependency. Provider-dependent inline edits/chat and
+arbitrary webviews remain outside guaranteed live coverage. Updating the stable
+pin requires checking the official update API and validating the new host.
