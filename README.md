@@ -7,8 +7,17 @@ dusty-blue literals and terracotta functions. Specials Board brings a documented
 Coda heritage to today's editor without turning every language into the same
 pastel palette.
 
-Now also generated for **Windows Terminal and Neovim** from the same source roles.
-[Cross-app downloads, installation and capability matrix](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.4.0/docs/ports.md).
+Now also generated for **Windows Terminal, Neovim and Oh My Posh** from the same source roles.
+[Cross-app downloads, installation and capability matrix](https://github.com/filipmares/vscode-specialsboard-theme/blob/master/docs/ports.md).
+
+| What you want to theme | Installation guide |
+|---|---|
+| Terminal background, cursor, selection and ANSI-colored command output | [Windows Terminal installation](https://github.com/filipmares/vscode-specialsboard-theme/blob/master/docs/ports.md#install-in-windows-terminal) |
+| PowerShell prompt segments, Git states and command status | [Oh My Posh installation](https://github.com/filipmares/vscode-specialsboard-theme/blob/master/docs/ports.md#install-in-oh-my-posh) |
+| Your existing full prompt, with new colors but no missing segments | [Keep your layout and reuse the palette](https://github.com/filipmares/vscode-specialsboard-theme/blob/master/docs/ports.md#reuse-the-palette-without-this-layout) |
+
+For matching prompt **and** command-output colors, configure both Windows
+Terminal and Oh My Posh. Neither is installed by the VS Code extension.
 
 [Install from the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=filipmares.theme-specialsboard)
 · [Visual gallery](https://github.com/filipmares/vscode-specialsboard-theme/blob/master/docs/gallery.md)
@@ -156,10 +165,14 @@ dependencies, telemetry or settings mutations**.
 The separate [GitHub release archives](https://github.com/filipmares/vscode-specialsboard-theme/releases/tag/v3.4.0)
 provide flagship, Classic and Contrast for Windows Terminal (native schemes)
 and Neovim 0.11.4+ (native Lua, Tree-sitter/LSP groups and syntax fallbacks).
+The next release also packages an original **Oh My Posh 31.2.1** prompt for all
+three variants: directory, labeled Git states, command outcome and duration.
+Its native RGB palette works independently of the Terminal scheme and can be
+reused without adopting the supplied layout. ASCII cues need no Nerd Font.
 They are not installed by this extension. Deprecated Legacy stays VS Code-only.
 Terminal palettes cannot express syntax roles, and opaque native overlays do
 not reproduce every VS Code state. The
-[cross-app guide](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.4.0/docs/ports.md)
+[cross-app guide](https://github.com/filipmares/vscode-specialsboard-theme/blob/master/docs/ports.md)
 documents the losses, requirements, bounded color evidence and installation.
 
 [Development and local installation](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.4.0/vsc-extension-quickstart.md)

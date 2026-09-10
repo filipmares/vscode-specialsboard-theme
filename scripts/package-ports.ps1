@@ -48,7 +48,7 @@ function Set-PortableZipPlatform([string] $Path) {
 
 # Store entries without compression, with fixed metadata and ordinal names, so
 # archive identity is independent of zlib versions, local time and file mtimes.
-foreach ($target in @('windows-terminal', 'neovim')) {
+foreach ($target in @('windows-terminal', 'neovim', 'oh-my-posh')) {
     $base = [IO.Path]::GetFullPath((Join-Path $root "ports\$target"))
     $entries = @{}
     foreach ($file in Get-ChildItem -LiteralPath $base -File -Recurse) {

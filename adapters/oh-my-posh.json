@@ -1,0 +1,14 @@
+{
+  "background": "{semantic.prompt.background}",
+  "path": "{semantic.prompt.path}",
+  "separator": "{semantic.prompt.separator}",
+  "duration": "{semantic.prompt.duration}",
+  "git-clean": "{semantic.prompt.git-clean}",
+  "git-modified": "{semantic.prompt.git-modified}",
+  "git-staged": "{semantic.prompt.git-staged}",
+  "git-ahead": "{semantic.prompt.git-ahead}",
+  "git-behind": "{semantic.prompt.git-behind}",
+  "git-diverged": "{semantic.prompt.git-diverged}",
+  "success": "{semantic.prompt.success}",
+  "failure": "{semantic.prompt.failure}"
+}

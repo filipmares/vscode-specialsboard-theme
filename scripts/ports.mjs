@@ -2,9 +2,10 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { aliasTarget, compileSources, loadSources, root, stableJson, validateSchema } from './tokens.mjs';
 import { ansiSlots, portableColor, portableVariants, renderAnsi } from './portable.mjs';
+import { renderOhMyPosh } from './oh-my-posh.mjs';
 
 export function loadPortMappings() {
-  return Object.fromEntries(['ansi', 'windows-terminal', 'neovim'].map(name => [
+  return Object.fromEntries(['ansi', 'windows-terminal', 'neovim', 'oh-my-posh'].map(name => [
     name, JSON.parse(readFileSync(resolve(root, 'adapters', `${name}.json`), 'utf8'))
   ]));
 }
@@ -83,6 +84,7 @@ export function buildPorts(sources = loadSources(), mappings = loadPortMappings(
     outputs.set(`windows-terminal/${model.variant.id}.json`,
       stableJson(renderWindowsTerminal(mappings['windows-terminal'], mappings.ansi, model)));
     outputs.set(`neovim/colors/${model.variant.id}.lua`, renderNeovim(mappings.neovim, mappings.ansi, model));
+    outputs.set(`oh-my-posh/${model.variant.id}.omp.json`, stableJson(renderOhMyPosh(mappings['oh-my-posh'], model)));
   }
   return outputs;
 }

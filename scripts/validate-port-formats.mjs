@@ -5,6 +5,7 @@ import { resolve } from 'node:path';
 import Ajv2020 from 'ajv/dist/2020.js';
 import { buildPorts, loadPortMappings } from './ports.mjs';
 import { root, validateSchema } from './tokens.mjs';
+import { poshSchemaHash, poshSchemaUrl, validatePosh } from './oh-my-posh.mjs';
 
 const terminalPin = '5a830b2bf7c053d5c7ac22208fe5a346cb5dd3dc';
 const neovimPin = 'cec0ecabd8f47ff81dcb52e8fc9003e365563a84';
@@ -38,6 +39,17 @@ for (const [file, expected] of buildPorts()) {
   }
 }
 assert.ok(validate(terminal), ajv.errorsText(validate.errors));
+const poshSchema = JSON.parse(await officialText(poshSchemaUrl, poshSchemaHash));
+// Upstream uses documentation/UI annotation keywords and permissive unions.
+// Our closed offline subset remains strict; this pass checks native compatibility.
+const poshAjv = new Ajv2020({ strict: false, allErrors: true, validateFormats: false });
+const validateNativePosh = poshAjv.compile(poshSchema);
+for (const [file, bytes] of buildPorts()) {
+  if (!file.startsWith('oh-my-posh/')) continue;
+  const theme = JSON.parse(bytes);
+  validatePosh(theme);
+  assert.ok(validateNativePosh(theme), `${file}: ${poshAjv.errorsText(validateNativePosh.errors)}`);
+}
 const document = await officialText(
   `https://raw.githubusercontent.com/neovim/neovim/${neovimPin}/runtime/doc/treesitter.txt`,
   '458dce1cf257bffa5d2122c6c3bb0a93ae3f6d45672f5a574362df695a1506ef'
@@ -47,4 +59,4 @@ const snapshot = JSON.parse(readFileSync(resolve(root, 'schemas', 'neovim-captur
 assert.deepEqual([...snapshot.enum].sort(), captures, 'Offline native capture vocabulary drift');
 const mapped = Object.keys(loadPortMappings().neovim.highlights).filter(name => name.startsWith('@') && !name.startsWith('@lsp.'));
 assert.deepEqual(mapped.sort(), captures, 'All declared standard captures must have an intentional role mapping');
-console.log(`Official formats: ${terminal.length} complete Windows Terminal schemes; ${captures.length} pinned native Neovim captures. No user profile imported.`);
+console.log(`Official formats: ${terminal.length} complete Windows Terminal schemes; ${captures.length} pinned native Neovim captures; three Oh My Posh themes. No user profile imported.`);

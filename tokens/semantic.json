@@ -7,6 +7,26 @@
     }
   },
   "semantic": {
+    "prompt": {
+      "$extensions": {
+        "org.specialsboard.provenance": {
+          "source": "prompt-adapter",
+          "evidence": "Original prompt-specific state meanings; reuse surface, primary text and feedback families, not syntax assignments or ANSI slots. See docs/ports.md."
+        }
+      },
+      "background": { "$type": "color", "$value": "{semantic.surface.canvas}" },
+      "path": { "$type": "color", "$value": "{semantic.text.primary}" },
+      "separator": { "$type": "color", "$value": "{semantic.workbench.muted}" },
+      "duration": { "$type": "color", "$value": "{semantic.workbench.muted}" },
+      "git-clean": { "$type": "color", "$value": "{semantic.workbench.success}" },
+      "git-modified": { "$type": "color", "$value": "{semantic.workbench.warning}" },
+      "git-staged": { "$type": "color", "$value": "{semantic.workbench.accent}" },
+      "git-ahead": { "$type": "color", "$value": "{semantic.workbench.info}" },
+      "git-behind": { "$type": "color", "$value": "{semantic.workbench.warning}" },
+      "git-diverged": { "$type": "color", "$value": "{semantic.workbench.error}" },
+      "success": { "$type": "color", "$value": "{semantic.workbench.success}" },
+      "failure": { "$type": "color", "$value": "{semantic.workbench.error}" }
+    },
     "workbench": {
       "$extensions": {
         "org.specialsboard.provenance": {
