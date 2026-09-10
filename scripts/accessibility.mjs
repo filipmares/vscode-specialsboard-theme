@@ -107,6 +107,13 @@ export function evaluateTheme(theme, model) {
       [mode, difference(rgba(leftColor), rgba(rightColor), mode)]));
     return { left, right, context, leftColor, rightColor, modes };
   });
+  // Light uses the same measured states, with a 4.5:1 text floor rather than
+  // Contrast's enhanced 7:1 targets. Pair distances remain disclosed evidence.
+  if (model.variant.appearance === 'light') {
+    for (const row of rows) {
+      if (row.kind !== 'indicator') row.minimum = 4.5;
+    }
+  }
   return { key: model.variant.key, name: theme.name, rows, cvd, excluded };
 }
 
@@ -114,7 +121,7 @@ export function failures(result) {
   return [
     ...result.rows.filter(row => row.ratio < row.minimum).map(row =>
       `${row.group}: ${row.foreground} on ${row.backgrounds.join(' + ')} = ${row.ratio.toFixed(5)} < ${row.minimum}`),
-    ...result.cvd.flatMap(pair => Object.entries(pair.modes).filter(([, value]) =>
+    ...(result.key === 'light' ? [] : result.cvd).flatMap(pair => Object.entries(pair.modes).filter(([, value]) =>
       value.distance < differentiationFloor).map(([mode, value]) =>
       `${pair.left}/${pair.right} (${mode}) = ${value.distance.toFixed(6)} < ${differentiationFloor}`))
   ];
@@ -146,9 +153,9 @@ export function renderReport(results, outputs) {
   ];
   for (const result of results) {
     const failedPairs = result.cvd.filter(pair => Object.values(pair.modes).some(value => value.distance < differentiationFloor)).length;
-    lines.push(`| ${result.name} | ${result.rows.length} | ${result.rows.filter(row => row.ratio < row.minimum).length} | ${failedPairs} | ${result.key === 'contrast' ? 'All assigned floors block release' : 'v3.1.0 bytes frozen; historical shortfalls explicitly retained'} |`);
+    lines.push(`| ${result.name} | ${result.rows.length} | ${result.rows.filter(row => row.ratio < row.minimum).length} | ${failedPairs} | ${result.key === 'contrast' ? 'All assigned floors block release' : result.key === 'light' ? '4.5:1 text / 3:1 indicators block release; CVD shortfalls disclosed, not passing' : 'v3.1.0 bytes frozen; historical shortfalls explicitly retained'} |`);
   }
-  lines.push('', 'The 7:1 base/current-line syntax and primary UI targets are blocking. Other meaningful text has a blocking 4.5:1 floor; meaningful indicators have 3:1. The below-7 column exposes transient/secondary text that meets its floor but misses the enhanced target.', '');
+  lines.push('', 'For Contrast, the 7:1 base/current-line syntax and primary UI targets are blocking. Other meaningful text has a blocking 4.5:1 floor; meaningful indicators have 3:1. Light enforces 4.5:1 for all measured text and 3:1 for indicators, not the enhanced 7:1 targets or the Contrast CVD floor. The below-7 column exposes text that misses the enhanced target. See [Light design and limitations](light.md).', '');
   for (const result of results) {
     lines.push(`## ${result.name}`, '',
       '| Rendering state / foreground | Samples | Minimum ratio | Required | Below 7 text | Below required | Limiting foreground | Limiting background stack |',
@@ -193,11 +200,12 @@ if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1]
   const { results, report } = buildEvidence();
   const path = resolve(root, 'docs', 'accessibility-report.md');
   if (argument === '--generate') writeFileSync(path, report);
-  const errors = failures(results.find(result => result.key === 'contrast'));
+  const errors = results.filter(result => ['contrast', 'light'].includes(result.key))
+    .flatMap(result => failures(result).map(error => `${result.name}: ${error}`));
   if (errors.length) {
     const first = errors.slice(0, 30).join('\n');
-    throw new Error(`Contrast accessibility failures (${errors.length}):\n${first}\nSee docs/accessibility-report.md for every state summary.`);
+    throw new Error(`Accessibility failures (${errors.length}):\n${first}\nSee docs/accessibility-report.md for every state summary.`);
   }
   if (argument !== '--generate') checkEvidence(report, path);
-  console.log(`Accessibility: ${results.find(result => result.key === 'contrast').rows.length} Contrast measurements and ${adjacentPairs.length * visionModes.length} CVD pair/modes passed; four variants reported.`);
+  console.log(`Accessibility: Contrast and Light readability floors passed; ${adjacentPairs.length * visionModes.length} Contrast CVD pair/modes passed; ${results.length} variants reported.`);
 }

@@ -10,8 +10,9 @@ appearance remains frozen, with the 3.0.0 breaking identity rename and
 deprecation label. Phase 4 ([#7](https://github.com/filipmares/vscode-specialsboard-theme/issues/7))
 now differentiates Contrast with [measured accessibility gates](accessibility.md).
 
-This guide describes the token system shipped in [3.4.0](../CHANGELOG.md):
-all four generated VS Code themes are byte-identical to 3.3.0, retaining the 3.0.0
+The token system now adds [Specials Board Light](light.md) to the architecture
+shipped in [3.4.0](../CHANGELOG.md). The four dark generated VS Code themes
+remain byte-identical to 3.3.0, retaining the 3.0.0
 identity migration. For the release-facing history and source distinctions,
 see [heritage and fidelity](heritage.md).
 For local installation and development-host instructions, use the
@@ -21,12 +22,12 @@ For local installation and development-host instructions, use the
 
 | Layer | File | Responsibility |
 |---|---|---|
-| Reference palette | `tokens/palette.json` | The only authored raw colors. Separate `legacy`, `coda1`, `phase2`/`phase3`/`phase4` judgments, `coda2-atom`, and `repository-textmate` groups. |
+| Reference palette | `tokens/palette.json` | The only authored raw colors. Separate `legacy`, `coda1`, `phase2`/`phase3`/`phase4` and `light` judgments, `coda2-atom`, and `repository-textmate` groups. |
 | Semantic roles | `tokens/semantic.json` | Editor-independent syntax, markup, feedback, diff, surfaces, text, accents, and terminal colors. |
 | Component/state roles | `tokens/components.json` | Shared workbench planes, interaction states, controls, feedback and brackets, plus frozen compatibility component roles. |
-| Variant registry | `tokens/variants.json` | Stable portable IDs, labels, VS Code IDs, output filenames, inheritance, and readiness. |
+| Variant registry | `tokens/variants.json` | Stable portable IDs, labels, VS Code IDs, output filenames, inheritance, readiness and explicit editor-independent `appearance` (`dark` or `light`). |
 | Variant overrides | `tokens/variants/*.json` | Sparse semantic/component alias replacements, applied after inheritance. |
-| Platform adapter | `adapters/vscode.json` | Modern `workbench`/`textMate`, optional Contrast-only `contrastWorkbench`, frozen `legacyWorkbench`/`legacyTextMate`, semantic-token selectors, and ANSI slots in separate sections. |
+| Platform adapter | `adapters/vscode.json` | Modern `workbench`/`textMate`, optional `contrastWorkbench` and `lightWorkbench` state mappings, frozen `legacyWorkbench`/`legacyTextMate`, semantic-token selectors, and ANSI slots in separate sections. |
 | Portable adapters | `adapters/windows-terminal.json`, `adapters/neovim.json`, `adapters/ansi.json` | Role-only native mappings, explicit opaque-compositing stacks and independent ANSI slots; [capabilities and instructions](ports.md). |
 | Provenance | `tokens/provenance.json` | Source authority classifications and immutable historical anchors. |
 
@@ -103,8 +104,13 @@ while palette tokens record the underlying color evidence.
 | `classic` / `specials-board-classic` | Specials Board Classic | `specials-board-classic` | flagship | Restored Coda 1-grounded interpretation |
 | `contrast` / `specials-board-contrast` | Specials Board Contrast | `specials-board-contrast` | flagship | Differentiated accessibility-focused variant |
 | `legacy` / `specials-board-legacy` | Specials Board VS Code Legacy [Deprecated] | `specials-board-legacy` | base | Deprecated compatibility appearance |
+| `light` / `specials-board-light` | Specials Board Light | `specials-board-light` | flagship | Modern whiteboard-and-marker counterpart |
 
-All four are generated and contributed to the extension. Contrast inherits
+All five are generated and contributed to the extension. The registry permits
+additional keys, validates inheritance and requires explicit appearance; the
+VS Code renderer derives `type` and manifest `uiTheme` from that value.
+Light inherits flagship relationships but resolves every semantic/component role
+to `palette.light`, with no dark swatch leakage. Contrast inherits
 flagship's semantic relationships and supplies sparse palette/state overrides.
 Its optional adapter section adds meaningful borders without leaking extra
 colors into the other variants. The [color contract](accessibility.md) documents
@@ -294,7 +300,7 @@ npm test
 npm run package
 ```
 
-`generate` first validates all sources, four VS Code results and six native
+`generate` first validates all sources, five VS Code results and six native
 portable results, then writes UTF-8
 JSON with LF endings and a final newline. Object keys are sorted with
 locale-independent JavaScript ordering; arrays are never sorted because TextMate
@@ -311,7 +317,7 @@ packaging and the GitHub workflow run the check without regenerating away drift.
 
 `node:test` supplies the test runner without another framework. Pinned Shiki is
 development-only grammar/tokenization data and an engine, not a runtime extension
-dependency or a second test runner. Tests cover the frozen baseline, all four
+dependency or a second test runner. Tests cover the frozen baseline, all five
 identities, deterministic sorting without source
 mutation, sparse override inheritance/isolation, reference/layer/type failures,
 alpha/fallback conversion, provenance, ANSI separation, semantic-token
@@ -323,7 +329,7 @@ SHA-256 is fixed in the test and must not be regenerated from current tokens.
 also checks drift when packaging directly with vsce. The ignore file excludes
 tokens, schemas, adapters, cross-app `ports`, docs, editable icon sources in `assets`, fixtures, scripts, historical `.tmTheme`, lockfile,
 and all development dependencies. Runtime payload is the manifest, README,
-changelog, generated [package icon](branding.md), and four generated themes (plus VSIX container metadata).
+changelog, generated [package icon](branding.md), and five generated themes (plus VSIX container metadata).
 The `--skip-license` flag acknowledges deferred licensing; it is not a license
 decision. Do not add a guessed LICENSE or package license field.
 

@@ -11,9 +11,16 @@ const require = createRequire(import.meta.url);
 const helpers = {};
 vm.runInNewContext(`${readFileSync(resolve(root, 'scripts', 'vscode-smoke.cjs'), 'utf8')}
 exports.parseJsonc = parseJsonc;
-exports.assertTokenRules = assertTokenRules;`, {
+exports.assertTokenRules = assertTokenRules;
+exports.themeIds = themeIds;`, {
   require: id => id === 'vscode' ? {} : require(id),
   exports: helpers
+});
+
+test('native smoke visits every shipped variant, including the light contribution', () => {
+  const manifest = JSON.parse(readFileSync(resolve(root, 'package.json'), 'utf8'));
+  assert.deepEqual([...helpers.themeIds].sort(), manifest.contributes.themes.map(theme => theme.id).sort());
+  assert.ok(helpers.themeIds.includes('specials-board-light'));
 });
 
 test('native JSONC export parser preserves strings while removing comments and trailing commas', () => {

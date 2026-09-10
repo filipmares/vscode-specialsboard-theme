@@ -7,7 +7,7 @@ export function validateContributions(manifest, variants) {
   const expected = variants.map(variant => ({
     id: variant.vscodeId,
     label: variant.label,
-    uiTheme: 'vs-dark',
+    uiTheme: variant.appearance === 'light' ? 'vs' : 'vs-dark',
     path: `./themes/${variant.output}`
   }));
   if (stableJson(manifest.contributes?.themes) !== stableJson(expected)) {
@@ -16,7 +16,8 @@ export function validateContributions(manifest, variants) {
   const legacy = variants.find(variant => variant.key === 'legacy');
   if (legacy.vscodeId !== 'specials-board-legacy'
     || legacy.label !== 'Specials Board VS Code Legacy [Deprecated]'
-    || legacy.output !== 'specialsboard.json') {
+    || legacy.output !== 'specialsboard.json'
+    || legacy.appearance !== 'dark') {
     throw new Error('Legacy must use the normalized deprecated identity and preserve its output path');
   }
 }
@@ -35,7 +36,8 @@ export function renderVSCode(mapping, model) {
   }
   const workbench = legacy ? mapping.legacyWorkbench : {
     ...mapping.workbench,
-    ...(model.variant.key === 'contrast' ? mapping.contrastWorkbench : {})
+    ...(model.variant.key === 'contrast' ? mapping.contrastWorkbench : {}),
+    ...(model.variant.appearance === 'light' ? mapping.lightWorkbench : {})
   };
   const colors = Object.fromEntries(Object.entries(workbench).map(([key, value]) => {
     if (key.startsWith('terminal.ansi')) throw new Error(`ANSI slot belongs in mapping.ansi: ${key}`);
@@ -55,7 +57,7 @@ export function renderVSCode(mapping, model) {
     $schema: 'vscode://schemas/color-theme',
     name: model.variant.label,
     author: 'Filip Mares',
-    type: 'dark',
+    type: model.variant.appearance,
     colors,
     tokenColors
   };

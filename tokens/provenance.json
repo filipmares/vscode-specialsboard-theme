@@ -1,4 +1,9 @@
 {
+  "light-design": {
+    "authority": "judgment",
+    "source": "Light-mode family (#15); docs/light.md.",
+    "notes": "Original whiteboard and dry-erase marker palette, following the maintainer's chalkboard/whiteboard direction and replacing the initial warm-paper interpretation. Preserves flagship semantic relationships, not exact historical hues; not an inversion or Coda light reconstruction. Reviewed pinned Coda default and Specials Board normal/inverted JavaScript data and original installation instructions; coda-default is a separate factory theme. Readability floors and measured differentiation limitations are bounded engineering evidence, not accessibility conformance. License remains unresolved."
+  },
   "brand-icon": {
     "authority": "judgment",
     "source": "Package icon artwork (#20); scripts/icon.mjs geometry and docs/branding.md.",

@@ -5,7 +5,7 @@ import { resolve } from 'node:path';
 import test from 'node:test';
 import { createHash } from 'node:crypto';
 import { colorToHex, compileSources, loadSources, root, stableJson, validateSchema } from '../scripts/tokens.mjs';
-import { ansiSlots, portableColor, renderAnsi, syncPorts } from '../scripts/portable.mjs';
+import { ansiSlots, portableColor, portableVariants, renderAnsi, syncPorts } from '../scripts/portable.mjs';
 import { buildPorts, loadPortMappings, neovimHighlights, renderWindowsTerminal } from '../scripts/ports.mjs';
 import { buildThemes } from '../scripts/generate.mjs';
 import { contrast, rgba } from '../scripts/color.mjs';
@@ -54,7 +54,7 @@ test('portable ANSI preserves the canonical sixteen slots, independently of synt
     const role = slot.replace(/[A-Z]/g, letter => `-${letter.toLowerCase()}`);
     assert.equal(ansi[slot], `{semantic.terminal.${role}}`);
   }
-  for (const model of models.filter(item => item.variant.key !== 'legacy')) {
+  for (const model of models.filter(item => portableVariants.includes(item.variant.key))) {
     const output = renderAnsi(ansi, model);
     assert.deepEqual(Object.keys(output), ansiSlots);
     assert.equal(new Set(Object.values(output)).size, 16);
@@ -126,14 +126,15 @@ test('Phase 6 never changes any of the four public v3.3.0 VS Code bytes', () => 
     'specialsboard-contrast.json': 'f5489903fa820f0a1fe85678b8352e45c36eb0b8413c6be5492e3287e456f7ff',
     'specialsboard.json': 'fee187b5cac5c7f04ee4ca00a5bbb56ced8453c22487ccaeccf67950eb9ba5dc'
   };
-  for (const [file, bytes] of buildThemes(sources)) {
-    assert.equal(createHash('sha256').update(bytes).digest('hex'), hashes[file], file);
-    assert.equal(readFileSync(resolve(root, 'themes', file), 'utf8'), bytes);
+  const themes = buildThemes(sources);
+  for (const [file, hash] of Object.entries(hashes)) {
+    assert.equal(createHash('sha256').update(themes.get(file)).digest('hex'), hash, file);
+    assert.equal(readFileSync(resolve(root, 'themes', file), 'utf8'), themes.get(file));
   }
 });
 
 test('Windows Terminal has complete native fields, not magenta aliases or syntax semantics', () => {
-  for (const model of models.filter(item => item.variant.key !== 'legacy')) {
+  for (const model of models.filter(item => portableVariants.includes(item.variant.key))) {
     const theme = renderWindowsTerminal(mappings['windows-terminal'], ansi, model);
     assert.equal(theme.name, model.variant.label);
     assert.equal(Object.keys(theme).length, 21);
@@ -179,7 +180,7 @@ test('variant inheritance flows through portable syntax, UI and ANSI without sib
   input.overrides.flagship.semantic.syntax.string.$value = '{palette.coda1.blue}';
   input.overrides.flagship.semantic.terminal.red.$value = '{palette.coda1.red-orange}';
   const changed = compileSources(input);
-  for (const model of changed.filter(item => item.variant.key !== 'legacy')) {
+  for (const model of changed.filter(item => portableVariants.includes(item.variant.key))) {
     const groups = resolvedHighlights(model);
     const original = models.find(item => item.variant.key === model.variant.key);
     const expected = model.variant.key === 'classic' ? '#a0c25f' : '#6c99bb';
@@ -215,7 +216,7 @@ test('native syntax meaning, Markdown styles, config keys, regex and LSP refinem
     '@lsp.type.parameter': 'syntax.parameter', '@lsp.type.property': 'syntax.property',
     '@lsp.typemod.variable.readonly': 'syntax.constant'
   };
-  for (const model of models.filter(item => item.variant.key !== 'legacy')) {
+  for (const model of models.filter(item => portableVariants.includes(item.variant.key))) {
     const groups = resolvedHighlights(model);
     for (const [name, role] of Object.entries(cases)) assert.equal(groups[name].fg, colorToHex(model.tokens.get(`semantic.${role}`)), name);
     assert.equal(groups.Comment.italic, true);

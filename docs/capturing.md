@@ -1,11 +1,18 @@
 # Reproducing the visual gallery
 
-The 3.3.0 gallery uses actual VS Code **1.136.2** workbench pixels through
+The original 3.3.0 dark gallery and the new, unreleased Light scenes use actual
+VS Code **1.136.2** workbench pixels through
 `serve-web`, on Windows with Chromium, at **1440 x 1000 CSS pixels / 1x**.
 There is no simulated editor HTML, recoloring, image compositing or animation.
-The four theme files are byte-identical to 3.2.0; the initial capture VSIX was
-that exact baseline, and release validation compares the final candidate's
-theme hashes with [the capture manifest](../screenshots/manifest.json).
+The four dark theme files are byte-identical to 3.2.0; their nine original
+images are retained without modification. The original capture date was not
+recorded. The four Light images were captured on **2026-09-09** from a local
+3.5.0 candidate VSIX containing the revised whiteboard/marker Light theme,
+not from 3.2.0. These four images replace the earlier warm-paper previews:
+the current canvas is neutral `#fafafa`, framed by gray surfaces and saturated
+marker syntax. Historical dark captures remain untouched.
+Both batches use the same pinned host below. Exact theme/image hashes and the
+Light capture date are in [the capture manifest](../screenshots/manifest.json).
 
 This is a reproducible **scene setup**, not a promise of byte-identical
 rasterization across operating systems, browser/font versions or GPU drivers.
@@ -51,6 +58,13 @@ npm run package -- --out .\specialsboard-preview.vsix
 
 The script refuses an existing output root, extracts the exact VSIX, records
 its checksum and theme hashes, and copies only the purpose-written fixtures.
+The 2026-09-09 Light captures were refreshed from the exact
+`specialsboard-whiteboard.vsix` development candidate after the
+whiteboard/marker palette revision and prepublish checks.
+The manifest records that exact VSIX checksum separately from the Light theme
+checksum: later documentation-only packaging changes need not change theme
+pixels. Capturing a candidate is not a substitute for the normal release
+packaging and validation gates.
 The tokenless server must remain **loopback-only**; do not expose or tunnel it.
 Wait for `http://127.0.0.1:8765/` to return 200, not the initial 202 download page.
 
@@ -74,7 +88,10 @@ browser-automation input limitation; it does not change token rendering.
 and leaves Legacy on its historical TextMate behavior.
 
 Run **Notifications: Clear All Notifications** and enable **Do Not Disturb**.
-Then run **Specials Board Capture: Choose Scene**. The fixture opens the
+Then run **Specials Board Capture: Choose Scene**. The Light scenes are
+`light-workbench` (TypeScript and ANSI terminal), `light-web` (HTML/CSS),
+`light-python` (Python and JavaScript regex), and `light-content`
+(Markdown with YAML frontmatter and JSONC). The fixture opens the
 files, selects the variant, uses 18 px wrapped text for splits and 20 px text
 for the single-editor views, and labels the status bar. No colors are changed.
 It disposes terminals **only in this dedicated capture host**.
@@ -85,7 +102,10 @@ For automated capture, pass the absolute path to
 function expression, not a Node CLI program. Run the MCP server from the
 repository root so `screenshots\` resolves here. It targets only the loopback
 tab, checks each scene's theme canvas, resizes the terminal to fit the whole
-TypeScript example and writes nine PNGs. It leaves the merge scene last.
+TypeScript example and writes **only the four new Light PNGs by default**,
+preserving all historical dark captures. To deliberately recapture all thirteen
+scenes, explicitly change `captureDark` to `true` in a local copy of the
+capture function.
 Before rerunning, close the merge editor with **Close with Conflicts**;
 only the disposable fixture result is affected.
 
@@ -117,15 +137,17 @@ PNG is lossless; Chromium's encoder, a bounded 1440 px width and 1x output keep
 the gallery small without JPEG text artifacts. Do not upscale or produce a
 second redundant image set. `screenshots/manifest.json` records dimensions,
 SHA-256 and byte lengths; the presentation tests enforce a 400 KiB per-image
-budget and a 3 MiB total budget. Regenerate the manifest after recapturing:
+budget and a 4 MiB total budget for thirteen images. Regenerate the manifest after recapturing:
 
 ```powershell
 node scripts/presentation-manifest.mjs
-npm test
+node --test tests/presentation.test.mjs
 ```
 
-README images and documentation links use explicit HTTPS **release-tag URLs**
-because Marketplace Markdown does not behave like a GitHub repository page.
+README images and documentation links use explicit HTTPS URLs because
+Marketplace Markdown does not behave like a GitHub repository page. Released
+material uses release-tag URLs; the unreleased Light guides and expanded gallery
+currently link to `master` and can be pinned when a release tag is assigned.
 The gallery uses ordinary headings, links, tables, fenced code and static PNGs;
 no scripts, embedded video, SVG, collapsible sections or custom CSS are required.
 Check the packaged README and the public Marketplace rendering after publication.

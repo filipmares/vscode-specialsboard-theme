@@ -1,5 +1,11 @@
 # Contrast color contract
 
+**Light addition:** [Specials Board Light](light.md) reuses these measurement
+contexts and the generated report, enforcing 4.5:1 for every measured text row
+and 3:1 for indicators. It does not adopt Contrast's enhanced 7:1 targets or
+claim to pass the 0.05 color-differentiation floor. Its pair shortfalls and
+provenance are documented separately; the existing Contrast contract is unchanged.
+
 Specials Board **3.2.0** differentiates Contrast, without changing the shipped
 flagship, Classic or deprecated Legacy theme bytes from 3.1.0. The four stored
 IDs and the **VS Code 1.101.0** minimum remain unchanged. Contrast is still a

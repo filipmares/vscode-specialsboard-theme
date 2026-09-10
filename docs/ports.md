@@ -1,5 +1,9 @@
 # Specials Board across applications
 
+The unreleased [Light variant](light.md) is currently VS Code-only. The portable
+lineup below remains the same three dark variants; adding Light does not change
+any of their generated files or native color contracts.
+
 **3.4.0 adds generated Windows Terminal and Neovim ports.** The four VS Code
 themes remain byte-identical to v3.3.0: no new palette, saved ID, syntax
 classification or engine requirement. All targets resolve the same canonical
@@ -191,7 +195,7 @@ npm run package
 npm run ports:package
 ```
 
-`generate` validates all results before writing four VS Code files and six
+`generate` validates all results before writing five VS Code files and six
 portable files. `check` is read-only and fails on missing, changed, CRLF or
 unmanaged output files. It does not repair drift. JSON keys and Lua definitions
 are sorted, arrays preserve their declared order, output is UTF-8/LF with a

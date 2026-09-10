@@ -66,25 +66,26 @@ test('Legacy preserves all colors, scope strings, rule order and font styles', (
   assert.equal(Object.hasOwn(legacy, 'semanticTokenColors'), false);
 });
 
-test('four normalized IDs and labels identify deprecated VS Code Legacy', () => {
+test('five normalized IDs include Light and identify deprecated VS Code Legacy', () => {
   assert.deepEqual(sources.variants.map(({ key, id, label, vscodeId }) => [key, id, label, vscodeId]), [
     ['flagship', 'specials-board', 'Specials Board', 'specials-board'],
     ['classic', 'specials-board-classic', 'Specials Board Classic', 'specials-board-classic'],
     ['contrast', 'specials-board-contrast', 'Specials Board Contrast', 'specials-board-contrast'],
-    ['legacy', 'specials-board-legacy', 'Specials Board VS Code Legacy [Deprecated]', 'specials-board-legacy']
+    ['legacy', 'specials-board-legacy', 'Specials Board VS Code Legacy [Deprecated]', 'specials-board-legacy'],
+    ['light', 'specials-board-light', 'Specials Board Light', 'specials-board-light']
   ]);
   assert.equal(sources.variants.find(v => v.key === 'legacy').inherits, 'base');
   for (const variant of sources.variants) {
     assert.equal(variant.vscodeId, variant.id);
     const output = JSON.parse(themes.get(variant.output));
     assert.equal(output.name, variant.label);
-    assert.equal(variant.status, { legacy: 'compatibility', contrast: 'accessibility-focused', flagship: 'restored', classic: 'restored' }[variant.key]);
+    assert.equal(variant.status, { legacy: 'compatibility', contrast: 'accessibility-focused', flagship: 'restored', classic: 'restored', light: 'modern' }[variant.key]);
   }
 });
 
 test('the historical saved Legacy ID is intentionally retired without a compatibility alias', () => {
   const contributions = sources.manifest.contributes.themes;
-  assert.equal(contributions.length, 4);
+  assert.equal(contributions.length, 5);
   assert.equal(contributions.find(theme => theme.id === 'Specials Board '), undefined);
   assert.deepEqual(contributions.find(theme => theme.id === 'specials-board-legacy'), {
     id: 'specials-board-legacy',
@@ -119,7 +120,7 @@ test('small role overrides flow through inheritance without touching Legacy or s
   input.overrides.classic = overrides('syntax', 'keyword', 'palette.coda1.blue');
   input.overrides.contrast = { $description: 'Synthetic unoverridden child for inheritance coverage.' };
   const models = compileSources(input);
-  const expected = { flagship: '#cc762e', classic: '#6c99bb', contrast: '#cc762e', legacy: '#ac4639' };
+  const expected = { flagship: '#cc762e', classic: '#6c99bb', contrast: '#cc762e', legacy: '#ac4639', light: '#923b0d' };
   for (const model of models) {
     assert.equal(colorToHex(model.tokens.get('semantic.syntax.keyword')), expected[model.variant.key]);
   }
@@ -198,7 +199,7 @@ test('rejects unknown, raw, cyclic, and palette-mutating variant overrides', () 
   }, /must be aliases/);
   rejectMutation(s => { s.overrides.classic = structuredClone(s.palette); }, /cannot override palette/);
   rejectMutation(s => { s.variants[0].inherits = 'classic'; }, /inheritance cycle/);
-  rejectMutation(s => { s.variants[0].inherits = 'unknown'; }, /variants:/);
+  rejectMutation(s => { s.variants[0].inherits = 'unknown'; }, /Unknown inherited variant/);
   rejectMutation(s => { s.overrides.classic = overrides('syntax', 'keyword', 'semantic.syntax.keyword'); }, /alias cycle/);
 });
 
@@ -208,6 +209,7 @@ test('rejects mapping literals and direct palette references on every platform s
       s => { s.mapping.workbench['editor.foreground'] = reference; },
       s => { s.mapping.legacyWorkbench['editor.foreground'] = reference; },
       s => { s.mapping.contrastWorkbench['contrastBorder'] = reference; },
+      s => { s.mapping.lightWorkbench['editorLineNumber.foreground'] = reference; },
       s => { s.mapping.textMate[0].settings.foreground = reference; },
       s => { s.mapping.legacyTextMate[0].settings.foreground = reference; },
       s => { s.mapping.ansi.white = reference; },
@@ -313,7 +315,7 @@ test('CLI checks from any working directory and rejects unknown flags', () => {
   const script = resolve(root, 'scripts', 'generate.mjs');
   const result = spawnSync(process.execPath, [script, '--check'], { cwd: tmpdir(), encoding: 'utf8' });
   assert.equal(result.status, 0, result.stderr);
-  assert.match(result.stdout, /Checked 4 themes/);
+  assert.match(result.stdout, /Checked 5 themes/);
   const invalid = spawnSync(process.execPath, [script, '--fix'], { cwd: tmpdir(), encoding: 'utf8' });
   assert.notEqual(invalid.status, 0);
   assert.match(invalid.stderr, /Usage:/);

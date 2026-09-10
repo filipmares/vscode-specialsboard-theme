@@ -3,19 +3,19 @@
   "$id": "https://specialsboard.local/schemas/variants",
   "type": "array",
   "minItems": 4,
-  "maxItems": 4,
   "items": {
     "type": "object",
-    "required": ["key", "id", "label", "vscodeId", "output", "inherits", "status"],
+    "required": ["key", "appearance", "id", "label", "vscodeId", "output", "inherits", "status"],
     "additionalProperties": false,
     "properties": {
-      "key": { "enum": ["flagship", "classic", "contrast", "legacy"] },
-      "id": { "type": "string", "pattern": "^specials-board(-[a-z]+)?$" },
+      "key": { "type": "string", "pattern": "^[a-z]+(-[a-z]+)*$" },
+      "appearance": { "enum": ["dark", "light"] },
+      "id": { "type": "string", "pattern": "^specials-board(-[a-z]+)*$" },
       "label": { "type": "string", "minLength": 1 },
       "vscodeId": { "type": "string", "minLength": 1 },
-      "output": { "type": "string", "pattern": "^specialsboard(-[a-z]+)?\\.json$" },
-      "inherits": { "enum": ["base", "flagship", "classic", "contrast", "legacy"] },
-      "status": { "enum": ["foundation-preview", "restored", "accessibility-focused", "compatibility"] }
+      "output": { "type": "string", "pattern": "^specialsboard(-[a-z]+)*\\.json$" },
+      "inherits": { "type": "string", "pattern": "^[a-z]+(-[a-z]+)*$" },
+      "status": { "enum": ["foundation-preview", "restored", "accessibility-focused", "compatibility", "modern"] }
     }
   }
 }

@@ -13,6 +13,7 @@
     },
     "legacyWorkbench": { "$ref": "#/properties/workbench" },
     "contrastWorkbench": { "$ref": "#/properties/workbench" },
+    "lightWorkbench": { "$ref": "#/properties/workbench" },
     "legacyTextMate": { "$ref": "#/properties/textMate" },
     "textMate": {
       "type": "array",

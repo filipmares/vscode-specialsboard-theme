@@ -49,7 +49,7 @@ test('restored role aliases remove old language-specific color exceptions', () =
     escape: ['regexp-character-class'],
     comment: ['comment-link']
   };
-  for (const key of ['flagship', 'classic', 'contrast']) {
+  for (const key of ['flagship', 'classic', 'contrast', 'light']) {
     for (const [parent, roles] of Object.entries(families)) {
       for (const role of roles) assert.equal(color(key, `syntax.${role}`), color(key, `syntax.${parent}`), `${key}: ${role}`);
     }
@@ -255,7 +255,7 @@ test('real TextMate grammars render language fixtures using the intended roles',
     langs: [...new Set(fixtureCases.map(([, lang]) => lang))]
   });
   t.after(() => highlighter.dispose());
-  for (const key of ['flagship', 'classic', 'contrast']) {
+  for (const key of ['flagship', 'classic', 'contrast', 'light']) {
     for (const [file, lang, cases] of fixtureCases) {
       await t.test(`${key}: ${file}`, () => {
         const source = readFileSync(resolve(root, 'test files', 'identity', file), 'utf8').replaceAll('\r\n', '\n');

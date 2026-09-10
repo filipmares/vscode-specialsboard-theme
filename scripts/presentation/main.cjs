@@ -4,7 +4,8 @@ const fs = require('node:fs');
 
 const scenes = [
   'flagship-workbench', 'flagship-tsx', 'flagship-web', 'classic-python',
-  'contrast-systems', 'flagship-content', 'contrast-review', 'contrast-merge', 'legacy-code'
+  'contrast-systems', 'flagship-content', 'contrast-review', 'contrast-merge', 'legacy-code',
+  'light-workbench', 'light-web', 'light-python', 'light-content'
 ];
 
 exports.activate = function (context) {
@@ -38,11 +39,12 @@ exports.activate = function (context) {
     const id = variant === 'flagship' ? 'specials-board' : `specials-board-${variant}`;
     await config.update('terminal.integrated.enablePersistentSessions', false, vscode.ConfigurationTarget.Global);
     await config.update('workbench.colorTheme', id, vscode.ConfigurationTarget.Global);
-    const split = ['flagship-web', 'classic-python', 'contrast-systems', 'flagship-content', 'contrast-review', 'contrast-merge'].includes(scene);
+    const split = ['flagship-web', 'classic-python', 'contrast-systems', 'flagship-content', 'contrast-review', 'contrast-merge',
+      'light-web', 'light-python', 'light-content'].includes(scene);
     await config.update('editor.fontSize', split ? 18 : 20, vscode.ConfigurationTarget.Global);
     await config.update('editor.lineHeight', split ? 27 : 29, vscode.ConfigurationTarget.Global);
     await config.update('editor.wordWrap', split ? 'on' : 'off', vscode.ConfigurationTarget.Global);
-    if (scene === 'flagship-workbench') {
+    if (scene === 'flagship-workbench' || scene === 'light-workbench') {
       await open('menu.ts');
       await command('workbench.view.explorer');
       const write = new vscode.EventEmitter();
@@ -68,16 +70,16 @@ exports.activate = function (context) {
       terminal.show(true);
     } else if (scene === 'flagship-tsx') {
       await open('board.tsx');
-    } else if (scene === 'flagship-web') {
+    } else if (scene === 'flagship-web' || scene === 'light-web') {
       await open('index.html');
       await open('menu.css', vscode.ViewColumn.Beside);
-    } else if (scene === 'classic-python') {
+    } else if (scene === 'classic-python' || scene === 'light-python') {
       await open('python.py');
       await open('regex.js', vscode.ViewColumn.Beside);
     } else if (scene === 'contrast-systems') {
       await open('menu.rs');
       await open('menu.go', vscode.ViewColumn.Beside);
-    } else if (scene === 'flagship-content') {
+    } else if (scene === 'flagship-content' || scene === 'light-content') {
       await open('menu.md');
       await open('menu.jsonc', vscode.ViewColumn.Beside);
     } else if (scene === 'contrast-review') {

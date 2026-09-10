@@ -8,7 +8,7 @@
     "$schema": { "const": "vscode://schemas/color-theme" },
     "name": { "type": "string", "minLength": 1 },
     "author": { "const": "Filip Mares" },
-    "type": { "const": "dark" },
+    "type": { "enum": ["dark", "light"] },
     "colors": {
       "type": "object",
       "minProperties": 1,
