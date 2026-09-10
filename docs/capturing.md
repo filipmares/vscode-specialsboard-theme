@@ -1,6 +1,6 @@
 # Reproducing the visual gallery
 
-The original 3.3.0 dark gallery and the new, unreleased Light scenes use actual
+The original 3.3.0 dark gallery and the Light scenes introduced in 3.6.0 use actual
 VS Code **1.136.2** workbench pixels through
 `serve-web`, on Windows with Chromium, at **1440 x 1000 CSS pixels / 1x**.
 There is no simulated editor HTML, recoloring, image compositing or animation.
@@ -146,8 +146,8 @@ node --test tests/presentation.test.mjs
 
 README images and documentation links use explicit HTTPS URLs because
 Marketplace Markdown does not behave like a GitHub repository page. Released
-material uses release-tag URLs; the unreleased Light guides and expanded gallery
-currently link to `master` and can be pinned when a release tag is assigned.
+material uses release-tag URLs; the Light guides and expanded gallery are
+pinned to the 3.6.0 release.
 The gallery uses ordinary headings, links, tables, fenced code and static PNGs;
 no scripts, embedded video, SVG, collapsible sections or custom CSS are required.
 Check the packaged README and the public Marketplace rendering after publication.

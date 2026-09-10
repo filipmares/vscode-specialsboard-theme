@@ -1,6 +1,6 @@
 # Specials Board across applications
 
-The unreleased [Light variant](light.md) is currently VS Code-only. The portable
+The [Light variant](light.md), added in 3.6.0, is currently VS Code-only. The portable
 lineup below remains the same three dark variants; adding Light does not change
 any of their generated files or native color contracts.
 
@@ -10,13 +10,13 @@ classification or engine requirement. All targets resolve the same canonical
 palette -> semantic -> component/state -> variant graph. Platform mappings
 contain role references, never independent color copies.
 
-**The next release adds Oh My Posh 31.2.1**, with three generated native prompt
+**3.6.0 adds Oh My Posh 31.2.1**, with three generated native prompt
 themes and their own reusable RGB palettes. Existing editor and terminal exports
-are unchanged. Until released, use `ports/oh-my-posh` from this checkout;
-the older v3.4.0 assets below do not contain prompt themes.
+are unchanged. The prompt themes are available in `ports/oh-my-posh` and in
+the Oh My Posh release archive; the older v3.4.0 assets do not contain them.
 
-Download the two platform archives and adjacent SHA-256 files from the
-[v3.4.0 release](https://github.com/filipmares/vscode-specialsboard-theme/releases/tag/v3.4.0).
+Download the three platform archives and adjacent SHA-256 files from the
+[v3.6.0 release](https://github.com/filipmares/vscode-specialsboard-theme/releases/tag/v3.6.0).
 Each archive includes three generated variants, this guide and an entry-level
 `MANIFEST.sha256`. These files are **not installed by the VS Code extension**.
 Keeping them in GitHub releases and the repository avoids shipping another
@@ -91,7 +91,7 @@ remain visible in Neovim, rather than silently recoloring it.
 
 ## Install in Windows Terminal
 
-Unzip `specials-board-windows-terminal-3.4.0.zip`. Each `specials-board*.json`
+Unzip `specials-board-windows-terminal-3.6.0.zip`. Each `specials-board*.json`
 is **one scheme object**, not a complete Terminal settings file. Alternatively,
 use the generated files in `ports\windows-terminal` from this checkout; no build
 or VS Code installation is needed. This requires Windows Terminal, not the
@@ -142,7 +142,7 @@ versions and application-supplied backgrounds can further change the result.
 
 ## Install in Neovim
 
-Unzip `specials-board-neovim-3.4.0.zip`. Copy its `colors` directory into your
+Unzip `specials-board-neovim-3.6.0.zip`. Copy its `colors` directory into your
 Neovim configuration directory, without replacing other files. Find that
 directory with `:echo stdpath('config')` (normally `%LOCALAPPDATA%\nvim` on
 Windows, `~/.config/nvim` on Unix). Alternatively add the extracted directory
@@ -237,11 +237,11 @@ available in your package source, use the official
 [31.2.1 assets](https://github.com/JanDeDobbeleer/oh-my-posh/releases/tag/v31.2.1);
 do not assume a newer engine has been validated.
 
-From the next [GitHub release](https://github.com/filipmares/vscode-specialsboard-theme/releases),
-download `specials-board-oh-my-posh-<version>.zip` and its adjacent `.sha256`.
+From the [3.6.0 release](https://github.com/filipmares/vscode-specialsboard-theme/releases/tag/v3.6.0),
+download `specials-board-oh-my-posh-3.6.0.zip` and its adjacent `.sha256`.
 Compare `Get-FileHash -Algorithm SHA256` against the sidecar before extraction;
 the archive also contains per-entry `MANIFEST.sha256`. Extract to a directory
-you own, without replacing an existing preset. Before release, copy the three
+you own, without replacing an existing preset. Alternatively, copy the three
 generated files from `ports\oh-my-posh` instead.
 
 **Choose your layout before activating a file:**
@@ -351,7 +351,7 @@ explicitly when adopting a later release.
 
 ### Bounded color evidence and limitations
 
-The [generated prompt report](https://github.com/filipmares/vscode-specialsboard-theme/blob/master/docs/oh-my-posh-accessibility.md)
+The [generated prompt report](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.6.0/docs/oh-my-posh-accessibility.md)
 measures all eleven foreground roles against each variant's explicit opaque
 background, including every conditional Git/outcome color and inline separators.
 Combined states cannot introduce a new background or color pair. Contrast
@@ -513,6 +513,6 @@ and BSD statements. No project license or downstream permission is inferred,
 and source availability/attribution does not settle that conflict. These new
 mappings are authored format translations, not new evidence of original Coda
 roles or licensing. See the
-[heritage caveat](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.4.0/docs/heritage.md)
+[heritage caveat](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.6.0/docs/heritage.md)
 and the existing
-[bounded color contract](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.4.0/docs/accessibility.md).
+[bounded color contract](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.6.0/docs/accessibility.md).

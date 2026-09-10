@@ -22,11 +22,12 @@ Run commands from the repository root. The examples below use PowerShell.
 | `tokens/` | Palette, portable roles, variant overrides, and provenance. |
 | `adapters/vscode.json` | Workbench, TextMate, semantic-token, and ANSI mappings. |
 | `adapters/windows-terminal.json`, `adapters/neovim.json`, `adapters/ansi.json` | Native portable role mappings and a separate terminal ANSI table. |
-| `ports/` | Six generated cross-app outputs, distributed separately from the VSIX. |
+| `ports/` | Nine generated cross-app outputs, distributed separately from the VSIX. |
 | `themes/specialsboard-flagship.json` | Generated Specials Board theme. |
 | `themes/specialsboard-classic.json` | Generated Specials Board Classic theme. |
 | `themes/specialsboard-contrast.json` | Generated differentiated Contrast variant with measured color targets. |
 | `themes/specialsboard.json` | Generated deprecated VS Code Legacy appearance. |
+| `themes/specialsboard-light.json` | Generated whiteboard-inspired Specials Board Light theme. |
 | `test files/identity/` | Current language fixtures for visual and automated token inspection. |
 | `test files/modern/` | TS/TSX, JSONC, shell, Rust, Go, notebook, diff and merge workflow fixtures. |
 | `test files/presentation/` | Compact, purpose-written public-gallery fixtures; no external application dependencies. |
@@ -59,6 +60,7 @@ assign a license.
 | Specials Board Classic | `specials-board-classic` |
 | Specials Board Contrast | `specials-board-contrast` |
 | Specials Board VS Code Legacy [Deprecated] | `specials-board-legacy` |
+| Specials Board Light | `specials-board-light` |
 
 Contrast has a [bounded, reproducible color contract](docs/accessibility.md), not
 a whole-editor accessibility guarantee. Deprecated Legacy retains its old VS Code appearance;
@@ -106,7 +108,7 @@ and publication must be handled explicitly for each Marketplace release.
 
 ## Presentation and packaging
 
-The [capture guide](docs/capturing.md) reproduces the [nine-scene gallery](docs/gallery.md)
+The [capture guide](docs/capturing.md) reproduces the [thirteen-scene gallery](docs/gallery.md)
 using an exact VSIX, a fresh loopback-only VS Code web server/profile and a
 development-only fixture extension. It does not run in or change a normal
 editor profile. Screenshots have a recorded size/hash manifest; `npm test`
@@ -115,7 +117,7 @@ purpose-written grammar fixtures. The [migration guide](docs/migration.md)
 covers old saved IDs, compatible versions and rollback.
 
 The [cross-app guide and capability matrix](docs/ports.md) documents generated
-Windows Terminal and Neovim ports, their installation, native format evidence,
+Windows Terminal, Neovim and Oh My Posh ports, their installation, native format evidence,
 opaque-overlay losses, isolated Neovim validation and adding future adapters.
 `npm run ports:validate` checks pinned official formats; `npm run ports:package`
 creates deterministic platform ZIPs/checksums without rebuilding the VSIX.
@@ -124,11 +126,11 @@ creates deterministic platform ZIPs/checksums without rebuilding the VSIX.
 accessibility and Node test gates. It does not silently regenerate stale
 sources, accessibility evidence or screenshots. The VSIX contains only its
 container metadata, extension manifest, README, changelog, generated package icon and
-four theme JSON files. The Markdown uses HTTPS release-tag links; screenshots,
+five theme JSON files. The Markdown uses HTTPS release-tag links; screenshots,
 docs, cross-app ports, editable icon sources, fixture/capture code, test evidence, lockfile and development dependencies
 are excluded.
 
-For release, inspect the actual ZIP inventory and compare all four theme files
+For release, inspect the actual ZIP inventory and compare all five theme files
 to the source bytes. Record SHA-256 of the exact VSIX tested in both isolated
 native hosts. Publish that same bundle to the existing publisher, not a rebuild.
 An annotated Git tag and GitHub release do not publish to Marketplace. Confirm

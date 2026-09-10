@@ -8,20 +8,20 @@ Coda heritage to today's editor without turning every language into the same
 pastel palette.
 
 Now also generated for **Windows Terminal, Neovim and Oh My Posh** from the same source roles.
-[Cross-app downloads, installation and capability matrix](https://github.com/filipmares/vscode-specialsboard-theme/blob/master/docs/ports.md).
+[Cross-app downloads, installation and capability matrix](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.6.0/docs/ports.md).
 
 | What you want to theme | Installation guide |
 |---|---|
-| Terminal background, cursor, selection and ANSI-colored command output | [Windows Terminal installation](https://github.com/filipmares/vscode-specialsboard-theme/blob/master/docs/ports.md#install-in-windows-terminal) |
-| PowerShell prompt segments, Git states and command status | [Oh My Posh installation](https://github.com/filipmares/vscode-specialsboard-theme/blob/master/docs/ports.md#install-in-oh-my-posh) |
-| Your existing full prompt, with new colors but no missing segments | [Keep your layout and reuse the palette](https://github.com/filipmares/vscode-specialsboard-theme/blob/master/docs/ports.md#reuse-the-palette-without-this-layout) |
+| Terminal background, cursor, selection and ANSI-colored command output | [Windows Terminal installation](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.6.0/docs/ports.md#install-in-windows-terminal) |
+| PowerShell prompt segments, Git states and command status | [Oh My Posh installation](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.6.0/docs/ports.md#install-in-oh-my-posh) |
+| Your existing full prompt, with new colors but no missing segments | [Keep your layout and reuse the palette](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.6.0/docs/ports.md#reuse-the-palette-without-this-layout) |
 
 For matching prompt **and** command-output colors, configure both Windows
 Terminal and Oh My Posh. Neither is installed by the VS Code extension.
 
 [Install from the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=filipmares.theme-specialsboard)
-· [Visual gallery](https://github.com/filipmares/vscode-specialsboard-theme/blob/master/docs/gallery.md)
-· [History and fidelity](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.3.0/docs/heritage.md)
+· [Visual gallery](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.6.0/docs/gallery.md)
+· [History and fidelity](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.6.0/docs/heritage.md)
 
 ![Specials Board flagship: TypeScript menu with copper declarations, olive strings and terracotta functions, warm Explorer and status bar, and labeled normal and bright ANSI terminal colors.](https://raw.githubusercontent.com/filipmares/vscode-specialsboard-theme/v3.3.0/screenshots/flagship-workbench.png)
 
@@ -39,9 +39,9 @@ fixture; they do not show an AI service or a third-party language server.*
 | **Specials Board VS Code Legacy [Deprecated]** | The old VS Code port's post-2.1.1 appearance. Frozen for compatibility, not the Coda-grounded Classic palette. Still included; no removal date is announced. |
 | **Specials Board Light** | Clean off-white board, neutral gray frame and saturated dry-erase marker colors. Preserves the flagship's role meanings, not its chalky finish or exact hues. |
 
-**New, unreleased:** Light is generated from the same semantic roles, with
+**New in 3.6.0:** Light is generated from the same semantic roles, with
 4.5:1 measured text and 3:1 indicator floors. It is VS Code-only for now.
-[Light palette, evidence, limitations and system switching](https://github.com/filipmares/vscode-specialsboard-theme/blob/master/docs/light.md)
+[Light palette, evidence, limitations and system switching](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.6.0/docs/light.md)
 explain why there is one light option rather than duplicate Classic/Contrast entries.
 The whiteboard interpretation uses green, blue, red and purple marker ink, with
 deeper orange/ochre for readable keywords, properties and types rather than
@@ -56,7 +56,7 @@ Community Coda 2 reconstructions and later TextMate ports are documented
 separately, not treated as original Panic exports. Warm-white defaults, universal
 role mappings, modern workbench colors, comment readability and invalid-token
 underlines include explicit project judgments. Read the
-[cited fidelity notes](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.3.0/docs/heritage.md).
+[cited fidelity notes](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.6.0/docs/heritage.md).
 
 ### Contrast: specific, reproducible color targets
 
@@ -75,8 +75,8 @@ User overrides, host behavior, arbitrary webviews, terminal application colors
 and untested AI-provider states have explicit limits. Classic and Legacy's
 shortfalls remain visible in the report rather than being called passes.
 
-[Accessibility contract and limitations](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.3.0/docs/accessibility.md)
-· [Generated evidence for all five variants](https://github.com/filipmares/vscode-specialsboard-theme/blob/master/docs/accessibility-report.md)
+[Accessibility contract and limitations](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.6.0/docs/accessibility.md)
+· [Generated evidence for all five variants](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.6.0/docs/accessibility-report.md)
 
 ### Legacy: keep the old VS Code appearance
 
@@ -133,9 +133,10 @@ The three 2.2 preview IDs, and all four IDs from 3.0 onward, remain stable.
 **Already on 3.x?** Version 3.1 expanded workbench/semantic coverage and raised
 the engine floor; 3.2 differentiated Contrast; 3.3 refreshed presentation;
 3.4 added portable adapters. **3.5.0 changes branding, not colors:** all four
-generated VS Code themes are byte-identical to 3.3.0.
-[Migration and rollback guide](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.5.0/docs/migration.md)
-· [Changelog](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.5.0/CHANGELOG.md)
+generated VS Code themes are byte-identical to 3.3.0. **3.6.0 adds Light and
+Oh My Posh support**, preserving those four dark themes and existing saved IDs.
+[Migration and rollback guide](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.6.0/docs/migration.md)
+· [Changelog](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.6.0/CHANGELOG.md)
 
 ## More than syntax colors
 
@@ -149,7 +150,7 @@ classifies a symbol. TextMate fallback remains available when semantics are off
 or a provider is missing. A theme supplies colors; it does **not** install
 grammars, language servers, debuggers, notebook kernels or AI services.
 
-The [visual gallery](https://github.com/filipmares/vscode-specialsboard-theme/blob/master/docs/gallery.md)
+The [visual gallery](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.6.0/docs/gallery.md)
 also shows TSX, HTML/CSS, Markdown with YAML frontmatter, JSON/JSONC and actual
 VS Code diff, local review and merge surfaces. Static images and explanatory
 captions carry the same information; there is no animation.
@@ -162,27 +163,27 @@ isolated native checks cover the supported engine floor and a pinned stable host
 The installed extension is declarative: **no activation code, runtime
 dependencies, telemetry or settings mutations**.
 
-The separate [GitHub release archives](https://github.com/filipmares/vscode-specialsboard-theme/releases/tag/v3.4.0)
+The separate [GitHub release archives](https://github.com/filipmares/vscode-specialsboard-theme/releases/tag/v3.6.0)
 provide flagship, Classic and Contrast for Windows Terminal (native schemes)
 and Neovim 0.11.4+ (native Lua, Tree-sitter/LSP groups and syntax fallbacks).
-The next release also packages an original **Oh My Posh 31.2.1** prompt for all
+Version 3.6.0 also packages an original **Oh My Posh 31.2.1** prompt for all
 three variants: directory, labeled Git states, command outcome and duration.
 Its native RGB palette works independently of the Terminal scheme and can be
 reused without adopting the supplied layout. ASCII cues need no Nerd Font.
 They are not installed by this extension. Deprecated Legacy stays VS Code-only.
 Terminal palettes cannot express syntax roles, and opaque native overlays do
 not reproduce every VS Code state. The
-[cross-app guide](https://github.com/filipmares/vscode-specialsboard-theme/blob/master/docs/ports.md)
+[cross-app guide](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.6.0/docs/ports.md)
 documents the losses, requirements, bounded color evidence and installation.
 
-[Development and local installation](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.4.0/vsc-extension-quickstart.md)
-· [Token architecture](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.4.0/docs/theme-tokens.md)
-· [Brand icon](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.5.0/docs/branding.md)
-· [Reproduce the screenshots](https://github.com/filipmares/vscode-specialsboard-theme/blob/master/docs/capturing.md)
+[Development and local installation](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.6.0/vsc-extension-quickstart.md)
+· [Token architecture](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.6.0/docs/theme-tokens.md)
+· [Brand icon](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.6.0/docs/branding.md)
+· [Reproduce the screenshots](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.6.0/docs/capturing.md)
 · [Report a problem](https://github.com/filipmares/vscode-specialsboard-theme/issues)
 
 **Provenance and licensing:** historical sources contain conflicting license
 statements. No license has been assigned or inferred for this repository.
 Attribution and source availability do not resolve permission; see the
-[unresolved provenance caveat](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.3.0/docs/heritage.md).
+[unresolved provenance caveat](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.6.0/docs/heritage.md).
 This is an independent VS Code theme project, not a Panic product.

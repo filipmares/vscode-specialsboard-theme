@@ -3,7 +3,7 @@
 	"displayName": "Specials Board",
 	"description": "Coda heritage with chalkboard dark themes and whiteboard-inspired marker colors in Specials Board Light. Includes Classic, Contrast and deprecated VS Code Legacy.",
 	"icon": "icon.png",
-	"version": "3.5.0",
+	"version": "3.6.0",
 	"publisher": "filipmares",
 	"scripts": {
 		"generate": "node scripts/generate.mjs",

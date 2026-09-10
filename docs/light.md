@@ -3,8 +3,8 @@
 **Specials Board Light** (`specials-board-light`) is the whiteboard-and-marker counterpart
 to the modern flagship. It is generated as `themes/specialsboard-light.json`,
 with VS Code `type: "light"` and contribution `uiTheme: "vs"`. It is an additive,
-currently unreleased option: the four released dark themes retain their exact
-IDs, labels, output paths and bytes. Windows Terminal and Neovim downloads still
+option introduced in 3.6.0: the four existing dark themes retain their exact
+IDs, labels, output paths and bytes. Windows Terminal, Neovim and Oh My Posh downloads
 contain only flagship, Classic and Contrast; Light is presently VS Code-only.
 
 ## Whiteboard, not cream paper

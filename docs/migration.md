@@ -1,6 +1,6 @@
 # Upgrading and rolling back
 
-**Unreleased addition:** [Specials Board Light](light.md) adds the stable
+**New in 3.6.0:** [Specials Board Light](light.md) adds the stable
 `specials-board-light` ID without changing any of the four released dark themes.
 No existing selection is migrated or settings changed. Light is selectable as
 `vs`; see its guide for explicit preferred-light/system-detection settings and
