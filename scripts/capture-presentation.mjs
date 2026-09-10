@@ -4,7 +4,7 @@ async (activePage) => {
   const page = activePage.context().pages().find(p => p.url().startsWith('http://127.0.0.1:8765/'));
   if (!page) throw new Error('Open the isolated capture server on 127.0.0.1:8765 first');
   await page.setViewportSize({ width: 1440, height: 1000 });
-  const scenes = [
+  const darkScenes = [
     ['flagship-workbench', '#302e2c', 'menu.ts'],
     ['flagship-tsx', '#302e2c', 'board.tsx'],
     ['flagship-web', '#302e2c', 'menu.css'],
@@ -15,6 +15,15 @@ async (activePage) => {
     ['legacy-code', '#383939', 'menu.ts'],
     ['contrast-merge', '#181715', 'menu.result.json']
   ];
+  const lightScenes = [
+    ['light-workbench', '#fafafa', 'menu.ts'],
+    ['light-web', '#fafafa', 'menu.css'],
+    ['light-python', '#fafafa', 'regex.js'],
+    ['light-content', '#fafafa', 'menu.jsonc']
+  ];
+  // Default to additive light captures; opt in explicitly to replace historical dark images.
+  const captureDark = false;
+  const scenes = captureDark ? [...lightScenes, ...darkScenes] : lightScenes;
   const results = [];
   for (const [scene, background, title] of scenes) {
     await page.keyboard.press('F1');
@@ -29,7 +38,7 @@ async (activePage) => {
       && document.body.innerText.includes(title),
     { background, title });
     await page.waitForTimeout(1800);
-    if (scene === 'flagship-workbench') {
+    if (scene === 'flagship-workbench' || scene === 'light-workbench') {
       const sash = page.locator('.monaco-sash.horizontal:not(.disabled)').last();
       const box = await sash.boundingBox();
       if (!box) throw new Error('Terminal panel resize sash is not visible');

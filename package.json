@@ -1,7 +1,7 @@
 {
 	"name": "theme-specialsboard",
 	"displayName": "Specials Board",
-	"description": "Coda heritage, warm charcoal and copper syntax. Four dark variants: modern Specials Board, Classic, measured Contrast, and deprecated VS Code Legacy.",
+	"description": "Coda heritage with chalkboard dark themes and whiteboard-inspired marker colors in Specials Board Light. Includes Classic, Contrast and deprecated VS Code Legacy.",
 	"icon": "icon.png",
 	"version": "3.5.0",
 	"publisher": "filipmares",
@@ -33,6 +33,7 @@
 		"coda",
 		"warm",
 		"dark theme",
+		"light theme",
 		"syntax highlighting",
 		"copper",
 		"charcoal",
@@ -69,6 +70,12 @@
 				"label": "Specials Board VS Code Legacy [Deprecated]",
 				"uiTheme": "vs-dark",
 				"path": "./themes/specialsboard.json"
+			},
+			{
+				"id": "specials-board-light",
+				"label": "Specials Board Light",
+				"uiTheme": "vs",
+				"path": "./themes/specialsboard-light.json"
 			}
 		]
 	},

@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const vscode = require('vscode');
 
-const themeIds = ['specials-board', 'specials-board-classic', 'specials-board-contrast', 'specials-board-legacy'];
+const themeIds = ['specials-board', 'specials-board-classic', 'specials-board-contrast', 'specials-board-legacy', 'specials-board-light'];
 const contrastId = 'specials-board-contrast';
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 const sha256 = file => crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
@@ -190,7 +190,8 @@ exports.run = async function () {
       await config.update('workbench.colorTheme', theme.id, vscode.ConfigurationTarget.Global);
       await delay(700);
       assert.equal(vscode.workspace.getConfiguration('workbench').get('colorTheme'), theme.id);
-      assert.equal(vscode.window.activeColorTheme.kind, vscode.ColorThemeKind.Dark);
+      assert.equal(vscode.window.activeColorTheme.kind,
+        theme.uiTheme === 'vs' ? vscode.ColorThemeKind.Light : vscode.ColorThemeKind.Dark);
       const themePath = path.resolve(extension.extensionPath, theme.path);
       const expected = JSON.parse(fs.readFileSync(themePath, 'utf8'));
       const themeDocument = await vscode.workspace.openTextDocument(vscode.Uri.file(themePath));

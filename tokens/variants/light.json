@@ -1,0 +1,108 @@
+{
+  "$description": "Whiteboard and dry-erase marker counterpart. Inherit semantic relationships, not dark surfaces or direct dark swatches.",
+  "$extensions": {
+    "org.specialsboard.provenance": {
+      "source": "light-design",
+      "evidence": "docs/light.md: modern authored light palette; not a native Coda reconstruction."
+    }
+  },
+  "semantic": {
+    "surface": {
+      "canvas": { "$type": "color", "$value": "{palette.light.canvas}" },
+      "panel": { "$type": "color", "$value": "{semantic.workbench.navigation}" },
+      "hover": { "$type": "color", "$value": "{semantic.workbench.hover}" },
+      "selection": { "$type": "color", "$value": "{semantic.workbench.selection}" }
+    },
+    "text": {
+      "primary": { "$type": "color", "$value": "{palette.light.ink}" },
+      "invisible": { "$type": "color", "$value": "{semantic.workbench.guide}" }
+    },
+    "accent": {
+      "primary": { "$type": "color", "$value": "{semantic.workbench.accent}" },
+      "remote": { "$type": "color", "$value": "{semantic.workbench.info}" }
+    },
+    "syntax": {
+      "keyword": { "$type": "color", "$value": "{palette.light.copper}" },
+      "string": { "$type": "color", "$value": "{palette.light.olive}" },
+      "number": { "$type": "color", "$value": "{palette.light.blue}" },
+      "function": { "$type": "color", "$value": "{palette.light.terracotta}" },
+      "variable": { "$type": "color", "$value": "{palette.light.lavender}" },
+      "type": { "$type": "color", "$value": "{palette.light.honey}" },
+      "attribute": { "$type": "color", "$value": "{palette.light.orange}" },
+      "regexp": { "$type": "color", "$value": "{palette.light.purple}" },
+      "escape": { "$type": "color", "$value": "{palette.light.escape}" },
+      "comment": { "$type": "color", "$value": "{palette.light.comment}" }
+    },
+    "feedback": {
+      "error": { "$type": "color", "$value": "{palette.light.error}" }
+    },
+    "workbench": {
+      "ambient": { "$type": "color", "$value": "{palette.light.ambient}" },
+      "navigation": { "$type": "color", "$value": "{palette.light.navigation}" },
+      "raised": { "$type": "color", "$value": "{palette.light.raised}" },
+      "hover": { "$type": "color", "$value": "{palette.light.hover}" },
+      "active": { "$type": "color", "$value": "{palette.light.active}" },
+      "inactive": { "$type": "color", "$value": "{palette.light.inactive}" },
+      "border": { "$type": "color", "$value": "{palette.light.border}" },
+      "guide": { "$type": "color", "$value": "{palette.light.guide}" },
+      "muted": { "$type": "color", "$value": "{palette.light.muted}" },
+      "disabled": { "$type": "color", "$value": "{palette.light.disabled}" },
+      "accent": { "$type": "color", "$value": "{semantic.syntax.keyword}" },
+      "accent-hover": { "$type": "color", "$value": "{semantic.syntax.attribute}" },
+      "error": { "$type": "color", "$value": "{semantic.feedback.error}" },
+      "warning": { "$type": "color", "$value": "{semantic.syntax.type}" },
+      "info": { "$type": "color", "$value": "{semantic.syntax.number}" },
+      "success": { "$type": "color", "$value": "{semantic.syntax.string}" },
+      "error-fill": { "$type": "color", "$value": "{palette.light.error-fill}" },
+      "warning-fill": { "$type": "color", "$value": "{palette.light.warning-fill}" },
+      "info-fill": { "$type": "color", "$value": "{palette.light.info-fill}" },
+      "selection": { "$type": "color", "$value": "{palette.light.selection}" },
+      "occurrence": { "$type": "color", "$value": "{palette.light.occurrence}" },
+      "find": { "$type": "color", "$value": "{palette.light.find}" },
+      "warning-tint": { "$type": "color", "$value": "{palette.light.warning-tint}" },
+      "success-tint": { "$type": "color", "$value": "{palette.light.success-tint}" },
+      "success-strong": { "$type": "color", "$value": "{palette.light.success-strong}" },
+      "error-tint": { "$type": "color", "$value": "{palette.light.error-tint}" },
+      "error-strong": { "$type": "color", "$value": "{palette.light.error-strong}" },
+      "success-label": { "$type": "color", "$value": "{palette.light.success-label}" },
+      "error-label": { "$type": "color", "$value": "{palette.light.error-label}" },
+      "info-marker": { "$type": "color", "$value": "{palette.light.info-marker}" },
+      "warning-marker": { "$type": "color", "$value": "{palette.light.warning-marker}" },
+      "accent-marker": { "$type": "color", "$value": "{palette.light.accent-marker}" },
+      "muted-marker": { "$type": "color", "$value": "{palette.light.muted-marker}" },
+      "line": { "$type": "color", "$value": "{palette.light.line}" },
+      "scroll": { "$type": "color", "$value": "{palette.light.scroll}" },
+      "scroll-hover": { "$type": "color", "$value": "{palette.light.scroll-hover}" },
+      "scroll-active": { "$type": "color", "$value": "{palette.light.scroll-active}" },
+      "shadow": { "$type": "color", "$value": "{palette.light.shadow}" },
+      "clear": { "$type": "color", "$value": "{palette.light.clear}" },
+      "unnecessary": { "$type": "color", "$value": "{palette.light.opaque}" },
+      "bracket-first": { "$type": "color", "$value": "{semantic.syntax.type}" },
+      "bracket-second": { "$type": "color", "$value": "{semantic.syntax.variable}" },
+      "bracket-third": { "$type": "color", "$value": "{semantic.syntax.number}" }
+    },
+    "terminal": {
+      "black": { "$type": "color", "$value": "{semantic.text.primary}" },
+      "red": { "$type": "color", "$value": "{palette.light.terminal-red}" },
+      "green": { "$type": "color", "$value": "{palette.light.terminal-green}" },
+      "yellow": { "$type": "color", "$value": "{palette.light.terminal-yellow}" },
+      "blue": { "$type": "color", "$value": "{palette.light.terminal-blue}" },
+      "magenta": { "$type": "color", "$value": "{palette.light.terminal-magenta}" },
+      "cyan": { "$type": "color", "$value": "{palette.light.terminal-cyan}" },
+      "white": { "$type": "color", "$value": "{palette.light.terminal-white}" },
+      "bright-black": { "$type": "color", "$value": "{semantic.workbench.muted}" },
+      "bright-red": { "$type": "color", "$value": "{semantic.feedback.error}" },
+      "bright-green": { "$type": "color", "$value": "{palette.light.bright-green}" },
+      "bright-yellow": { "$type": "color", "$value": "{palette.light.bright-yellow}" },
+      "bright-blue": { "$type": "color", "$value": "{palette.light.bright-blue}" },
+      "bright-magenta": { "$type": "color", "$value": "{palette.light.bright-magenta}" },
+      "bright-cyan": { "$type": "color", "$value": "{palette.light.bright-cyan}" },
+      "bright-white": { "$type": "color", "$value": "{palette.light.bright-white}" }
+    }
+  },
+  "component": {
+    "control": {
+      "on-primary": { "$type": "color", "$value": "{semantic.workbench.raised}" }
+    }
+  }
+}

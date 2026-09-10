@@ -1,5 +1,11 @@
 # Upgrading and rolling back
 
+**Unreleased addition:** [Specials Board Light](light.md) adds the stable
+`specials-board-light` ID without changing any of the four released dark themes.
+No existing selection is migrated or settings changed. Light is selectable as
+`vs`; see its guide for explicit preferred-light/system-detection settings and
+rollback behavior.
+
 **3.5.0 preserves all four 3.3.0 theme files and saved IDs exactly.**
 It changes only the package icon and Marketplace gallery banner. The
 [cross-app ports](ports.md) added in 3.4.0 are separate optional downloads, not
@@ -15,6 +21,7 @@ the changes below; you can upgrade directly without installing intermediate rele
 | Specials Board Classic | `specials-board-classic` | Coda 1-grounded syntax, with historical contrast limitations |
 | Specials Board Contrast | `specials-board-contrast` | Darker warm surfaces and measured color-quality targets |
 | Specials Board VS Code Legacy [Deprecated] | `specials-board-legacy` | Frozen old VS Code port; not Classic |
+| Specials Board Light | `specials-board-light` | Whiteboard-and-marker modern flagship counterpart |
 
 Open the Command Palette and run **Preferences: Color Theme**. Select the exact
 label above. VS Code does not automatically open the picker, and this extension
@@ -58,7 +65,7 @@ selection is enabled, update the relevant existing preference too:
 
 Also check `workbench.preferredHighContrastColorTheme` if you explicitly assigned
 the old theme there. Do not enable automatic switching merely to migrate.
-All four Specials Board variants are `vs-dark`; Contrast does not implement
+The four dark Specials Board variants are `vs-dark`; Light is `vs`. Contrast does not implement
 VS Code's built-in high-contrast mode. Existing custom color overrides remain
 yours and can change both the appearance and the measured contrast results.
 

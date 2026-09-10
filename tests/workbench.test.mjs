@@ -111,7 +111,8 @@ test('minimap/overview markers and chat labels honor upstream transparency requi
     'editorOverviewRuler.wordHighlightStrongForeground', 'editorOverviewRuler.wordHighlightTextForeground',
     'chat.linesAddedForeground', 'chat.linesRemovedForeground'
   ];
-  for (const { theme } of restored) {
+  for (const model of models.filter(item => item.variant.key !== 'legacy')) {
+    const theme = JSON.parse(outputs.get(model.variant.output));
     for (const id of ids) {
       assert.match(theme.colors[id], /^#[0-9a-f]{8}$/);
       const alpha = parseInt(theme.colors[id].slice(7), 16);

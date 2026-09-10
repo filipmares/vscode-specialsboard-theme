@@ -11,7 +11,14 @@ export function presentationManifest() {
   const images = readdirSync(resolve(root, 'screenshots')).filter(file => file.endsWith('.png')).sort();
   return {
     host: { version: '1.136.2', commit: '88e44fa0e00b08f7758b4f6d05632e4fd5e4df6f', surface: 'serve-web', platform: 'Windows', scale: 1 },
-    themeBaseline: '3.2.0',
+    darkThemeBaseline: '3.2.0',
+    lightCapture: {
+      date: '2026-09-09',
+      extensionVersion: '3.5.0',
+      vsixSha256: '481678b26be23ad5a1bd78d6774b9fabbade9ecd505d55627954b86814902be7',
+      themeId: 'specials-board-light',
+      themeSha256: 'de97e30675d06d9dfbfeb7d460cc9b461ea7373afa46f43063a9c1c88f297547'
+    },
     themes: manifest.contributes.themes.map(theme => ({
       id: theme.id,
       sha256: hash(readFileSync(resolve(root, theme.path)))

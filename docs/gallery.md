@@ -1,11 +1,54 @@
 # Specials Board visual gallery
 
-Nine real VS Code workbench captures, not hand-painted editor mockups.
-All four palettes are unchanged from 3.2.0. Open an image for full-size text;
+Thirteen real VS Code workbench captures, not hand-painted editor mockups.
+The nine original dark images and four dark palettes are unchanged from the
+3.3.0 gallery and 3.2.0 theme baseline respectively. Four Light images were
+captured on 2026-09-09 from the revised 3.5.0 whiteboard/marker candidate,
+replacing the earlier warm-paper previews, using the same pinned VS Code
+1.136.2 Windows `serve-web` host. Open an image for full-size text;
 the [source fixtures](../test%20files/presentation/) are also available as text.
 The [capture guide](capturing.md) records the host, settings, automation and
 provider boundaries. These static examples do not substitute for the
 [accessibility measurements and limitations](accessibility.md).
+
+## Dark and Light: the same workbench fixture
+
+| Specials Board (original dark capture) | Specials Board Light (2026-09-09) |
+|---|---|
+| ![Original dark Specials Board TypeScript workbench with Explorer and labeled normal and bright ANSI terminal slots.](../screenshots/flagship-workbench.png) | ![Specials Board Light TypeScript workbench with a neutral whiteboard canvas, saturated marker syntax, Explorer and labeled ANSI terminal slots.](../screenshots/light-workbench.png) |
+
+The same `menu.ts` and deterministic terminal fixture show the shift from
+charcoal chalkboard to neutral whiteboard (`#fafafa`) with saturated marker
+colors, without recoloring either image. Neutral-gray ambient (`#e1e4e6`) and
+navigation (`#f0f2f3`) surfaces frame the editor; raised surfaces use white
+(`#ffffff`). Open each
+image for readable 1440 × 1000 text. The Light status label, editor, sidebar,
+tabs and terminal are actual host surfaces. ANSI black and white are shown as
+authored with terminal minimum-contrast adjustment disabled; the terminal is
+not a shell command or test transcript.
+
+## Light: HTML and CSS
+
+![Specials Board Light HTML and CSS split editors on a neutral whiteboard canvas, with marker-colored tags, attributes, selectors, properties, values and comments.](../screenshots/light-web.png)
+
+Bundled HTML/CSS support renders the same web fixtures as the dark example.
+No color-decorator swatches obscure the authored syntax colors.
+
+## Light: Python, JavaScript and regular expressions
+
+![Specials Board Light Python dataclass beside JavaScript regular expressions, showing readable comments, strings, declarations and regex escapes.](../screenshots/light-python.png)
+
+Python uses bundled TextMate support without a Python language server.
+JavaScript uses the bundled language service. Regex bodies, escapes and
+ordinary strings rely on grammar classification, not guessed source content.
+
+## Light: Markdown, YAML frontmatter and JSONC
+
+![Specials Board Light Markdown with YAML frontmatter, emphasis, quote and TypeScript fence beside JSONC comments, keys, strings and numeric literals.](../screenshots/light-content.png)
+
+This reuses the dark content fixture: embedded YAML and TypeScript grammars
+within Markdown, alongside JSON data syntax with comments. It is not a claim
+of a separate YAML language server or rendered Markdown preview.
 
 ## Flagship: TypeScript and the workbench
 

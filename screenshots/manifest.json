@@ -1,4 +1,5 @@
 {
+  "darkThemeBaseline": "3.2.0",
   "host": {
     "commit": "88e44fa0e00b08f7758b4f6d05632e4fd5e4df6f",
     "platform": "Windows",
@@ -69,9 +70,43 @@
       "height": 1000,
       "sha256": "0ec3b851403173a7f75f3f422515037561b823ba46dca35664e36c95466eeed8",
       "width": 1440
+    },
+    {
+      "bytes": 87252,
+      "file": "light-content.png",
+      "height": 1000,
+      "sha256": "0ad53658325f02aaa39881dc4a8a2340d0797e96350d5f161dd8068b85dd5236",
+      "width": 1440
+    },
+    {
+      "bytes": 97734,
+      "file": "light-python.png",
+      "height": 1000,
+      "sha256": "ec29d11a52ba6a6ea148ee83bc4a67b32bea4cdbd8d8ab981250327022307555",
+      "width": 1440
+    },
+    {
+      "bytes": 93979,
+      "file": "light-web.png",
+      "height": 1000,
+      "sha256": "8339e4ee142a094d51a1c4fdeb99e721239b67b5b9d5f4eac52fdb78369d83d7",
+      "width": 1440
+    },
+    {
+      "bytes": 135096,
+      "file": "light-workbench.png",
+      "height": 1000,
+      "sha256": "4c0cbca723d6fe405dedb1eb0ebc9bcc357acabcd01d71e7f8bd0282c92edd6e",
+      "width": 1440
     }
   ],
-  "themeBaseline": "3.2.0",
+  "lightCapture": {
+    "date": "2026-09-09",
+    "extensionVersion": "3.5.0",
+    "themeId": "specials-board-light",
+    "themeSha256": "de97e30675d06d9dfbfeb7d460cc9b461ea7373afa46f43063a9c1c88f297547",
+    "vsixSha256": "481678b26be23ad5a1bd78d6774b9fabbade9ecd505d55627954b86814902be7"
+  },
   "themes": [
     {
       "id": "specials-board",
@@ -88,6 +123,10 @@
     {
       "id": "specials-board-legacy",
       "sha256": "fee187b5cac5c7f04ee4ca00a5bbb56ced8453c22487ccaeccf67950eb9ba5dc"
+    },
+    {
+      "id": "specials-board-light",
+      "sha256": "de97e30675d06d9dfbfeb7d460cc9b461ea7373afa46f43063a9c1c88f297547"
     }
   ]
 }

@@ -1,6 +1,7 @@
 [
   {
     "key": "flagship",
+    "appearance": "dark",
     "id": "specials-board",
     "label": "Specials Board",
     "vscodeId": "specials-board",
@@ -10,6 +11,7 @@
   },
   {
     "key": "classic",
+    "appearance": "dark",
     "id": "specials-board-classic",
     "label": "Specials Board Classic",
     "vscodeId": "specials-board-classic",
@@ -19,6 +21,7 @@
   },
   {
     "key": "contrast",
+    "appearance": "dark",
     "id": "specials-board-contrast",
     "label": "Specials Board Contrast",
     "vscodeId": "specials-board-contrast",
@@ -28,11 +31,22 @@
   },
   {
     "key": "legacy",
+    "appearance": "dark",
     "id": "specials-board-legacy",
     "label": "Specials Board VS Code Legacy [Deprecated]",
     "vscodeId": "specials-board-legacy",
     "output": "specialsboard.json",
     "inherits": "base",
     "status": "compatibility"
+  },
+  {
+    "key": "light",
+    "appearance": "light",
+    "id": "specials-board-light",
+    "label": "Specials Board Light",
+    "vscodeId": "specials-board-light",
+    "output": "specialsboard-light.json",
+    "inherits": "flagship",
+    "status": "modern"
   }
 ]

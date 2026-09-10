@@ -1,4 +1,10 @@
 {
+  "lightWorkbench": {
+    "editorLineNumber.foreground": "{component.workbench.muted}",
+    "merge.commonHeaderBackground": "{component.interaction.line}",
+    "gitDecoration.ignoredResourceForeground": "{component.workbench.muted}",
+    "editorGhostText.border": "{component.workbench.border}"
+  },
   "contrastWorkbench": {
     "contrastActiveBorder": "{component.interaction.focus}",
     "contrastBorder": "{component.workbench.border}",

@@ -65,7 +65,7 @@ universal invalid/error role. VS Code does not paint TextMate token backgrounds;
 restored variants therefore use visible red foreground and underline.
 See the [complete maintained mapping decisions](theme-tokens.md#phase-2-palette-decisions).
 
-## Four variants, four distinct purposes
+## Five variants, distinct purposes
 
 **Specials Board** is a modern interpretation of Coda's role relationships,
 not a Coda 2 reconstruction. **Specials Board Classic** is Coda 1-grounded,
@@ -75,6 +75,12 @@ lightness values under a [bounded color contract](accessibility.md).
 **Specials Board VS Code Legacy [Deprecated]** preserves the old VS Code port
 after the 2.1.1 fixes; its 156 ordered rules and 47 workbench/ANSI entries are
 compatibility authority, not Coda authority.
+
+**Specials Board Light** is the modern whiteboard-and-marker counterpart, not a Coda
+reconstruction. The reviewed native `coda-default` files are factory-theme
+backups, and Specials Board's `inverted-color` attributes do not establish a
+light palette. The [Light design and evidence](light.md) cites those files and
+explains why no Classic Light or separate Contrast Light is claimed.
 
 The VS Code chronology is recorded in the changelog: 1.0 (2018) used a
 TextMate-based port; 2.0 (2019) moved to JSON and broader language coverage;

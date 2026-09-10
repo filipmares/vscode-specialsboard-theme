@@ -9,7 +9,7 @@ import { colorToHex, compileSources, loadSources, root } from '../scripts/tokens
 const sources = loadSources();
 const models = compileSources(sources);
 const outputs = buildThemes(sources);
-const variants = ['flagship', 'classic', 'contrast'].map(key => {
+const variants = ['flagship', 'classic', 'contrast', 'light'].map(key => {
   const model = models.find(entry => entry.variant.key === key);
   const generated = JSON.parse(outputs.get(model.variant.output));
   // Shiki runs TextMate, not a language server. Remove semantic rules explicitly

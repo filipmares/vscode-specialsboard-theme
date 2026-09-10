@@ -11,7 +11,8 @@ const read = file => readFileSync(resolve(root, file), 'utf8');
 const manifest = JSON.parse(read('package.json'));
 const scenes = [
   'classic-python', 'contrast-merge', 'contrast-review', 'contrast-systems',
-  'flagship-content', 'flagship-tsx', 'flagship-web', 'flagship-workbench', 'legacy-code'
+  'flagship-content', 'flagship-tsx', 'flagship-web', 'flagship-workbench', 'legacy-code',
+  'light-content', 'light-python', 'light-web', 'light-workbench'
 ];
 
 test('presentation preserves every shipped 3.2.0 theme byte and contribution contract', () => {
@@ -27,16 +28,21 @@ test('presentation preserves every shipped 3.2.0 theme byte and contribution con
   assert.equal(manifest.main, undefined);
   assert.equal(manifest.activationEvents, undefined);
   assert.equal(manifest.dependencies, undefined);
-  manifest.contributes.themes.forEach((theme, index) => {
+  const originalIds = ['specials-board', 'specials-board-classic', 'specials-board-contrast', 'specials-board-legacy'];
+  assert.deepEqual(manifest.contributes.themes.slice(0, 4).map(theme => theme.id), originalIds);
+  manifest.contributes.themes.slice(0, 4).forEach((theme, index) => {
     assert.equal(createHash('sha256').update(readFileSync(resolve(root, theme.path))).digest('hex'), hashes[index]);
   });
 });
 
-test('nine lossless, bounded screenshots match their recorded hashes and sources', () => {
+test('thirteen lossless, bounded screenshots match their recorded hashes and sources', () => {
   const data = presentationManifest();
   assert.equal(read('screenshots/manifest.json'), stableJson(data));
+  assert.equal(data.darkThemeBaseline, '3.2.0');
+  assert.equal(data.themes.find(theme => theme.id === data.lightCapture.themeId).sha256,
+    data.lightCapture.themeSha256, 'Light captures must match the shipped theme bytes');
   assert.deepEqual(data.images.map(image => image.file), scenes.map(scene => `${scene}.png`));
-  assert.ok(data.images.reduce((size, image) => size + image.bytes, 0) < 3 * 1024 * 1024);
+  assert.ok(data.images.reduce((size, image) => size + image.bytes, 0) < 4 * 1024 * 1024);
   for (const image of data.images) {
     assert.equal(image.width, 1440);
     assert.equal(image.height, 1000);
