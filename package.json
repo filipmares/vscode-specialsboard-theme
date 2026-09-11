@@ -3,7 +3,7 @@
 	"displayName": "Specials Board",
 	"description": "Warm chalkboard-inspired VS Code theme family with dark and light variants, including Classic, Contrast, Legacy, and Light.",
 	"icon": "icon.png",
-	"version": "3.6.0",
+	"version": "3.6.1",
 	"publisher": "filipmares",
 	"scripts": {
 		"generate": "node scripts/generate.mjs",

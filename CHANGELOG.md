@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.6.1] - 2026-09-11
+
+### Changed
+
+- Rewrote the Marketplace `description` so the extension listing describes the VS Code theme family itself, instead of leading with Coda heritage phrasing and Light's marker colors.
+- Reorganized the README so the listing opens with VS Code content. The Windows Terminal, Neovim and Oh My Posh installation table and prompt-adapter details are replaced by a short "Ports for other applications" section that links to the existing cross-application guide.
+
+### Compatibility and limits
+
+- Documentation and metadata only. All five generated VS Code theme files remain byte-identical to 3.6.0, and the generated Windows Terminal, Neovim and Oh My Posh files are unchanged.
+- Saved IDs, labels, engine `^1.101.0`, palette, variants and every VS Code mapping are unchanged. No font, profile or user setting is changed.
+- The other applications' ports are still built, released and documented in [the ports guide](docs/ports.md); only their prominence in the Marketplace listing changed.
+
 ## [3.6.0] - 2026-09-10
 
 ### Added
