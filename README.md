@@ -7,21 +7,10 @@ dusty-blue literals and terracotta functions. Specials Board brings a documented
 Coda heritage to today's editor without turning every language into the same
 pastel palette.
 
-Now also generated for **Windows Terminal, Neovim and Oh My Posh** from the same source roles.
-[Cross-app downloads, installation and capability matrix](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.6.0/docs/ports.md).
-
-| What you want to theme | Installation guide |
-|---|---|
-| Terminal background, cursor, selection and ANSI-colored command output | [Windows Terminal installation](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.6.0/docs/ports.md#install-in-windows-terminal) |
-| PowerShell prompt segments, Git states and command status | [Oh My Posh installation](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.6.0/docs/ports.md#install-in-oh-my-posh) |
-| Your existing full prompt, with new colors but no missing segments | [Keep your layout and reuse the palette](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.6.0/docs/ports.md#reuse-the-palette-without-this-layout) |
-
-For matching prompt **and** command-output colors, configure both Windows
-Terminal and Oh My Posh. Neither is installed by the VS Code extension.
-
 [Install from the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=filipmares.theme-specialsboard)
 · [Visual gallery](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.6.0/docs/gallery.md)
 · [History and fidelity](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.6.0/docs/heritage.md)
+· [Ports for other apps](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.6.0/docs/ports.md)
 
 ![Specials Board flagship: TypeScript menu with copper declarations, olive strings and terracotta functions, warm Explorer and status bar, and labeled normal and bright ANSI terminal colors.](https://raw.githubusercontent.com/filipmares/vscode-specialsboard-theme/v3.3.0/screenshots/flagship-workbench.png)
 
@@ -133,8 +122,8 @@ The three 2.2 preview IDs, and all four IDs from 3.0 onward, remain stable.
 **Already on 3.x?** Version 3.1 expanded workbench/semantic coverage and raised
 the engine floor; 3.2 differentiated Contrast; 3.3 refreshed presentation;
 3.4 added portable adapters. **3.5.0 changes branding, not colors:** all four
-generated VS Code themes are byte-identical to 3.3.0. **3.6.0 adds Light and
-Oh My Posh support**, preserving those four dark themes and existing saved IDs.
+generated VS Code themes are byte-identical to 3.3.0. **3.6.0 adds Light support**
+while preserving the four dark themes and existing saved IDs.
 [Migration and rollback guide](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.6.0/docs/migration.md)
 · [Changelog](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.6.0/CHANGELOG.md)
 
@@ -163,20 +152,14 @@ isolated native checks cover the supported engine floor and a pinned stable host
 The installed extension is declarative: **no activation code, runtime
 dependencies, telemetry or settings mutations**.
 
-The separate [GitHub release archives](https://github.com/filipmares/vscode-specialsboard-theme/releases/tag/v3.6.0)
-provide flagship, Classic and Contrast for Windows Terminal (native schemes)
-and Neovim 0.11.4+ (native Lua, Tree-sitter/LSP groups and syntax fallbacks).
-Version 3.6.0 also packages an original **Oh My Posh 31.2.1** prompt for all
-three variants: directory, labeled Git states, command outcome and duration.
-Its native RGB palette works independently of the Terminal scheme and can be
-reused without adopting the supplied layout. ASCII cues need no Nerd Font.
-They are not installed by this extension. Deprecated Legacy stays VS Code-only.
-Terminal palettes cannot express syntax roles, and opaque native overlays do
-not reproduce every VS Code state. The
-[cross-app guide](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.6.0/docs/ports.md)
-documents the losses, requirements, bounded color evidence and installation.
+## Ports for other applications
+
+Specials Board is also available as generated standalone themes for **Windows Terminal, Neovim, and Oh My Posh**, distributed separately from the VS Code extension via GitHub releases.
+
+See the [cross-application ports guide](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.6.0/docs/ports.md) for downloads, installation instructions, and capability matrices.
 
 [Development and local installation](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.6.0/vsc-extension-quickstart.md)
+· [Cross-app ports](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.6.0/docs/ports.md)
 · [Token architecture](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.6.0/docs/theme-tokens.md)
 · [Brand icon](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.6.0/docs/branding.md)
 · [Reproduce the screenshots](https://github.com/filipmares/vscode-specialsboard-theme/blob/v3.6.0/docs/capturing.md)
